@@ -265,7 +265,7 @@ export const classicalModules: ClassicalModule[] = [
     id: "regression",
     title: "Regression",
     objective: "Predict a number. Compute the loss, the partial, and the update yourself.",
-    project: "House prices, with an error analysis. One unit is open.",
+    project: "House prices, with an error analysis. Two units are open.",
     lessons: 12,
     status: "open",
   },

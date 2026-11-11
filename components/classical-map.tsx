@@ -11,6 +11,7 @@ import {
   regressionStations,
   type RegRun,
 } from "@/lib/classical";
+import { TWO_KEY, parseTwo, twoCleared, twoStations, type TwoRun } from "@/lib/two";
 
 const cta =
   "inline-flex min-h-11 items-center justify-center rounded-full bg-copper px-5 text-sm font-semibold text-paper";
@@ -32,7 +33,9 @@ export function ClassicalMap() {
   }, []);
   void visit;
   const run = pathname === "/classical" ? readRun() : null;
+  const two = pathname === "/classical" ? readTwo() : null;
   const open = run !== null && (run.answers.length > 0 || run.choice !== null || run.completedAt != null);
+  const twoOpen = two !== null && (two.answers.length > 0 || two.choice !== null || two.completedAt != null);
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
@@ -46,7 +49,7 @@ export function ClassicalMap() {
         Implement the model. Do not call fit.
       </h1>
       <p className="mt-4 max-w-xl text-[15px] leading-7 text-muted">
-        Regression is the open module. One unit. The rest of the track is named below and has no
+        Regression is the open module. Two units. The rest of the track is named below and has no
         lessons yet.
       </p>
       <h2 className="mt-10 text-xs font-semibold tracking-[0.14em] text-copper uppercase">Regression</h2>
@@ -69,6 +72,25 @@ export function ClassicalMap() {
               ? () => {
                   sessionStorage.removeItem(REG_KEY);
                   router.push("/classical/regression");
+                }
+              : undefined
+          }
+        />
+        <UnitCard
+          kicker="Unit 2"
+          title="Two inputs"
+          body={
+            twoOpen && two
+              ? `${twoCleared(two)} of ${twoStations.length} cleared.`
+              : "The partial for w2 multiplies the residual by x2, not by x1."
+          }
+          action={twoOpen ? "Continue" : "Begin"}
+          onOpen={() => router.push("/classical/two")}
+          onReset={
+            twoOpen
+              ? () => {
+                  sessionStorage.removeItem(TWO_KEY);
+                  router.push("/classical/two");
                 }
               : undefined
           }
@@ -121,6 +143,14 @@ function UnitCard({
       </div>
     </section>
   );
+}
+
+function readTwo(): TwoRun | null {
+  try {
+    return parseTwo(sessionStorage.getItem(TWO_KEY));
+  } catch {
+    return null;
+  }
 }
 
 function readRun(): RegRun | null {
