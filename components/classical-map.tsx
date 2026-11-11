@@ -11,6 +11,7 @@ import {
   regressionStations,
   type RegRun,
 } from "@/lib/classical";
+import { RESID_KEY, parseResid, residCleared, residStations, type ResidRun } from "@/lib/resid";
 import { TWO_KEY, parseTwo, twoCleared, twoStations, type TwoRun } from "@/lib/two";
 
 const cta =
@@ -36,6 +37,8 @@ export function ClassicalMap() {
   const two = pathname === "/classical" ? readTwo() : null;
   const open = run !== null && (run.answers.length > 0 || run.choice !== null || run.completedAt != null);
   const twoOpen = two !== null && (two.answers.length > 0 || two.choice !== null || two.completedAt != null);
+  const resid = pathname === "/classical" ? readResid() : null;
+  const residOpen = resid !== null && (resid.answers.length > 0 || resid.choice !== null || resid.completedAt != null);
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
@@ -49,7 +52,7 @@ export function ClassicalMap() {
         Implement the model. Do not call fit.
       </h1>
       <p className="mt-4 max-w-xl text-[15px] leading-7 text-muted">
-        Regression is the open module. Two units. The rest of the track is named below and has no
+        Regression is the open module. Three units. The rest of the track is named below and has no
         lessons yet.
       </p>
       <h2 className="mt-10 text-xs font-semibold tracking-[0.14em] text-copper uppercase">Regression</h2>
@@ -91,6 +94,25 @@ export function ClassicalMap() {
               ? () => {
                   sessionStorage.removeItem(TWO_KEY);
                   router.push("/classical/two");
+                }
+              : undefined
+          }
+        />
+        <UnitCard
+          kicker="Unit 3"
+          title="Residuals"
+          body={
+            residOpen && resid
+              ? `${residCleared(resid)} of ${residStations.length} cleared.`
+              : "A negative residual means the prediction is too low. The sum can hide the loss."
+          }
+          action={residOpen ? "Continue" : "Begin"}
+          onOpen={() => router.push("/classical/residuals")}
+          onReset={
+            residOpen
+              ? () => {
+                  sessionStorage.removeItem(RESID_KEY);
+                  router.push("/classical/residuals");
                 }
               : undefined
           }
@@ -143,6 +165,14 @@ function UnitCard({
       </div>
     </section>
   );
+}
+
+function readResid(): ResidRun | null {
+  try {
+    return parseResid(sessionStorage.getItem(RESID_KEY));
+  } catch {
+    return null;
+  }
 }
 
 function readTwo(): TwoRun | null {
