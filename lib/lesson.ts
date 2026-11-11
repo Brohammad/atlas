@@ -2,6 +2,7 @@ export type Option = { id: string; text: string };
 
 export type Question = {
   setup?: string;
+  label?: string;
   prompt: string;
   options: Option[];
   answer: string;
@@ -81,6 +82,7 @@ export const postQuestions: Question[] = [
 ];
 
 export const understandQuestion: Question = {
+  label: "what sets the size of a step",
   prompt: "What set the direction and the size of the step you just watched?",
   answer: "slope",
   idea: "Direction is the sign of the slope. Size is the slope’s magnitude times the learning rate. The step did not jump to the minimum.",
@@ -94,6 +96,7 @@ export const understandQuestion: Question = {
 
 export const predictQuestions: Question[] = [
   {
+    label: "one update from 3",
     setup:
       "Loss L(w) = w². The gradient is 2w, and it changes when w changes. Start at w = 3. Each update is w ← w − 0.1 × gradient.",
     prompt: "After one update, what is w?",
@@ -107,6 +110,7 @@ export const predictQuestions: Question[] = [
     ],
   },
   {
+    label: "one update from 4",
     setup:
       "Same loss, L(w) = w², gradient 2w. Start at w = 4. Each update is w ← w − 0.5 × gradient.",
     prompt: "After one update, what is w?",
@@ -120,6 +124,7 @@ export const predictQuestions: Question[] = [
     ],
   },
   {
+    label: "four updates from 1",
     setup:
       "Loss L(θ) = θ². The gradient is 2θ. Start at θ = 1. Each update is θ ← θ − 1.5 × gradient.",
     prompt: "After four updates, what is θ?",
@@ -136,17 +141,20 @@ export const predictQuestions: Question[] = [
 
 export const debugQuestions: Question[] = [
   {
-    prompt: "Loss is oscillating and each peak is higher. What do you investigate first?",
+    label: "the sequence 1, −2, 4, −8",
+    setup: "This run uses L(w) = w². The gradient is 2w. The update subtracts the learning rate times the gradient.",
+    prompt: "The parameter moves 1 → −2 → 4 → −8. What does this sequence tell you?",
     answer: "rate",
-    idea: "The update already subtracts the gradient. On this bowl, stable learning rates are below 1, and 1.4 is past that. The step crosses the minimum and lengthens.",
+    idea: "Each update multiplies w by −2. The first step crosses the minimum, from 1 to −2. The next steps land farther away: 4, then 8. The gradient is 2w, so it is not zero, and the parameter has not settled. Averaging the loss would not flip the sign or double the distance. The rate 1.5 is past the stable range for this curvature, which is every rate below 1.",
     options: [
-      { id: "rate", text: "The learning rate is large for this curvature" },
-      { id: "move", text: "Move the minimum to zero" },
-      { id: "more", text: "Take more steps at this same rate" },
-      { id: "acc", text: "Replace the loss with accuracy" },
+      { id: "rate", text: "The learning rate is too large for the curvature." },
+      { id: "zero", text: "The gradient is always zero." },
+      { id: "settled", text: "The model has reached its minimum." },
+      { id: "averaged", text: "The loss function is being averaged." },
     ],
   },
   {
+    label: "loss that climbs smoothly",
     prompt: "Loss rises smoothly, without oscillation. What is wrong?",
     answer: "sign",
     idea: "The learning rate is modest. The change in the parameter has the same sign as the gradient, so it climbs. Descent subtracts the gradient. A wrong sign grows smoothly. It does not have to oscillate.",

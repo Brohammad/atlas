@@ -45,7 +45,7 @@ export function LossChart({
   const tangent = showTangent && current ? tangentPath(current, xOf, yOf, wMin, wMax) : null;
 
   return (
-    <figure className="border border-line bg-plate">
+    <figure className="overflow-hidden rounded-2xl border border-line bg-plate">
       <svg
         viewBox={`0 0 ${width} ${height}`}
         role="img"

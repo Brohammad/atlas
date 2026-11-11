@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { Choices, Verdict } from "@/components/choices";
 import { LossChart } from "@/components/curve";
 import { sendEvent } from "@/lib/browser-log";
@@ -12,6 +13,8 @@ import {
   LOSS_OK,
   RETENTION_STEPS,
   debugBowl,
+  debugOscBowl,
+  describeBowl,
   flatBowl,
   fmt,
   predictItems,
@@ -20,10 +23,12 @@ import {
   retentionDue,
   runDescent,
   runWithStepFn,
+  trajectoryNote,
   steepBowl,
   teachBowl,
   TEACH_LR,
   unseenBowl,
+  type Bowl,
   type TracePoint,
   type UpdateMode,
 } from "@/lib/descent";
@@ -37,7 +42,7 @@ import {
 } from "@/lib/lesson";
 import { checkStepSource, evaluateStep, STARTER_STEP } from "@/lib/step-expr";
 
-const STORAGE_KEY = "atlas.gd.v1";
+export const STORAGE_KEY = "atlas.gd.v1";
 
 type Stage =
   | "intro"
@@ -53,7 +58,7 @@ type Stage =
 
 type BowlName = "flat" | "steep";
 
-type Progress = {
+export type Progress = {
   sessionId: string;
   startedAt: number;
   stage: Stage;
@@ -77,11 +82,12 @@ type Progress = {
 };
 
 const button =
-  "inline-flex min-h-11 items-center justify-center border border-ink px-4 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:cursor-not-allowed disabled:opacity-40";
-const primary = `${button} bg-ink text-paper`;
-const ghost = `${button} bg-transparent text-ink`;
+  "inline-flex min-h-11 items-center justify-center rounded-full px-5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-copper disabled:cursor-not-allowed disabled:opacity-40";
+const primary = `${button} bg-copper text-paper`;
+const ghost = `${button} border border-line bg-plate text-ink`;
 
 const caps = ["understand", "predict", "experiment", "debug", "apply"] as const;
+const ClearedContext = createContext(0);
 
 export function Lab() {
   const [progress, setProgress] = useState<Progress>(loadProgress);
@@ -90,21 +96,20 @@ export function Lab() {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
   }, [progress]);
 
+  useEffect(() => {
+    const key = `atlas.gd.started.${progress.sessionId}`;
+    if (sessionStorage.getItem(key)) return;
+    sessionStorage.setItem(key, "1");
+    sendEvent(progress.sessionId, "session_started");
+  }, [progress.sessionId]);
+
   const noteHint = (stage: string) => {
     sendEvent(progress.sessionId, "hint", { stage });
     setProgress((current) => (current ? { ...current, hints: current.hints + 1 } : current));
   };
 
   return (
-    <>
-      {progress.stage === "intro" && (
-        <Intro
-          onStart={() => {
-            if (!progress.loggedStart) sendEvent(progress.sessionId, "session_started");
-            setProgress({ ...progress, loggedStart: true, stage: "pre" });
-          }}
-        />
-      )}
+    <ClearedContext.Provider value={clearedCount(progress)}>
       {progress.stage === "pre" && (
         <QuestionRun
           stage="pre"
@@ -189,7 +194,7 @@ export function Lab() {
           }
         />
       )}
-    </>
+    </ClearedContext.Provider>
   );
 }
 
@@ -200,6 +205,7 @@ function loadProgress(): Progress {
     if (!raw) return created;
     const parsed = JSON.parse(raw) as Progress;
     if (!parsed.sessionId || !parsed.stage) return created;
+    if (parsed.stage === "intro") return { ...parsed, stage: "pre" };
     if (
       parsed.completedAt &&
       !parsed.retentionTried &&
@@ -217,7 +223,7 @@ function freshProgress(): Progress {
   return {
     sessionId: crypto.randomUUID(),
     startedAt: Date.now(),
-    stage: "intro",
+    stage: "pre",
     hints: 0,
     loggedStart: false,
     pre: [],
@@ -248,11 +254,23 @@ function Frame({
   actions?: React.ReactNode;
 }) {
   const track = trackState(stage);
+  const cleared = useContext(ClearedContext);
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-col px-4 py-8 sm:px-6">
-      <header className="flex flex-wrap items-baseline justify-between gap-3">
-        <p className="text-xs tracking-[0.2em] text-copper">ATLAS</p>
-        <p className="text-sm text-muted">{trackCaption(stage, track)}</p>
+      <header className="flex flex-wrap items-center justify-between gap-3">
+        <Link href="/" className="text-xs font-semibold tracking-[0.22em] text-copper">
+          ATLAS
+        </Link>
+        <div className="flex flex-wrap gap-2">
+          <p className="rounded-full bg-plate px-3 py-1 text-xs font-semibold tracking-wide text-ink">
+            {trackCaption(stage, track)}
+          </p>
+          {stage !== "intro" && (
+            <p className="rounded-full bg-copper px-3 py-1 text-xs font-semibold tracking-wide text-paper">
+              {cleared} cleared
+            </p>
+          )}
+        </div>
       </header>
       <RunTrack done={track.done} current={track.current} />
       <div className="mt-8">{children}</div>
@@ -280,20 +298,23 @@ function RunTrack({ done, current }: { done: number; current: number | null }) {
   const fill = current === null ? (done === caps.length ? 100 : 0) : (current / (caps.length - 1)) * 100;
   return (
     <div className="relative mt-5">
-      <div className="absolute top-3 right-[10%] left-[10%] h-px bg-line" />
-      <div className="atlas-line absolute top-3 left-[10%] h-px bg-copper" style={{ width: `${fill * 0.8}%` }} />
+      <div className="absolute top-[17px] right-[10%] left-[10%] h-1 rounded-full bg-line" />
+      <div
+        className="atlas-line absolute top-[17px] left-[10%] h-1 rounded-full bg-copper"
+        style={{ width: `${fill * 0.8}%` }}
+      />
       <ol className="relative grid grid-cols-5">
         {caps.map((cap, index) => {
           const state = index < done ? "done" : index === current ? "now" : "ahead";
           return (
             <li key={cap} className="flex flex-col items-center text-center">
               <span
-                className={`relative z-10 grid h-6 w-6 place-items-center rounded-full border text-[11px] ${
+                className={`relative z-10 grid h-9 w-9 place-items-center rounded-full border-2 text-sm font-semibold ${
                   state === "done"
                     ? "border-copper bg-copper text-paper"
                     : state === "now"
-                      ? "border-ink bg-plate text-ink"
-                      : "border-line bg-paper text-muted"
+                      ? "border-copper bg-plate text-copper shadow-[0_0_0_4px_rgba(198,241,53,0.2)]"
+                      : "border-line bg-plate text-muted"
                 }`}
               >
                 {state === "done" ? "✓" : index + 1}
@@ -324,30 +345,6 @@ function stageLabel(stage: Stage): string {
     default:
       return stage[0]?.toUpperCase() + stage.slice(1);
   }
-}
-
-function Intro({ onStart }: { onStart: () => void }) {
-  return (
-    <Frame
-      stage="intro"
-      actions={
-        <button className={primary} type="button" onClick={onStart}>
-          Begin the check
-        </button>
-      }
-    >
-      <h1 className="font-serif text-4xl leading-tight">Gradient descent</h1>
-      <p className="mt-4 max-w-xl text-[15px] leading-7 text-muted">
-        Five stations, in order. About fifteen minutes, no account. Take a step, predict the next
-        one before the chart moves, find a learning rate, diagnose a broken update, and write the
-        step yourself.
-      </p>
-      <p className="mt-3 max-w-xl text-[15px] leading-7 text-muted">
-        A short check comes first, and a different check at the end. Answer those from what you
-        know right now.
-      </p>
-    </Frame>
-  );
 }
 
 function QuestionRun({
@@ -678,12 +675,11 @@ function ExperimentStage({
         </>
       }
     >
-      <p className="font-serif text-2xl leading-snug">
-        The same learning rate is not safe on every bowl.
-      </p>
+      <p className="font-serif text-2xl leading-snug">Pick a rate. Run {EXPERIMENT_STEPS} steps. Read the last loss.</p>
       <p className="mt-3 text-[15px] leading-6 text-muted">
-        Bring each bowl’s loss under {LOSS_OK} in {EXPERIMENT_STEPS} steps. The minimum is marked.
-        The gradient is on the chart. A rate that finishes one bowl can leave the other.
+        {describeBowl(spec)} The rate stays fixed for all {EXPERIMENT_STEPS} steps. You can change it
+        and run again. A bowl is cleared only when the loss after step {EXPERIMENT_STEPS} is under {LOSS_OK}.
+        The loss on the way does not count.
       </p>
       <ul className="mt-5 grid grid-cols-2 gap-2">
         {(["flat", "steep"] as const).map((name) => {
@@ -692,7 +688,7 @@ function ExperimentStage({
           return (
             <li key={name}>
               <button
-                className={`w-full border px-3 py-2 text-left ${
+                className={`w-full rounded-2xl border px-3 py-3 text-left ${
                   mark === true ? "border-good" : mark === false ? "border-bad" : "border-line"
                 } ${selected ? "bg-plate" : "bg-paper"} ${mark !== null ? "atlas-stamp" : ""}`}
                 type="button"
@@ -711,11 +707,19 @@ function ExperimentStage({
       <div className="mt-4">
         <LossChart bowl={spec} trace={fresh && saved ? saved.trace : runDescent(spec, lr, 0)} cursor={fresh && saved ? EXPERIMENT_STEPS : 0} />
       </div>
+      {fresh && saved && (
+        <>
+          <p className="mt-3 break-words font-mono text-xs leading-5 text-muted">
+            η = {fmt(lr)}. w → {saved.trace.map((point) => fmt(point.w)).join(" → ")}
+          </p>
+          <p className="mt-2 text-sm leading-6 text-muted">{trajectoryNote(spec, saved.trace)}</p>
+        </>
+      )}
       {bothIn && (
         <p className="mt-4 text-sm text-muted">
           {finalPass.flat && finalPass.steep
-            ? "Both finished. They should not have needed the same rate. Stable rates sit in 0 < η < 2/k, and k is the curvature in the gradient."
-            : "One bowl is still outside the loss target. You can submit another rate, or continue with this result."}
+            ? "Both cleared. The steeper bowl has larger curvature, so it needed the smaller rate."
+            : "One bowl is still above 0.05 after 10 steps. Run another rate, or continue with this result."}
         </p>
       )}
     </Frame>
@@ -731,9 +735,9 @@ function DebugStage({
   onHint: () => void;
   onDone: (answers: string[]) => void;
 }) {
-  const cases: { lr: number; mode: UpdateMode; rule: string }[] = [
-    { lr: DEBUG_OSC_LR, mode: "descent", rule: "w = w - lr * grad" },
-    { lr: DEBUG_SIGN_LR, mode: "ascent", rule: "w = w + lr * grad" },
+  const cases: { bowl: Bowl; lr: number; mode: UpdateMode; steps: number; span?: number; rule: string }[] = [
+    { bowl: debugOscBowl, lr: DEBUG_OSC_LR, mode: "descent", steps: 3, span: 10, rule: "w = w - lr * grad" },
+    { bowl: debugBowl, lr: DEBUG_SIGN_LR, mode: "ascent", steps: 6, rule: "w = w + lr * grad" },
   ];
   const [index, setIndex] = useState(0);
   const [opened, setOpened] = useState<string[]>([]);
@@ -744,7 +748,7 @@ function DebugStage({
   const item = cases[index];
   const question = debugQuestions[index];
   const trace = useMemo(
-    () => (item ? runDescent(debugBowl, item.lr, 6, item.mode) : []),
+    () => (item ? runDescent(item.bowl, item.lr, item.steps, item.mode) : []),
     [item],
   );
   if (!item || !question) return null;
@@ -822,17 +826,18 @@ function DebugStage({
       </div>
       {opened.includes("loss") && (
         <div className="mt-4">
-          <LossChart bowl={debugBowl} trace={trace} cursor={6} />
+          <LossChart bowl={item.bowl} trace={trace} cursor={item.steps} span={item.span} />
         </div>
       )}
       {opened.includes("rate") && (
-        <p className="mt-4 border border-line bg-plate px-3 py-3 font-mono text-sm">η = {fmt(item.lr)}</p>
+        <p className="mt-4 rounded-2xl border border-line bg-plate px-3 py-3 font-mono text-sm">η = {fmt(item.lr)}</p>
       )}
-      {opened.includes("log") && <DebugLog trace={trace} />}
+      {opened.includes("log") && <DebugLog trace={trace} minimum={item.bowl.mu} />}
       {opened.includes("rule") && (
-        <pre className="mt-4 overflow-x-auto border border-line bg-plate p-3 font-mono text-sm">{`grad = k * (w - minimum)\n${item.rule}`}</pre>
+        <pre className="mt-4 overflow-x-auto rounded-2xl border border-line bg-plate p-3 font-mono text-sm">{`grad = k * (w - minimum)\n${item.rule}`}</pre>
       )}
       <div className="mt-6">
+        {question.setup && <p className="mb-4 text-sm leading-6 text-muted">{question.setup}</p>}
         <Choices
           name={`debug-${index}`}
           question={question}
@@ -853,10 +858,11 @@ function DebugStage({
   );
 }
 
-function DebugLog({ trace }: { trace: TracePoint[] }) {
-  const rows = trace.filter((point) => point.step < 6);
+function DebugLog({ trace, minimum }: { trace: TracePoint[]; minimum: number }) {
+  const start = trace[0]?.w ?? minimum;
+  const rows = trace;
   return (
-    <div className="mt-4 overflow-x-auto border border-line">
+    <div className="mt-4 overflow-x-auto rounded-2xl border border-line">
       <table className="w-full min-w-[28rem] border-collapse text-left font-mono text-xs">
         <caption className="sr-only">First steps of the broken run</caption>
         <thead className="bg-plate text-muted">
@@ -868,7 +874,12 @@ function DebugLog({ trace }: { trace: TracePoint[] }) {
         </thead>
         <tbody>
           {rows.map((point) => (
-            <tr key={point.step} className="border-t border-line">
+            <tr
+              key={point.step}
+              className={`border-t border-line ${
+                Math.abs(point.w - minimum) > Math.abs(start - minimum) ? "text-bad" : ""
+              }`}
+            >
               <td className="px-2 py-2">{point.step}</td>
               <td className="px-2 py-2">{fmt(point.w)}</td>
               <td className="px-2 py-2">{fmt(point.grad)}</td>
@@ -973,7 +984,7 @@ function ApplyStage({
         Step function
         <textarea
           id="step-fn"
-          className="mt-2 h-28 w-full border border-ink bg-plate p-3 font-mono text-sm"
+          className="mt-2 h-28 w-full rounded-2xl border border-line bg-plate p-3 font-mono text-sm"
           spellCheck={false}
           autoCapitalize="off"
           autoCorrect="off"
@@ -1045,10 +1056,16 @@ function RetentionStage({
                 setTrace(next);
                 setRuns(count);
                 if (ok) setPassed(true);
-                sendEvent(sessionId, "retention_run", { lr, correct: ok, run: count });
+                sendEvent(sessionId, "retention_run", {
+                  lr,
+                  correct: ok,
+                  run: count,
+                  steps: RETENTION_STEPS,
+                  limit: LOSS_OK,
+                });
               }}
             >
-              Run
+              Run {RETENTION_STEPS} steps
             </button>
           )}
           {(passed || runs >= 2) && (
@@ -1059,10 +1076,11 @@ function RetentionStage({
         </>
       }
     >
-      <h1 className="font-serif text-3xl leading-tight">A new bowl, no review first.</h1>
+      <h1 className="font-serif text-3xl leading-tight">A new bowl. No review.</h1>
       <p className="mt-3 text-[15px] leading-6 text-muted">
-        Seven days since the lab. Two runs. Bring the loss under {LOSS_OK}. The minimum is marked
-        and the gradient is on the chart.
+        {describeBowl(retentionBowl)} You get two runs, and no hint. You may change the rate between
+        runs. Each run keeps one rate for {RETENTION_STEPS} steps. Cleared if either run ends under {LOSS_OK}.
+        The loss on the way does not count.
       </p>
       <RateSlider lr={lr} min={0.05} max={0.8} step={0.05} onChange={setLr} />
       <div className="mt-4">
@@ -1114,6 +1132,7 @@ function Results({
         questions, so a higher score can still be this page staying in your head. There is no
         reminder. A new bowl unlocks here after seven days.
       </p>
+      <ReplyCard progress={progress} />
       <ul className="mt-6 grid gap-2 sm:grid-cols-5">
         <Station
           name="Understand"
@@ -1147,10 +1166,121 @@ function Results({
         </p>
       )}
       <div className="mt-8 space-y-6">
+        <MissList progress={progress} />
         <CheckList title="Before" questions={preQuestions} answers={progress.pre} />
         <CheckList title="After" questions={postQuestions} answers={progress.post} />
       </div>
     </Frame>
+  );
+}
+
+function ReplyCard({ progress }: { progress: Progress }) {
+  const misses = missLabels(progress);
+  const text =
+    misses.length === 0
+      ? "tried the gradient descent lab. cleared it.\nhttps://atlas.brohammad.tech"
+      : `tried the gradient descent lab. got these wrong: ${misses.join(", ")}.\nhttps://atlas.brohammad.tech`;
+  const [copied, setCopied] = useState(false);
+  return (
+    <section className="mt-6 rounded-2xl border border-line bg-plate p-4">
+      <h2 className="text-xs font-semibold tracking-[0.14em] text-copper uppercase">For the reply</h2>
+      <p className="mt-3 whitespace-pre-wrap text-sm leading-6">{text}</p>
+      <button
+        className={`${ghost} mt-4`}
+        type="button"
+        onClick={() => {
+          void copyReply(text).then((ok) => setCopied(ok));
+        }}
+      >
+        {copied ? "Copied" : "Copy"}
+      </button>
+    </section>
+  );
+}
+
+function MissList({ progress }: { progress: Progress }) {
+  const rows = missRows(progress);
+  if (rows.length === 0) return null;
+  return (
+    <section>
+      <h2 className="text-xs tracking-[0.14em] text-muted uppercase">What you missed</h2>
+      <ul className="mt-3 space-y-4">
+        {rows.map((row) => (
+          <li key={row.label}>
+            <p className="text-sm">{row.label}</p>
+            <p className="mt-1 text-sm text-bad">Miss</p>
+            <p className="mt-1 text-sm text-muted">{row.idea}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+async function copyReply(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    const area = document.createElement("textarea");
+    area.value = text;
+    area.setAttribute("readonly", "");
+    area.style.position = "fixed";
+    area.style.left = "-9999px";
+    document.body.append(area);
+    area.select();
+    const ok = document.execCommand("copy");
+    area.remove();
+    return ok;
+  }
+}
+
+function missLabels(progress: Progress): string[] {
+  return missRows(progress).map((row) => row.label);
+}
+
+function missRows(progress: Progress): { label: string; idea: string }[] {
+  const rows: { label: string; idea: string }[] = [];
+  if (progress.understand && progress.understand !== understandQuestion.answer) {
+    rows.push({ label: understandQuestion.label ?? understandQuestion.prompt, idea: understandQuestion.idea });
+  }
+  predictQuestions.forEach((question, index) => {
+    const choice = progress.predict[index];
+    if (choice && choice !== question.answer) rows.push({ label: question.label ?? question.prompt, idea: question.idea });
+  });
+  if (progress.experimentFirst.flat === false) {
+    rows.push({
+      label: "flatter bowl, first try",
+      idea: "On the flatter bowl a moderate rate can finish. The same rate is not safe once the bowl gets steeper.",
+    });
+  }
+  if (progress.experimentFirst.steep === false) {
+    rows.push({
+      label: "steeper bowl, first try",
+      idea: "Steeper curvature makes the same learning rate a longer step. Stable rates sit below 2 divided by that curvature.",
+    });
+  }
+  debugQuestions.forEach((question, index) => {
+    const choice = progress.debug[index];
+    if (choice && choice !== question.answer) rows.push({ label: question.label ?? question.prompt, idea: question.idea });
+  });
+  if (progress.applyChecks + progress.applyRuns > 0 && !progress.applyPassed) {
+    rows.push({
+      label: "the unseen bowl",
+      idea: "The step is w minus the learning rate times the gradient. The rate still has to fit that bowl’s curvature.",
+    });
+  }
+  return rows;
+}
+
+export function clearedCount(progress: Progress): number {
+  return (
+    (progress.understand === understandQuestion.answer ? 1 : 0) +
+    countMatches(predictQuestions, progress.predict) +
+    (progress.experimentFinal.flat === true ? 1 : 0) +
+    (progress.experimentFinal.steep === true ? 1 : 0) +
+    countMatches(debugQuestions, progress.debug) +
+    (progress.applyPassed ? 1 : 0)
   );
 }
 
@@ -1177,7 +1307,7 @@ function CheckList({ title, questions, answers }: { title: string; questions: Qu
 
 function Station({ name, clear, detail }: { name: string; clear: boolean; detail: string }) {
   return (
-    <li className={`border px-3 py-3 ${clear ? "border-good" : "border-line"}`}>
+    <li className={`rounded-2xl border px-3 py-3 ${clear ? "border-good bg-plate" : "border-line bg-plate"}`}>
       <p className={`text-[10px] tracking-[0.14em] uppercase ${clear ? "text-good" : "text-bad"}`}>
         {clear ? "Cleared" : "Open"}
       </p>
@@ -1197,8 +1327,8 @@ function Meter({ label, value, total }: { label: string; value: number; total: n
           {value} of {total}
         </span>
       </div>
-      <div className="mt-2 h-1.5 bg-line">
-        <div className="h-full bg-copper" style={{ width: `${width}%` }} />
+      <div className="mt-2 h-2 rounded-full bg-line">
+        <div className="h-full rounded-full bg-copper" style={{ width: `${width}%` }} />
       </div>
     </div>
   );
@@ -1221,7 +1351,7 @@ function RateSlider({
     <label className="mt-5 block text-sm">
       Learning rate, {fmt(lr)}
       <input
-        className="mt-2 block w-full accent-ink"
+        className="mt-2 block w-full accent-copper"
         type="range"
         min={min}
         max={max}

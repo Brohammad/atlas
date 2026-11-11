@@ -7,6 +7,8 @@ import {
   EXPERIMENT_STEPS,
   LOSS_OK,
   debugBowl,
+  debugOscBowl,
+  describeBowl,
   flatBowl,
   gradient,
   loss,
@@ -15,6 +17,7 @@ import {
   retentionBowl,
   retentionDue,
   runDescent,
+  trajectoryNote,
   stableLearningRate,
   steepBowl,
   teachBowl,
@@ -22,6 +25,7 @@ import {
   TEACH_LR,
   RETENTION_STEPS,
 } from "./descent.ts";
+import { debugQuestions } from "./lesson.ts";
 import { checkStepSource, evaluateStep } from "./step-expr.ts";
 
 describe("gradient descent", () => {
@@ -74,11 +78,15 @@ describe("gradient descent", () => {
     assert.deepEqual(both, []);
   });
 
-  it("oscillates upward at the debug learning rate and walks uphill when the sign is flipped", () => {
-    const osc = runDescent(debugBowl, DEBUG_OSC_LR, 4);
-    assert.ok((osc[1]?.loss ?? 0) > (osc[0]?.loss ?? 0));
-    assert.ok((osc[1]?.w ?? 0) < 0);
-    assert.ok(Math.abs(osc[2]?.w ?? 0) > Math.abs(osc[1]?.w ?? 0));
+  it("walks 1, −2, 4, −8 when the rate is too large, and walks uphill when the sign is flipped", () => {
+    const osc = runDescent(debugOscBowl, DEBUG_OSC_LR, 3);
+    assert.deepEqual(
+      osc.map((point) => point.w),
+      [1, -2, 4, -8],
+    );
+    assert.match(trajectoryNote(debugOscBowl, osc), /crossed the minimum/);
+    assert.equal(debugQuestions[0]?.answer, "rate");
+    assert.match(debugQuestions[0]?.prompt ?? "", /1 → −2 → 4 → −8/);
 
     const up = runDescent(debugBowl, DEBUG_SIGN_LR, 4, "ascent");
     for (let i = 1; i < up.length; i++) {
@@ -95,11 +103,20 @@ describe("gradient descent", () => {
     assert.ok(unseenPass.includes(0.15));
     assert.ok(!unseenPass.includes(0.5));
 
-    const keep = [0.05, 0.1, 0.2, 0.4, 0.6].filter((lr) =>
+    assert.equal(RETENTION_STEPS, 10);
+    const keep = [0.05, 0.1, 0.2, 0.4, 0.5, 0.6].filter((lr) =>
       reachedLoss(runDescent(retentionBowl, lr, RETENTION_STEPS), RETENTION_STEPS, LOSS_OK),
     );
     assert.ok(keep.includes(0.2));
+    assert.ok(!keep.includes(0.5));
     assert.ok(!keep.includes(0.6));
+    assert.equal(
+      describeBowl(retentionBowl),
+      "L(w) = 2 (w − 1)². The gradient is 4(w − 1). Start at w = −2.",
+    );
+    assert.match(trajectoryNote(flatBowl, runDescent(flatBowl, 0.4, EXPERIMENT_STEPS)), /under 0.05/);
+    assert.match(trajectoryNote(steepBowl, runDescent(steepBowl, 0.4, EXPERIMENT_STEPS)), /crossed the minimum/);
+    assert.match(trajectoryNote(flatBowl, runDescent(flatBowl, 0.05, EXPERIMENT_STEPS)), /still short/);
   });
 
   it("waits seven days before the retention bowl", () => {

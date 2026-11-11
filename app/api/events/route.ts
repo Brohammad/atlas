@@ -43,8 +43,12 @@ export async function POST(request: Request) {
   if (line.length > 8000) {
     return Response.json({ error: { code: "TOO_LARGE", message: "Event is too large." } }, { status: 413 });
   }
-  const dir = path.join(process.cwd(), "data");
-  await mkdir(dir, { recursive: true });
-  await appendFile(path.join(dir, "events.jsonl"), `${line}\n`, "utf8");
+  try {
+    const dir = path.join(process.cwd(), "data");
+    await mkdir(dir, { recursive: true });
+    await appendFile(path.join(dir, "events.jsonl"), `${line}\n`, "utf8");
+  } catch {
+    // Vercel’s filesystem does not keep this file. The lesson still runs.
+  }
   return new Response(null, { status: 204 });
 }

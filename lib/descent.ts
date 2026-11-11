@@ -18,15 +18,17 @@ export const teachBowl: Bowl = { k: 2, mu: 2, w0: 4.5 };
 export const flatBowl: Bowl = { k: 1, mu: 0, w0: 5 };
 export const steepBowl: Bowl = { k: 10, mu: 0, w0: 2 };
 export const debugBowl: Bowl = { k: 2, mu: 0, w0: 1.2 };
+/** L(w) = w² from w = 1 at rate 1.5. The parameter walks 1, −2, 4, −8. */
+export const debugOscBowl: Bowl = { k: 2, mu: 0, w0: 1 };
 export const unseenBowl: Bowl = { k: 6, mu: -1.5, w0: 1 };
 export const retentionBowl: Bowl = { k: 4, mu: 1, w0: -2 };
 
 export const TEACH_LR = 0.25;
-export const DEBUG_OSC_LR = 1.4;
+export const DEBUG_OSC_LR = 1.5;
 export const DEBUG_SIGN_LR = 0.25;
 export const EXPERIMENT_STEPS = 10;
 export const APPLY_STEPS = 12;
-export const RETENTION_STEPS = 12;
+export const RETENTION_STEPS = 10;
 export const LOSS_OK = 0.05;
 
 export type PredictItem = {
@@ -42,6 +44,35 @@ export const predictItems: PredictItem[] = [
   { bowl: { k: 2, mu: 0, w0: 4 }, lr: 0.5, steps: 1 },
   { bowl: { k: 2, mu: 0, w0: 1 }, lr: 1.5, steps: 4, span: 18 },
 ];
+
+export function describeBowl(bowl: Bowl): string {
+  const half = bowl.k / 2;
+  const inside = bowl.mu === 0 ? "w" : bowl.mu > 0 ? `(w − ${bowl.mu})` : `(w + ${Math.abs(bowl.mu)})`;
+  const lossBody = bowl.mu === 0 ? "w²" : `${inside}²`;
+  const lossText = half === 1 ? lossBody : `${half} ${lossBody}`;
+  const gradient = bowl.k === 1 ? inside : `${bowl.k}${inside}`;
+  const start = String(bowl.w0).replace("-", "−");
+  return `L(w) = ${lossText}. The gradient is ${gradient}. Start at w = ${start}.`;
+}
+
+export function trajectoryNote(bowl: Bowl, trace: TracePoint[], limit = LOSS_OK): string {
+  const start = trace[0];
+  const end = trace.at(-1);
+  if (!start || !end) return "Run the steps, then read the last loss.";
+  if (Number.isFinite(end.loss) && end.loss < limit && trace.length > 1) {
+    return "The loss at the last step is under 0.05.";
+  }
+  const dist = (w: number) => w - bowl.mu;
+  const crossed = trace.some((point, index) => index > 0 && dist(start.w) * dist(point.w) < 0);
+  const grew = Math.abs(dist(end.w)) > Math.abs(dist(start.w));
+  if (crossed && grew) {
+    return "It crossed the minimum, and a later step landed farther away. The gradient grew on the other side, so this same rate took a longer step. Try a smaller rate. The rate stays fixed for every step of the run.";
+  }
+  if (Math.abs(dist(end.w)) < Math.abs(dist(start.w))) {
+    return "It moved toward the minimum and was still short at the last step. A larger rate, still fixed for the whole run, may finish under 0.05.";
+  }
+  return "The loss at the last step is still above 0.05. Change the rate and run again. The rate stays fixed for every step.";
+}
 
 export function loss(bowl: Bowl, w: number): number {
   const d = w - bowl.mu;

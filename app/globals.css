@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #efe8d8;
-  --ink: #1c1914;
-  --muted: #5e584c;
-  --line: #d9d0be;
-  --plate: #f7f3ea;
-  --copper: #9d4320;
-  --good: #1e6b43;
-  --bad: #8d2e2a;
-  color-scheme: light;
+  --paper: #0c1210;
+  --ink: #f4f7ef;
+  --muted: #93a094;
+  --line: #2a3830;
+  --plate: #16211c;
+  --copper: #c6f135;
+  --good: #5dff9a;
+  --bad: #ff6b7a;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -22,18 +22,21 @@
   --color-good: var(--good);
   --color-bad: var(--bad);
   --font-sans: var(--font-public);
-  --font-serif: var(--font-newsreader);
+  --font-serif: var(--font-public);
   --font-mono: var(--font-plex);
 }
 
 body {
-  background: var(--paper);
+  background:
+    radial-gradient(900px 380px at 50% -8%, rgba(198, 241, 53, 0.18), transparent 55%),
+    var(--paper);
   color: var(--ink);
   font-family: var(--font-public), sans-serif;
 }
 
 ::selection {
-  background: #e4cbb8;
+  background: #c6f135;
+  color: #10160a;
 }
 
 .atlas-stamp {

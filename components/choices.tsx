@@ -24,14 +24,14 @@ export function Choices({
         return (
           <label
             key={option.id}
-            className={`flex gap-3 border px-3 py-3 ${
+            className={`flex gap-3 rounded-2xl border px-3 py-3 ${
               revealed && isAnswer
                 ? "atlas-stamp border-good bg-plate"
                 : revealed && selected
                   ? "border-bad bg-plate"
                   : selected
-                    ? "border-ink bg-plate"
-                    : "border-line bg-paper"
+                    ? "border-copper bg-plate"
+                    : "border-line bg-plate"
             }`}
           >
             <input
@@ -58,7 +58,7 @@ export function Choices({
 
 export function Verdict({ right, idea }: { right: boolean; idea: string }) {
   return (
-    <div className="atlas-stamp border-t border-line pt-4" role="status">
+    <div className="atlas-stamp rounded-2xl border border-line bg-plate px-4 py-4" role="status">
       <p className={`text-xs tracking-[0.14em] uppercase ${right ? "text-good" : "text-bad"}`}>
         {right ? "Cleared" : "Miss"}
       </p>

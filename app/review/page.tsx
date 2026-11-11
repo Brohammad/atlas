@@ -15,9 +15,16 @@ export default function ReviewPage() {
     <main className="mx-auto max-w-5xl px-4 py-8">
       <p className="text-xs tracking-[0.2em] text-copper">ATLAS</p>
       <h1 className="mt-3 font-serif text-3xl">Pilot log</h1>
-      <Suspense fallback={<p className="mt-3 text-sm text-muted">Reading the log…</p>}>
-        <PilotTable />
-      </Suspense>
+      {process.env.VERCEL ? (
+        <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">
+          This server does not keep the lab log. Events stay on the machine where the lab is run
+          from the project folder. The lesson itself does not need the log.
+        </p>
+      ) : (
+        <Suspense fallback={<p className="mt-3 text-sm text-muted">Reading the log…</p>}>
+          <PilotTable />
+        </Suspense>
+      )}
     </main>
   );
 }
