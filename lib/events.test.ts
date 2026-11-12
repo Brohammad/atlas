@@ -13,6 +13,10 @@ const NAMES = [
   "two_answer",
   "resid_started",
   "resid_answer",
+  "rate_started",
+  "rate_answer",
+  "rate_run",
+  "rate_unseen",
 ];
 
 function event(name: string): Request {

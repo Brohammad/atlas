@@ -25,6 +25,10 @@ const NAMES = new Set([
   "two_answer",
   "resid_started",
   "resid_answer",
+  "rate_started",
+  "rate_answer",
+  "rate_run",
+  "rate_unseen",
 ]);
 
 export async function POST(request: Request) {
