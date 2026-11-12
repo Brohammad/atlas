@@ -39,7 +39,7 @@ export function WebPage() {
   const done = sitting?.stage === "results" || sitting?.stage === "retention" || sitting?.completedAt != null;
 
   function begin() {
-    router.push("/lab");
+    router.push(open ? "/lab" : "/beginner");
   }
 
   function startOver() {
@@ -78,11 +78,11 @@ export function WebPage() {
           <p className="mt-4 max-w-md text-[15px] leading-7 text-muted">
             {open
               ? "No account. This browser kept the run. Continue it, or start again from the check."
-              : "Fifteen minutes. No account. For people who already know what gradient descent is, and still answer from the slogan."}
+              : "Fifteen minutes. No account. Start with a line. The chart on this page is the search that comes after it."}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <button className={cta} type="button" onClick={begin}>
-              {open ? "Continue" : "Begin the lab"}
+              {open ? "Continue" : "Begin with a line"}
             </button>
             {open ? (
               <button className={quiet} type="button" onClick={startOver}>
@@ -161,8 +161,8 @@ function TrackDoor({
       </h2>
       <p className="mt-3 max-w-lg text-sm leading-6 text-muted">
         {open && run
-          ? `${regCleared(run)} of ${regressionStations.length} cleared. Twelve modules on the map. This unit is the line with a bias, the partial, and the step you write.`
-          : "A separate track. Three units are open: a line, two inputs, then the residuals."}
+          ? `${regCleared(run)} of ${regressionStations.length} cleared. This unit is the line with a bias, the partial, and the step you write.`
+          : "After the line and the search: a bias, two inputs, then the residuals."}
       </p>
       <div className="mt-5 flex flex-wrap gap-3">
         <button className={cta} type="button" onClick={onOpen}>

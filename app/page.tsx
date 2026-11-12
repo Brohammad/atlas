@@ -4,7 +4,7 @@ import { WebLoader } from "@/components/web-loader";
 export const metadata: Metadata = {
   title: "Atlas — Say the next value",
   description:
-    "A fifteen-minute gradient descent lab. No account. Commit the next value before the chart moves.",
+    "Start with a line, then search for the weight. No account. The chart is the search, not the first sitting.",
 };
 
 export default function Home() {
