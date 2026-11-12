@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --experimental-strip-types --test lib/descent.test.ts lib/line.test.ts lib/classical.test.ts lib/two.test.ts lib/resid.test.ts lib/events.test.ts"
+    "test": "node --experimental-strip-types --test lib/descent.test.ts lib/line.test.ts lib/classical.test.ts lib/two.test.ts lib/resid.test.ts lib/rate.test.ts lib/events.test.ts"
   },
   "dependencies": {
     "next": "16.4.6",
