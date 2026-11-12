@@ -162,7 +162,7 @@ function TrackDoor({
       <p className="mt-3 max-w-lg text-sm leading-6 text-muted">
         {open && run
           ? `${regCleared(run)} of ${regressionStations.length} cleared. This unit is the line with a bias, the partial, and the step you write.`
-          : "After the line and the search: a bias, two inputs, then the residuals."}
+          : "After the line and the search: a bias, two inputs, the residuals, then the learning rate."}
       </p>
       <div className="mt-5 flex flex-wrap gap-3">
         <button className={cta} type="button" onClick={onOpen}>

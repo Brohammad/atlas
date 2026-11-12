@@ -211,7 +211,7 @@ function Result({ run, onAgain }: { run: ResidRun; onAgain: () => void }) {
       </h1>
       <p className="mt-3 text-sm leading-6 text-muted">
         {misses.length === 0
-          ? "A negative residual means the prediction is below the label. The sum of residuals can hide the loss."
+          ? "A negative residual means the prediction is below the label. Next is the learning rate: the same step on a shallow line and a steep one."
           : `Still open: ${misses.join(", ")}.`}
       </p>
       <section className="mt-6 rounded-2xl border border-line bg-plate p-4">
@@ -222,7 +222,12 @@ function Result({ run, onAgain }: { run: ResidRun; onAgain: () => void }) {
         </button>
       </section>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/classical" className={primary}>
+        {misses.length === 0 ? (
+          <Link href="/classical/rate" className={primary}>
+            Learning rate
+          </Link>
+        ) : null}
+        <Link href="/classical" className={misses.length === 0 ? ghost : primary}>
           Back to the track
         </Link>
         <button className={ghost} type="button" onClick={onAgain}>

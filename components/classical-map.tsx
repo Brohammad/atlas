@@ -11,6 +11,7 @@ import {
   regressionStations,
   type RegRun,
 } from "@/lib/classical";
+import { RATE_KEY, parseRate, rateCleared, rateStations, type RateRun } from "@/lib/rate";
 import { RESID_KEY, parseResid, residCleared, residStations, type ResidRun } from "@/lib/resid";
 import { TWO_KEY, parseTwo, twoCleared, twoStations, type TwoRun } from "@/lib/two";
 
@@ -39,6 +40,8 @@ export function ClassicalMap() {
   const twoOpen = two !== null && (two.answers.length > 0 || two.choice !== null || two.completedAt != null);
   const resid = pathname === "/classical" ? readResid() : null;
   const residOpen = resid !== null && (resid.answers.length > 0 || resid.choice !== null || resid.completedAt != null);
+  const rate = pathname === "/classical" ? readRate() : null;
+  const rateOpen = rate !== null && (rate.answers.length > 0 || rate.choice !== null || rate.completedAt != null);
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
@@ -52,7 +55,7 @@ export function ClassicalMap() {
         Implement the model. Do not call fit.
       </h1>
       <p className="mt-4 max-w-xl text-[15px] leading-7 text-muted">
-        Regression is the open module. Three units. The rest of the track is named below and has no
+        Regression is the open module. Four units. The rest of the track is named below and has no
         lessons yet.
       </p>
       <h2 className="mt-10 text-xs font-semibold tracking-[0.14em] text-copper uppercase">Regression</h2>
@@ -117,6 +120,25 @@ export function ClassicalMap() {
               : undefined
           }
         />
+        <UnitCard
+          kicker="Unit 4"
+          title="Learning rate"
+          body={
+            rateOpen && rate
+              ? `${rateCleared(rate)} of ${rateStations.length} cleared.`
+              : "The same rate can finish a shallow line and step past the best weight on a steeper one."
+          }
+          action={rateOpen ? "Continue" : "Begin"}
+          onOpen={() => router.push("/classical/rate")}
+          onReset={
+            rateOpen
+              ? () => {
+                  sessionStorage.removeItem(RATE_KEY);
+                  router.push("/classical/rate");
+                }
+              : undefined
+          }
+        />
       </div>
       <h2 className="mt-12 text-xs font-semibold tracking-[0.14em] text-muted uppercase">Not open</h2>
       <ul className="mt-4 divide-y divide-line border-y border-line">
@@ -165,6 +187,14 @@ function UnitCard({
       </div>
     </section>
   );
+}
+
+function readRate(): RateRun | null {
+  try {
+    return parseRate(sessionStorage.getItem(RATE_KEY));
+  } catch {
+    return null;
+  }
 }
 
 function readResid(): ResidRun | null {
