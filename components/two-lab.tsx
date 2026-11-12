@@ -216,7 +216,7 @@ function Result({ run, onAgain }: { run: TwoRun; onAgain: () => void }) {
       </h1>
       <p className="mt-3 text-sm leading-6 text-muted">
         {misses.length === 0
-          ? "A residual moves a weight only through that weight’s input. The next regression unit is not open yet."
+          ? "A residual moves a weight only through that weight’s input. Next is residuals: the sign of a miss is not the loss."
           : `Still open: ${misses.join(", ")}.`}
       </p>
       <section className="mt-6 rounded-2xl border border-line bg-plate p-4">
@@ -227,7 +227,12 @@ function Result({ run, onAgain }: { run: TwoRun; onAgain: () => void }) {
         </button>
       </section>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/classical" className={primary}>
+        {misses.length === 0 ? (
+          <Link href="/classical/residuals" className={primary}>
+            Residuals
+          </Link>
+        ) : null}
+        <Link href="/classical" className={misses.length === 0 ? ghost : primary}>
           Back to the track
         </Link>
         <button className={ghost} type="button" onClick={onAgain}>
