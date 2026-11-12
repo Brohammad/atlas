@@ -16,6 +16,15 @@ const NAMES = new Set([
   "post_answer",
   "lesson_completed",
   "retention_run",
+  "line_started",
+  "line_answer",
+  "regression_started",
+  "regression_answer",
+  "regression_code",
+  "two_started",
+  "two_answer",
+  "resid_started",
+  "resid_answer",
 ]);
 
 export async function POST(request: Request) {
