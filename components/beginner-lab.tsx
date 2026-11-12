@@ -224,9 +224,11 @@ function Result({ run, onAgain }: { run: LineRun; onAgain: () => void }) {
         </button>
       </section>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/lab" className={primary}>
-          Gradient descent lab
-        </Link>
+        {misses.length === 0 ? (
+          <Link href="/lab" className={primary}>
+            Gradient descent lab
+          </Link>
+        ) : null}
         <button className={ghost} type="button" onClick={onAgain}>
           Start over
         </button>
