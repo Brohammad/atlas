@@ -286,7 +286,7 @@ function Result({ run, onAgain }: { run: RegRun; onAgain: () => void }) {
       </h1>
       <p className="mt-3 text-sm leading-6 text-muted">
         {misses.length === 0
-          ? "You computed a prediction, a loss, a partial, and a step, then wrote the step. The rest of the regression module is not open yet."
+          ? "You computed a prediction, a loss, a partial, and a step, then wrote the step. Next is two inputs: a zero feature does not move that weight."
           : `Still open: ${misses.join(", ")}.`}
       </p>
       <section className="mt-6 rounded-2xl border border-line bg-plate p-4">
@@ -297,7 +297,12 @@ function Result({ run, onAgain }: { run: RegRun; onAgain: () => void }) {
         </button>
       </section>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/classical" className={primary}>
+        {misses.length === 0 ? (
+          <Link href="/classical/two" className={primary}>
+            Two inputs
+          </Link>
+        ) : null}
+        <Link href="/classical" className={misses.length === 0 ? ghost : primary}>
           Back to the track
         </Link>
         <button className={ghost} type="button" onClick={onAgain}>
