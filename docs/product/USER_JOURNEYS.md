@@ -2,13 +2,13 @@
 
 ## What a new visitor can do today
 
-1. Land on `/`. The hero is the gradient-descent sitting: predict the next parameter before the chart moves.
-2. Begin `/lab` at the pre-check. There is no second copy of the marketing page inside the lab.
-3. Or open Fit a line at `/beginner`, or the track at `/classical`.
+1. Land on `/`. The chart is the search question. A fresh Begin starts at the line.
+2. Finish the line and the result opens `/lab` at the pre-check. There is no second copy of the marketing page inside the lab.
+3. The lab and the track stay direct links. The endings are what carry a cleared sitting forward.
 4. On the track, start unit 1 (bias), unit 2 (two inputs), or unit 3 (residuals) in any order. Nothing requires the previous unit.
 5. Progress for each sitting is a separate `sessionStorage` key: `atlas.gd.v1`, `atlas.line.v1`, `atlas.reg.v1`, `atlas.two.v1`, `atlas.resid.v1`. Closing the tab ends the sitting. Another browser never sees it.
-6. Finish unit 1 or unit 2 and read a sentence that says the next unit is closed. Unit 3 does not say that. The map, which lists all three, is the only honest navigation.
-7. Events for the gradient-descent lab can be appended locally. Events for the other sittings are rejected by `/api/events` (unknown name). On the deployed site, accepted events are discarded because the filesystem does not persist.
+6. Finish unit 1 and the result offers two inputs. Finish unit 2 and the result offers residuals. Finish residuals and the result offers the learning rate. That unit is the last open one.
+7. `/api/events` accepts the gradient-descent names and the ML sitting names. On the deployed site the write is discarded because the filesystem does not persist.
 
 ## Journey we are willing to support
 
@@ -24,17 +24,16 @@ One path, still with no account:
 8. Beat a mean baseline on a holdout (not built).
 9. Stop. The result sentence is what they send back.
 
-Spaced recall of an unseen bowl stays in the spec for step 3 and stays off the marketed path until storage survives seven days.
+The seven-day bowl is not on the run. `retentionDue` stays tested in `lib/descent.ts`. The screen comes back only when storage can still be there a week later.
 
 ## Where the current journey breaks
 
 | Break | Consequence |
 |---|---|
-| Three doors, no required order | A learner can meet a partial before they have ever summed a squared error, or debug a bowl before they know what a residual is. |
+| Doors stay open out of order | The endings point line → search → bias → two inputs → residuals. Nothing stops a learner from opening a later URL first. |
 | `sessionStorage` | "Continue" works inside one tab session only. The seven-day bowl cannot be reached by the person it was written for. |
-| Stale endings on units 1 and 2 | The person who did the work is told to leave. |
 | Answer key in the bundle | We cannot tell a cleared unit from a viewed source file. The pilot has to ask what they missed, not only whether they finished. |
-| Event names rejected, and production writes dropped | We cannot compute finish rate from the deployed site. Pretending `/review` is a pilot dashboard would be false. |
+| Production writes dropped | We cannot compute finish rate from the deployed site. Local `/review` can. Pretending the Vercel log is a pilot dashboard would be false. |
 
 ## Journey we will not design yet
 

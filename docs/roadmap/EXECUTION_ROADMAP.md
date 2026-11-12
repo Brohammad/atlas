@@ -10,7 +10,7 @@ Playable line, gradient-descent lab, bias unit with a graded step, two-input uni
 
 ## Milestone 1 — make a pilot possible
 
-No new concepts. After this, twenty engineers can be asked for a result sentence, and a local log stops dropping the ML track.
+No new concepts. A-01 and F-01 are in the tree: the route accepts the ML event names, and a cleared unit links to the next one. P-01, sending the ask, is the remaining step. A local log no longer drops the ML track. Production still does not keep the file.
 
 | Id | Area | Description | User value | Pri | Depends | Complexity | Acceptance | Done when |
 |---|---|---|---|---|---|---|---|---|
@@ -20,6 +20,8 @@ No new concepts. After this, twenty engineers can be asked for a result sentence
 | T-01 | Testing | Keep answer locks green for all five `lib` suites | A copy change cannot drift the math | P0 | A-01 | S | `npm test` passes | Command output shows zero failures |
 
 ## Milestone 2 — one path
+
+F-02 and D-01 are in the tree. A cleared line opens the lab, a cleared lab opens the bias unit, and the seven-day bowl is not on the run. A fresh Begin starts at the line. Later URLs are still reachable directly.
 
 | Id | Area | Description | User value | Pri | Depends | Complexity | Acceptance | Done when |
 |---|---|---|---|---|---|---|---|---|
@@ -31,7 +33,7 @@ F-02 is a navigation change. It is not a rewrite of the labs.
 
 ## Milestone 3 — the next unit
 
-Starts only after milestone 1 is in production and at least five pasted results have been read. If those five all fail the same station, fix that station instead of building this.
+The learning-rate unit is at `/classical/rate`. Baseline is the next unbuilt unit. If the first replies all miss the same station, fix that station before baseline.
 
 | Id | Area | Description | User value | Pri | Depends | Complexity | Acceptance | Done when |
 |---|---|---|---|---|---|---|---|---|

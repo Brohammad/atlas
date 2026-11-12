@@ -67,7 +67,7 @@ Mastery scores, spaced repetition across the whole track, proctoring, and hiding
 These change the product. Defaults are in force until a pilot result overturns them.
 
 1. **Identity.** Default: anonymous `sessionStorage` per sitting. A login is justified only after we watch people lose a finished unit by closing the tab and caring.
-2. **Seven-day retention.** The gradient-descent lab schedules a new bowl after seven days, then stores progress in `sessionStorage`, which dies with the tab. The retention station cannot fire for a real returning user. Default: treat retention as specified and unbuilt. Do not advertise it. Rebuild it on storage that survives a week, or drop it from the run.
+2. **Seven-day retention.** The station is off the run. The rule stays in `lib/descent.ts`. Put the screen back only when progress survives a week.
 3. **One path.** Fit a line, gradient descent, and the regression units are three doors. Default: the track order is line, then search, then bias, then two inputs, then residuals. The home page may still deep-link the gradient-descent lab until that merge is done.
 4. **Durable analytics.** Default for the first 20: pasted result sentences plus a fixed event allowlist so local `/review` is not lying. A hosted table waits until paste-back fails as an operation.
 5. **Price.** Default: free. The first price test is a single track, after the metric gates pass, offered to people who finished. No enterprise motion before one stranger has paid or explicitly refused.
@@ -75,7 +75,6 @@ These change the product. Defaults are in force until a pilot result overturns t
 ## Risks
 
 - We add units forever and never watch a stranger miss. Content is ahead of evidence.
-- The event route rejects `line_*`, `regression_*`, `two_*`, and `resid_*`. The labs send them. Production also drops accepted events on a read-only filesystem. The pilot metrics in the earlier review were never actually stored for the ML track.
-- Unit 1's closing line still says the rest of regression is closed. Unit 2's closing line still says the next unit is closed. Both are false. Learners who finish are told to stop.
+- The event route accepts the ML sitting names. Production still drops accepted events on a read-only filesystem, so a finish rate cannot be quoted from Vercel.
 - Answer keys in the client make "mastery" self-reported.
 - Building the 140-lesson platform (engines, mastery, datasets) before a finish rate exists. That work has no user yet.

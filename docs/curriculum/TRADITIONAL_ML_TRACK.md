@@ -76,34 +76,19 @@ Not missing, and not worth a lesson yet: logistic regression, trees, SVM, PCA, b
 
 Fit a line and the bias unit both square an error and both score a new point. The second unit adds `b`, the chain rule, the sign of the update, and a graded step. That is a second encounter with a harder model, which is what we want. Deleting the first unit to look efficient would make the partial the first time a learner sees a squared error.
 
+## Learning rate — `/classical/rate` — `lib/rate.ts`
+
+ŷ = w x, no bias. Shallow point (1, 2), loss (w − 2)², start w = 4. Steep point (2, 4), loss 4(w − 2)², same best weight. Ten steps. Cleared only when the loss after step 10 is under 0.05. Rate 0.4 finishes the shallow line and overshoots the steep one. Rate 0.1 finishes both. The diagnosis trace is a different rate: 0.5 sends the steep line from 4 to −4 and the loss from 16 to 144.
+
+The unseen line is points (1, 1) and (2, 2), loss 5(w − 1)², two runs, no hint. Rate 0.15 finishes it. Rate 0.2 finishes the steep practice line and does not finish this one.
+
+Outcome: the learner cuts a rate because the loss got worse, and can say the steeper line was the reason.
+
 ## Next unit — specified, not built
 
-**Learning rate on the line.** Working title only. No route until it is implemented.
+**Baseline.** Predict the mean of `y`. Compute its loss. Keep the line only if its holdout loss is smaller. Misconception: any fitted line is an improvement. Not built.
 
-Objective: the same rate that reduces the loss on a shallow sum of squares overshoots on a steeper one, and the learner can see it in `w` and in the loss after a fixed number of steps.
-
-Prerequisites: bias unit and the bowl experiment.
-
-Concept: curvature of this loss, not a new optimizer.
-
-Misconceptions to encode: a larger rate is always better; if one step decreased the loss, ten steps will; the bowl was a special case that does not apply once there is a bias.
-
-Activity: pick a rate, run a fixed count of steps on two lines, read `w`, loss, and whether the parameter crossed the best weight. Pass condition is the loss after the last step, stated in the setup. Do not reveal which rate fails before the run.
-
-Prediction, before the run: which rate will still be short of the best weight after the fixed count.
-
-Debug, after a bad run: the trace crossed the best weight and the loss rose. The idea uses their rate and their weights.
-
-Implementation: none in this unit. The step function already exists. A second code box here is filler.
-
-Assessment: unseen line, new start, no idea text, loss under a stated threshold. Record the result separately from the practice runs.
-
-Mastery claim allowed: the learner can cut a rate because the loss got worse, and can say that the steeper line was the reason. No claim about Adam, schedules, or batch size.
-
-## After that, still regression, still one at a time
-
-1. **Baseline.** Predict the mean of `y`. Compute its loss. Keep the line only if its holdout loss is smaller. Misconception: any fitted line is an improvement; `R²` without a baseline.
-2. **Leak.** One extra column that is a copy of `y`. The training loss collapses and the honest column's holdout does not. Misconception: the lowest training loss is the best model.
+**After that, one leak.** One extra column that is a copy of `y`. The training loss collapses and the honest column's holdout does not. Not built.
 
 Then stop the track and run the cohort. Classification is the module after a passed G4, not the reward for finishing a document.
 

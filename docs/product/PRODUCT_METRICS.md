@@ -6,7 +6,7 @@ Every number below is a gate for the first cohort, not a dashboard requirement. 
 
 Primary instrument: the result sentence each sitting already builds (`regReply`, and the equivalents on the other units). Ask each engineer to send it back. That sentence includes misses. It is honest about being self-reported, and it works on the production site today.
 
-Secondary instrument, local only: `/api/events`, after the allowlist includes the names the labs send. Use it to debug the sitting. Do not quote production counts from it.
+Secondary instrument, local only: `/api/events` accepts the names the labs send. Use it to debug the sitting. Do not quote production counts from it.
 
 Do not add a warehouse, a session replay tool, or an A/B platform for this cohort.
 

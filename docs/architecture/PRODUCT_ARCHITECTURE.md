@@ -38,11 +38,9 @@ Tests are `node --experimental-strip-types --test` on the `lib/*.test.ts` files.
 
 ## Defects that are architectural
 
-1. **Allowlist.** The route accepts the gradient-descent names (`session_started`, `pre_answer`, `experiment_run`, `retention_run`, and the rest in `NAMES`). It rejects `line_started`, `line_answer`, `regression_started`, `regression_answer`, `regression_code`, `two_started`, `two_answer`, `resid_started`, and `resid_answer`, which the sittings send. Those responses are 400. `sendEvent` swallows the failure. The ML track is silent even on a developer machine.
-2. **Production log.** The `catch` around `appendFile` is deliberate. Serverless disks do not keep the file. Any metric that cites production events is invented.
-3. **Retention versus `sessionStorage`.** The seven-day rule in `lib/descent.ts` and the persistence mechanism contradict each other.
-4. **Copy that denies shipped routes.** Unit 1 and unit 2 endings tell the learner the next unit is closed.
-5. **No enforced prerequisite.** Routes are independent. The curriculum order is documentary only.
+1. **Production log.** The allowlist includes the gradient-descent names and the nine ML names (`line_*`, `regression_*`, `two_*`, `resid_*`). The `catch` around `appendFile` is deliberate. Serverless disks do not keep the file. Any metric that cites production events is invented.
+2. **Retention is off the run.** `retentionDue` remains in `lib/descent.ts` and is tested. The lab does not open that screen, because `sessionStorage` cannot be there a week later. A stored `retention` stage loads as the result.
+3. **No enforced prerequisite.** Routes are independent. A cleared bias unit links to two inputs, and a cleared two-input unit links to residuals. Nothing stops a learner from opening them in another order.
 
 ## What we will not introduce on a hunch
 
