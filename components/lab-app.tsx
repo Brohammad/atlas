@@ -11,7 +11,6 @@ import {
   DEBUG_SIGN_LR,
   EXPERIMENT_STEPS,
   LOSS_OK,
-  RETENTION_STEPS,
   debugBowl,
   debugOscBowl,
   describeBowl,
@@ -19,8 +18,6 @@ import {
   fmt,
   predictItems,
   reachedLoss,
-  retentionBowl,
-  retentionDue,
   runDescent,
   runWithStepFn,
   trajectoryNote,
@@ -181,19 +178,6 @@ export function Lab() {
           }}
         />
       )}
-      {progress.stage === "retention" && (
-        <RetentionStage
-          sessionId={progress.sessionId}
-          onDone={(passed) =>
-            setProgress({
-              ...progress,
-              retentionTried: true,
-              retentionPassed: passed,
-              stage: "results",
-            })
-          }
-        />
-      )}
     </ClearedContext.Provider>
   );
 }
@@ -206,13 +190,7 @@ function loadProgress(): Progress {
     const parsed = JSON.parse(raw) as Progress;
     if (!parsed.sessionId || !parsed.stage) return created;
     if (parsed.stage === "intro") return { ...parsed, stage: "pre" };
-    if (
-      parsed.completedAt &&
-      !parsed.retentionTried &&
-      retentionDue(parsed.startedAt, Date.now())
-    ) {
-      return { ...parsed, stage: "retention" };
-    }
+    if (parsed.stage === "retention") return { ...parsed, stage: "results" };
     return parsed;
   } catch {
     return created;
@@ -1029,71 +1007,6 @@ function ApplyStage({
   );
 }
 
-function RetentionStage({
-  sessionId,
-  onDone,
-}: {
-  sessionId: string;
-  onDone: (passed: boolean) => void;
-}) {
-  const [lr, setLr] = useState(0.5);
-  const [trace, setTrace] = useState<TracePoint[] | null>(null);
-  const [runs, setRuns] = useState(0);
-  const [passed, setPassed] = useState(false);
-  return (
-    <Frame
-      stage="retention"
-      actions={
-        <>
-          {runs < 2 && !passed && (
-            <button
-              className={primary}
-              type="button"
-              onClick={() => {
-                const next = runDescent(retentionBowl, lr, RETENTION_STEPS);
-                const ok = reachedLoss(next, RETENTION_STEPS, LOSS_OK);
-                const count = runs + 1;
-                setTrace(next);
-                setRuns(count);
-                if (ok) setPassed(true);
-                sendEvent(sessionId, "retention_run", {
-                  lr,
-                  correct: ok,
-                  run: count,
-                  steps: RETENTION_STEPS,
-                  limit: LOSS_OK,
-                });
-              }}
-            >
-              Run {RETENTION_STEPS} steps
-            </button>
-          )}
-          {(passed || runs >= 2) && (
-            <button className={ghost} type="button" onClick={() => onDone(passed)}>
-              Done
-            </button>
-          )}
-        </>
-      }
-    >
-      <h1 className="font-serif text-3xl leading-tight">A new bowl. No review.</h1>
-      <p className="mt-3 text-[15px] leading-6 text-muted">
-        {describeBowl(retentionBowl)} You get two runs, and no hint. You may change the rate between
-        runs. Each run keeps one rate for {RETENTION_STEPS} steps. Cleared if either run ends under {LOSS_OK}.
-        The loss on the way does not count.
-      </p>
-      <RateSlider lr={lr} min={0.05} max={0.8} step={0.05} onChange={setLr} />
-      <div className="mt-4">
-        <LossChart
-          bowl={retentionBowl}
-          trace={trace ?? runDescent(retentionBowl, lr, 0)}
-          cursor={trace ? trace.length - 1 : 0}
-        />
-      </div>
-    </Frame>
-  );
-}
-
 function Results({
   progress,
   onReset,
@@ -1129,10 +1042,17 @@ function Results({
       <p className="mt-4 text-[15px] leading-7 text-muted">
         {timeLabel ? `${timeLabel} in this sitting. ` : ""}
         {progress.hints} hint{progress.hints === 1 ? "" : "s"}. The second check uses different
-        questions, so a higher score can still be this page staying in your head. There is no
-        reminder. A new bowl unlocks here after seven days.
+        questions, so a higher score can still be this page staying in your head.
+        {missLabels(progress).length === 0
+          ? " Next is a line with a bias: the partial, and the step you write."
+          : ""}
       </p>
       <ReplyCard progress={progress} />
+      {missLabels(progress).length === 0 ? (
+        <Link href="/classical/regression" className={`${primary} mt-6`}>
+          A line with a bias
+        </Link>
+      ) : null}
       <ul className="mt-6 grid gap-2 sm:grid-cols-5">
         <Station
           name="Understand"
