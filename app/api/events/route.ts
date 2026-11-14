@@ -1,7 +1,8 @@
 import { appendFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 
-const NAMES = new Set([
+/** Names the labs may POST. `retention_run` is reserved for a future retention station; no client emits it today. */
+export const ALLOWED_EVENT_NAMES = [
   "session_started",
   "pre_answer",
   "understand_answer",
@@ -29,7 +30,9 @@ const NAMES = new Set([
   "rate_answer",
   "rate_run",
   "rate_unseen",
-]);
+] as const;
+
+const NAMES = new Set<string>(ALLOWED_EVENT_NAMES);
 
 export async function POST(request: Request) {
   let body: unknown;
