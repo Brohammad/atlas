@@ -1,0 +1,36 @@
+{
+ "defect_id": "AUD-018",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/5/id",
+   "value": "TML-M02-L006-Q006"
+  },
+  {
+   "op": "test",
+   "path": "/questions/5/content/response/options/1/text",
+   "value": "It converges and clears the target: stability depends only on the curvature (8 here, so the limit is 2/8 = 0.25); at eta = 0.15 the distance to 3 is multiplied by 1 - 1.2 = -0.2 each step."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/5/content/response/options/1/text",
+   "value": "It converges and clears the target: the distance to 3 is multiplied by 1 - 0.15 * 8 = -0.2 each step."
+  },
+  {
+   "op": "test",
+   "path": "/questions/5/option_feedback/B",
+   "value": "Correct: the multiplier 1 - 0.15 * 8 = -0.2 has magnitude below 1."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/5/option_feedback/B",
+   "value": "Correct: stability depends only on the curvature (8 here, so the limit is 2/8 = 0.25), and the multiplier 1 - 0.15 * 8 = -0.2 has magnitude below 1."
+  }
+ ]
+}

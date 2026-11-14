@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-015",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/0/id",
+   "value": "TML-M02-L006-Q001"
+  },
+  {
+   "op": "test",
+   "path": "/questions/0/content/options/1/text",
+   "value": "The negative gradient (-6, -20) is the direction of steepest local decrease, but it is not parallel to (-3, -1), the direction towards the minimum, so the path to the minimum generally bends."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/0/content/options/1/text",
+   "value": "The negative gradient (-6, -20) is the steepest local descent direction but is not parallel to (-3, -1), so the path to (0, 0) bends."
+  }
+ ]
+}

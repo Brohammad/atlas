@@ -1,0 +1,171 @@
+{
+ "defect_id": "AUD-024",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/8/id",
+   "value": "TML-M02-L006-Q009"
+  },
+  {
+   "op": "test",
+   "path": "/questions/8/prompt",
+   "value": "This is the second case in the lab's Debug stage. The run uses L(w) = w^2 (gradient 2w), starts at 1.2 with learning rate 0.25 for 6 steps, and the loss rises smoothly at every step without oscillating. Find and fix the defect."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/8/prompt",
+   "value": "A classmate's run on L(w) = w^2 (gradient 2w) starts at -0.8 with learning rate 0.3 for 5 steps. The loss rises smoothly at every step and w never changes sign. Find and fix the defect."
+  },
+  {
+   "op": "test",
+   "path": "/questions/8/content/defective_code/code",
+   "value": "def grad(w):\n    return 2 * w          # L(w) = w ** 2\n\ndef run(w0=1.2, lr=0.25, steps=6):\n    w = w0\n    trace = [w]\n    for _ in range(steps):\n        w = w + lr * grad(w)\n        trace.append(w)\n    return trace\n"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/8/content/defective_code/code",
+   "value": "def grad(w):\n    return 2 * w          # L(w) = w ** 2\n\ndef run(w0=-0.8, lr=0.3, steps=5):\n    w = w0\n    trace = [w]\n    for _ in range(steps):\n        w = w + lr * grad(w)\n        trace.append(w)\n    return trace\n"
+  },
+  {
+   "op": "test",
+   "path": "/questions/8/content/expected_behaviour",
+   "value": "With L(w) = w^2, w0 = 1.2 and lr = 0.25, each descent step halves w: 1.2, 0.6, 0.3, ... down to 0.01875 after 6 steps, and the loss falls at every step."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/8/content/expected_behaviour",
+   "value": "With L(w) = w^2, w0 = -0.8 and lr = 0.3, each descent step multiplies w by 1 - 2 * 0.3 = 0.4: -0.8, -0.32, -0.128, ... down to -0.008192 after 5 steps, and the loss falls at every step."
+  },
+  {
+   "op": "test",
+   "path": "/questions/8/content/observed_behaviour",
+   "value": "w goes 1.2, 1.8, 2.7, 4.05, 6.075, 9.1125, 13.66875: it grows by a factor of 1.5 per step without changing sign, and the loss rises from 1.44 to about 186.8."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/8/content/observed_behaviour",
+   "value": "w goes -0.8, -1.28, -2.048, -3.2768, -5.24288, -8.388608: its magnitude grows by a factor of 1.6 per step without changing sign, and the loss rises from 0.64 to about 70.4."
+  },
+  {
+   "op": "test",
+   "path": "/questions/8/answer/defect_explanation",
+   "value": "The update adds the scaled gradient, so it walks uphill: w is multiplied by 1 + 2 * 0.25 = 1.5 each step. Descent subtracts it: w = w - lr * grad(w). A wrong sign climbs smoothly; a rate that is too large (as in the lab's first Debug case, eta = 1.5) flips sign and grows. The rate here is modest, so the sign is the fault."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/8/answer/defect_explanation",
+   "value": "The update adds the scaled gradient, so it walks uphill: w is multiplied by 1 + 2 * 0.3 = 1.6 each step. Descent subtracts it: w = w - lr * grad(w). A wrong sign climbs smoothly; a rate that is too large for the curvature (as in the lab's first Debug case, eta = 1.5) flips sign and grows. Here 0.3 is below the limit 2/2 = 1, so the sign is the fault."
+  },
+  {
+   "op": "test",
+   "path": "/questions/8/answer/corrected_code/code",
+   "value": "def grad(w):\n    return 2 * w          # L(w) = w ** 2\n\ndef run(w0=1.2, lr=0.25, steps=6):\n    w = w0\n    trace = [w]\n    for _ in range(steps):\n        w = w - lr * grad(w)\n        trace.append(w)\n    return trace\n"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/8/answer/corrected_code/code",
+   "value": "def grad(w):\n    return 2 * w          # L(w) = w ** 2\n\ndef run(w0=-0.8, lr=0.3, steps=5):\n    w = w0\n    trace = [w]\n    for _ in range(steps):\n        w = w - lr * grad(w)\n        trace.append(w)\n    return trace\n"
+  },
+  {
+   "op": "test",
+   "path": "/questions/8/answer/failing_tests/1",
+   "value": {
+    "id": "fail_matches_descent",
+    "description": "Values must match w <- w - lr * 2w.",
+    "code": "tr = run()\nassert abs(tr[1] - 0.6) < 1e-12 and abs(tr[-1] - 0.01875) < 1e-12 and len(tr) == 7\n",
+    "timeout_seconds": 10
+   }
+  },
+  {
+   "op": "replace",
+   "path": "/questions/8/answer/failing_tests/1",
+   "value": {
+    "id": "fail_matches_descent",
+    "description": "Values must match w <- w - lr * 2w.",
+    "code": "tr = run()\nassert abs(tr[1] - (-0.32)) < 1e-12 and abs(tr[-1] - (-0.008192)) < 1e-12 and len(tr) == 6\n",
+    "timeout_seconds": 10
+   }
+  },
+  {
+   "op": "test",
+   "path": "/questions/8/lab_contract",
+   "value": {
+    "id": "ATLAS-LAB-GD-001",
+    "version": "1.0.0",
+    "claims": [
+     {
+      "part": "debug",
+      "kind": "setting",
+      "selector": {
+       "case": "B"
+      },
+      "match": {
+       "k": 2,
+       "mu": 0,
+       "w0": 1.2,
+       "lr": 0.25,
+       "steps": 6,
+       "mode": "ascent",
+       "rule": "w = w + lr * grad"
+      }
+     },
+     {
+      "part": "debug",
+      "kind": "code_defaults",
+      "selector": {
+       "case": "B"
+      },
+      "match": {
+       "w0": "w0",
+       "lr": "lr",
+       "steps": "steps"
+      }
+     },
+     {
+      "part": "debug",
+      "kind": "setting",
+      "selector": {
+       "case": "A"
+      },
+      "match": {
+       "lr": 1.5
+      }
+     }
+    ],
+    "extensions": [
+     "The learner fixes Python code; the lab's Debug stage asks for a multiple-choice diagnosis."
+    ]
+   }
+  },
+  {
+   "op": "replace",
+   "path": "/questions/8/lab_contract",
+   "value": {
+    "id": "ATLAS-LAB-GD-001",
+    "version": "1.0.0",
+    "claims": [
+     {
+      "part": "debug",
+      "kind": "setting",
+      "selector": {
+       "case": "A"
+      },
+      "match": {
+       "lr": 1.5
+      }
+     }
+    ],
+    "extensions": [
+     "Same fault type as the lab's Debug case B (the update adds the gradient) on new numbers: w0 = -0.8, lr = 0.3, 5 steps, so the item is not a replay of a case whose answer the lab already revealed.",
+     "The learner fixes Python code; the lab's Debug stage asks for a multiple-choice diagnosis."
+    ]
+   }
+  }
+ ]
+}

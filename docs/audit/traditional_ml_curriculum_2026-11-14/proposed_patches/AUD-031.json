@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-031",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+ "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/0/id",
+   "value": "TML-M06-L008-Q001"
+  },
+  {
+   "op": "test",
+   "path": "/questions/0/content/stem_context",
+   "value": "Every column below exists in the historical table."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/0/content/stem_context",
+   "value": "Every column below exists in the historical table. Each customer-month row was filled in after that month ended, so a value can have been recorded at any time up to the end of the month (and refund_issued_next_month up to the end of the following month)."
+  }
+ ]
+}

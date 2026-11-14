@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-043",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+ "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/10/id",
+   "value": "TML-M06-L008-Q011"
+  },
+  {
+   "op": "test",
+   "path": "/questions/10/content/steps/1/prompt",
+   "value": "Redesign the workflow so the validation score estimates production performance on this fleet. Be specific about feature windows, the order of operations, the split (including what happens to the 24-hour outcome window at the boundary between training and validation), any resampling, and how you would measure success. Then say what you would change if the model also had to work on newly installed machines."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/10/content/steps/1/prompt",
+   "value": "Redesign the workflow so the validation score estimates production performance on this fleet, and say how you would measure success. Then say what you would change if the model also had to work on newly installed machines."
+  }
+ ]
+}

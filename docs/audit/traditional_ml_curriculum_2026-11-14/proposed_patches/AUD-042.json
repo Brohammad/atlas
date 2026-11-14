@@ -1,0 +1,61 @@
+{
+ "defect_id": "AUD-042",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+ "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/10/id",
+   "value": "TML-M06-L008-Q011"
+  },
+  {
+   "op": "test",
+   "path": "/questions/10/answer/steps/s2/rubric/2/id",
+   "value": "R03"
+  },
+  {
+   "op": "test",
+   "path": "/questions/10/answer/steps/s2/rubric/2/required_for_pass",
+   "value": true
+  },
+  {
+   "op": "replace",
+   "path": "/questions/10/answer/steps/s2/rubric/2/required_for_pass",
+   "value": false
+  },
+  {
+   "op": "test",
+   "path": "/questions/10/answer/steps/s2/rubric/4/id",
+   "value": "R05"
+  },
+  {
+   "op": "test",
+   "path": "/questions/10/answer/steps/s2/rubric/4/required_for_pass",
+   "value": true
+  },
+  {
+   "op": "replace",
+   "path": "/questions/10/answer/steps/s2/rubric/4/required_for_pass",
+   "value": false
+  },
+  {
+   "op": "test",
+   "path": "/questions/10/answer/steps/s2/rubric/6/id",
+   "value": "R07"
+  },
+  {
+   "op": "test",
+   "path": "/questions/10/answer/steps/s2/rubric/6/required_for_pass",
+   "value": true
+  },
+  {
+   "op": "replace",
+   "path": "/questions/10/answer/steps/s2/rubric/6/required_for_pass",
+   "value": false
+  }
+ ]
+}

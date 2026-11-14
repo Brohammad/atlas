@@ -1,0 +1,146 @@
+{
+ "defect_id": "AUD-032",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+ "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/1/id",
+   "value": "TML-M06-L008-Q002"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/content/steps/0/options/1/text",
+   "value": "Train-test contamination (preprocessing statistics from the test set)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/content/steps/0/options/1/text",
+   "value": "Train-test contamination"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/content/steps/0/options/2/text",
+   "value": "Temporal leakage (future information)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/content/steps/0/options/2/text",
+   "value": "Temporal leakage in the split (training rows come from after the test rows)"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/content/steps/0/options/3/text",
+   "value": "Duplicate or group leakage (the same entity in train and test)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/content/steps/0/options/3/text",
+   "value": "Duplicate or group leakage"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/content/steps/1/options/1/text",
+   "value": "Train-test contamination (preprocessing statistics from the test set)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/content/steps/1/options/1/text",
+   "value": "Train-test contamination"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/content/steps/1/options/2/text",
+   "value": "Temporal leakage (future information)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/content/steps/1/options/2/text",
+   "value": "Temporal leakage in the split (training rows come from after the test rows)"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/content/steps/1/options/3/text",
+   "value": "Duplicate or group leakage (the same entity in train and test)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/content/steps/1/options/3/text",
+   "value": "Duplicate or group leakage"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/content/steps/2/options/1/text",
+   "value": "Train-test contamination (preprocessing statistics from the test set)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/content/steps/2/options/1/text",
+   "value": "Train-test contamination"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/content/steps/2/options/2/text",
+   "value": "Temporal leakage (future information)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/content/steps/2/options/2/text",
+   "value": "Temporal leakage in the split (training rows come from after the test rows)"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/content/steps/2/options/3/text",
+   "value": "Duplicate or group leakage (the same entity in train and test)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/content/steps/2/options/3/text",
+   "value": "Duplicate or group leakage"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/content/steps/3/options/1/text",
+   "value": "Train-test contamination (preprocessing statistics from the test set)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/content/steps/3/options/1/text",
+   "value": "Train-test contamination"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/content/steps/3/options/2/text",
+   "value": "Temporal leakage (future information)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/content/steps/3/options/2/text",
+   "value": "Temporal leakage in the split (training rows come from after the test rows)"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/content/steps/3/options/3/text",
+   "value": "Duplicate or group leakage (the same entity in train and test)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/content/steps/3/options/3/text",
+   "value": "Duplicate or group leakage"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/answer/steps/s2/feedback/C",
+   "value": "It is also post-outcome in time, but the core problem is that the feature is caused by the label; 'target leakage' is the best label."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/answer/steps/s2/feedback/C",
+   "value": "The feature is post-outcome, but the split is not the problem here. A feature that exists only because of, or after, the outcome is target leakage."
+  }
+ ]
+}

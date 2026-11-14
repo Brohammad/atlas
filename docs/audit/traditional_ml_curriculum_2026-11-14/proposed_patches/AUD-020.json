@@ -1,0 +1,116 @@
+{
+ "defect_id": "AUD-020",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/6/id",
+   "value": "TML-M02-L006-Q007"
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/content/response/options/0/text",
+   "value": "A: well-chosen rate; B: diverging (sign flips with growing amplitude); C: rate too small (slow, steady decrease); D: just below the stability limit (sign flips with slowly shrinking amplitude)."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/content/response/options/0/text",
+   "value": "A well-chosen; B diverging; C too small; D converging while oscillating."
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/content/response/options/1/text",
+   "value": "A: rate too small; B: diverging; C: well-chosen rate; D: diverging."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/content/response/options/1/text",
+   "value": "A too small; B diverging; C well-chosen; D diverging."
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/content/response/options/2/text",
+   "value": "D is diverging, because its values change sign every step."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/content/response/options/2/text",
+   "value": "A well-chosen; B converging while oscillating; C too small; D diverging."
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/content/response/options/3/text",
+   "value": "B is converging, because its oscillations are centred on 0."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/content/response/options/3/text",
+   "value": "A well-chosen; B diverging; C too small; D diverging."
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/option_feedback/A",
+   "value": "Correct. The multipliers are 0.2, -1.1, 0.98 and -0.9."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/option_feedback/A",
+   "value": "Correct. The multipliers are 0.2 (A), -1.1 (B), 0.98 (C) and -0.9 (D): B's amplitude grows, D's shrinks."
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/option_feedback/B",
+   "value": "C barely moves (multiplier 0.98): that is a too-small rate, not a good one. D's amplitude shrinks, so it converges."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/option_feedback/B",
+   "value": "C barely moves (multiplier 0.98): that is a too-small rate, not a good one. A shrinks by a factor of 5 per step, and D's amplitude shrinks, so it converges."
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/option_feedback/C",
+   "value": "Sign flips alone do not mean divergence; D's amplitude shrinks by 10% per step."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/option_feedback/C",
+   "value": "B's amplitude grows by 10% per step: it diverges even though it is centred on 0. D is the run whose oscillation shrinks."
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/option_feedback/D",
+   "value": "B's amplitude grows by 10% per step: it diverges, even though it is centred on 0."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/option_feedback/D",
+   "value": "Sign flips alone do not mean divergence; D's amplitude shrinks by 10% per step, so it converges."
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/misconception_evidence/0",
+   "value": {
+    "misconception_id": "TML-MC-033",
+    "kind": "distractor",
+    "ref": "D",
+    "rationale": "Reads growing oscillation as convergence."
+   }
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/misconception_evidence/0",
+   "value": {
+    "misconception_id": "TML-MC-033",
+    "kind": "distractor",
+    "ref": "C",
+    "rationale": "Reads B's growing oscillation as convergence."
+   }
+  }
+ ]
+}

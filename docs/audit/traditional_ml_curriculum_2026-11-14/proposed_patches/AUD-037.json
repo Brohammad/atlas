@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-037",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+ "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/5/id",
+   "value": "TML-M06-L008-Q006"
+  },
+  {
+   "op": "add",
+   "path": "/questions/5/answer/failing_tests/-",
+   "value": {
+    "id": "fail_exact_window",
+    "description": "Values equal the mean of the previous 7 days (fewer at the start).",
+    "code": "import numpy as np, pandas as pd\ndf = pd.DataFrame({'date': pd.date_range('2026-01-01', periods=20), 'sales': np.arange(20.0)})\nf = add_sales_feature(df)['sales_7d_mean']\nassert np.isnan(f[0]) and f[1] == 0.0 and f[3] == 1.0 and f[10] == 6.0 and f[19] == 15.0, f.tolist()\n",
+    "timeout_seconds": 10
+   }
+  }
+ ]
+}

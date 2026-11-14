@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-003",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+ "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/3/id",
+   "value": "TML-M01-L002-Q004"
+  },
+  {
+   "op": "test",
+   "path": "/questions/3/hints/0",
+   "value": "Start from G^T and apply the product rule with A = X^T and B = X."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/3/hints/0",
+   "value": "Start from G^T and apply the transpose-of-a-product rule (AB)^T = B^T A^T with A = X^T and B = X."
+  }
+ ]
+}

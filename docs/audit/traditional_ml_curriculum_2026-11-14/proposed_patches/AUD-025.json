@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-025",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/8/id",
+   "value": "TML-M02-L006-Q009"
+  },
+  {
+   "op": "add",
+   "path": "/questions/8/answer/failing_tests/-",
+   "value": {
+    "id": "fail_explicit_args_and_gradient",
+    "description": "Descent with explicit arguments, and grad() is the true gradient of w^2.",
+    "code": "tr = run(w0=-0.8, lr=0.3, steps=5)\nassert len(tr) == 6 and abs(tr[-1] - (-0.8 * 0.4 ** 5)) < 1e-12, tr\nassert grad(1.5) == 3.0 and grad(-2.0) == -4.0\n",
+    "timeout_seconds": 10
+   }
+  }
+ ]
+}

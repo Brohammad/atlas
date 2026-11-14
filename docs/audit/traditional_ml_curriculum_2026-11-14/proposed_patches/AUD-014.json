@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-014",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/0/id",
+   "value": "TML-M02-L006-Q001"
+  },
+  {
+   "op": "test",
+   "path": "/questions/0/option_feedback/A",
+   "value": "This holds only for perfectly round bowls such as w1^2 + w2^2. Here the directions are not parallel, so no step size along this line passes through (0, 0)."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/0/option_feedback/A",
+   "value": "This holds on round bowls such as w1^2 + w2^2, and on this bowl only when you start exactly on an axis, e.g. at (3, 0). From (3, 1) the directions are not parallel, so no step size along this line passes through (0, 0)."
+  }
+ ]
+}

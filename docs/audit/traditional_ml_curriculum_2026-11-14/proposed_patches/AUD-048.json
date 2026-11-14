@@ -1,0 +1,21 @@
+{
+ "defect_id": "AUD-048",
+ "also_fixes": [],
+ "target": "traditional_ml/architecture/assembly_rules.json",
+ "target_sha256_at_audit": "86707928242c96dcf4534192f6af9b3975643f2a0a6639659f182f147706214f",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/lesson_practice/rules/2",
+   "value": "Rubric items show a provisional LLM score labelled 'provisional' until human-graded or calibrated."
+  },
+  {
+   "op": "replace",
+   "path": "/lesson_practice/rules/2",
+   "value": "Rubric items are graded by a trained human marker (DEC-018: no AI grader at launch); until the marker scores the response, the learner sees 'awaiting review', never a machine-generated score."
+  }
+ ]
+}

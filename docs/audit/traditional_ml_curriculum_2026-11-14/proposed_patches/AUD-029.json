@@ -1,0 +1,36 @@
+{
+ "defect_id": "AUD-029",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/12/id",
+   "value": "TML-M02-L006-Q013"
+  },
+  {
+   "op": "add",
+   "path": "/questions/12/answer/hidden_tests/-",
+   "value": {
+    "id": "hid_max_curvature",
+    "description": "Data whose curvature at the solution is essentially 1: a fixed rate above the bound 2 does not converge.",
+    "code": "import numpy as np\ny = [0.0, 0.0, 0.0, 0.0, 0.001]\nlo, hi = 0.0, 0.001\nfor _ in range(200):\n    m = (lo + hi) / 2\n    if np.mean(np.tanh(m - np.asarray(y))) > 0: hi = m\n    else: lo = m\nassert abs(robust_center(y) - m) < 1e-9, (robust_center(y), m)\n",
+    "timeout_seconds": 20
+   }
+  },
+  {
+   "op": "add",
+   "path": "/questions/12/content/hidden_test_descriptions/-",
+   "value": "Data whose curvature at the solution is essentially at its maximum of 1."
+  },
+  {
+   "op": "add",
+   "path": "/questions/12/content/constraints/-",
+   "value": "Use one fixed learning rate for every update (no line search and no Newton steps)."
+  }
+ ]
+}

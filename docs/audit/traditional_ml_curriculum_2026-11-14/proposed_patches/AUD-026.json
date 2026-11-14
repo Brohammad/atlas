@@ -1,0 +1,31 @@
+{
+ "defect_id": "AUD-026",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/10/id",
+   "value": "TML-M02-L006-Q011"
+  },
+  {
+   "op": "add",
+   "path": "/questions/10/answer/hidden_tests/-",
+   "value": {
+    "id": "hid_run_calls_step",
+    "description": "run calls step once per update.",
+    "code": "_calls = []\n_orig_step = step\ndef step(w, grad, lr):\n    _calls.append(1)\n    return _orig_step(w, grad, lr)\ntr = run(2, 0, 3, 0.1, 5)\nstep = _orig_step\nassert len(_calls) == 5 and len(tr) == 6, len(_calls)\n",
+    "timeout_seconds": 10
+   }
+  },
+  {
+   "op": "add",
+   "path": "/questions/10/content/hidden_test_descriptions/-",
+   "value": "run calls step for every update."
+  }
+ ]
+}

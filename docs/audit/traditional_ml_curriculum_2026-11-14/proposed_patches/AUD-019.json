@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-019",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/5/id",
+   "value": "TML-M02-L006-Q006"
+  },
+  {
+   "op": "test",
+   "path": "/questions/5/prompt",
+   "value": "In the lab you cleared the steeper bowl 5 w^2 with eta = 0.15. Now take a bowl the lab does not use: L(w) = 4 (w - 3)^2, starting at w = -2, same update, 10 steps, target loss 0.05. A classmate argues the minimum has moved and the start is 5 units away, so eta = 0.15 must be re-tuned from scratch. Predict what eta = 0.15 does here."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/5/prompt",
+   "value": "In the lab's Experiment stage, eta = 0.15 clears the steeper bowl 5 w^2. Now take a bowl the lab does not use: L(w) = 4 (w - 3)^2, starting at w = -2, same update, 10 steps, target loss 0.05. A classmate argues the minimum has moved and the start is 5 units away, so eta = 0.15 must be re-tuned from scratch. Predict what eta = 0.15 does here."
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-002",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+ "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/1/id",
+   "value": "TML-M01-L002-Q002"
+  },
+  {
+   "op": "test",
+   "path": "/questions/1/feedback/common_errors/2",
+   "value": "Using 0-based indexing and picking row 3 or column 2."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/1/feedback/common_errors/2",
+   "value": "Reading column 1 as the second column (a 0-based habit), giving (AB)_{2,2} = 0*1 + 3*0 + 2*5 = 10."
+  }
+ ]
+}

@@ -1,0 +1,4642 @@
+{
+ "metadata": {
+  "auditor_role": "Independent Curriculum Auditor, Project Atlas, Traditional ML track (not the product architect; no application code modified)",
+  "audit_date": "2026-11-14",
+  "timezone": "Asia/Calcutta (IST, UTC+5:30)",
+  "generated_at_ist": "2026-11-14 12:23 IST",
+  "scope": "35 pilot questions in three banks (TML-M01-L002: 11, TML-M02-L006: 13, TML-M06-L008: 11) and the curriculum entries of those three lessons, plus curriculum-level defects encountered. Not an exhaustive audit of all 20 modules.",
+  "not_read": [
+   "traditional_ml/curriculum/coverage_matrix.json",
+   "traditional_ml/validation/phase3_5_report.json",
+   "concept_surface_forms.json",
+   "other modules' question banks"
+  ],
+  "sources_read": [
+   {
+    "path": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+    "sha256": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+    "how_read": "read in full"
+   },
+   {
+    "path": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+    "sha256": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+    "how_read": "read in full"
+   },
+   {
+    "path": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+    "sha256": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+    "how_read": "read in full"
+   },
+   {
+    "path": "traditional_ml/curriculum/lesson_index.json",
+    "sha256": "23107862e65b8f959de286968603a50fd9bb459a3e164cc6c9225a2fd4e84b89",
+    "how_read": "read in full"
+   },
+   {
+    "path": "traditional_ml/curriculum/module_index.json",
+    "sha256": "a643ccfd3e86e03a907b81158a6518d6b26461cb6ef0353f59e20b680daddffe",
+    "how_read": "read in full"
+   },
+   {
+    "path": "traditional_ml/curriculum/stages.json",
+    "sha256": "902f8edbe0ff1aa69a4d14bd9e84701dfd239939293cc8b87f8c15a9c776ff15",
+    "how_read": "read in full"
+   },
+   {
+    "path": "traditional_ml/curriculum/prerequisite_graph.json",
+    "sha256": "d7f484fccce769838b146b94894ac88cda018d6c09e7e0eddbeca62f2901eaa0",
+    "how_read": "read in full"
+   },
+   {
+    "path": "traditional_ml/labs/gradient_descent_lab.contract.json",
+    "sha256": "0b7cec45f7009c19628f64fd5c7293404264751280692835998457d62f195277",
+    "how_read": "read in full"
+   },
+   {
+    "path": "traditional_ml/PHASE3_5_SUMMARY.md",
+    "sha256": "11a159bce3090e3b89b04a7bcde38ccbc2fc54e9e89de03f39d62cee214f8f80",
+    "how_read": "read in full"
+   },
+   {
+    "path": "traditional_ml/schemas/question.schema.json",
+    "sha256": "5afa25c1285e54f2a668368b212448ffd40cfb5df02b9402639d9f8cd76e03c3",
+    "how_read": "read in full"
+   },
+   {
+    "path": "traditional_ml/validation/validators/v_schema.py",
+    "sha256": "0ef98f58a90132db1ec6323b507a271377e8b352a2193186ebd0552353ce3220",
+    "how_read": "read in full"
+   },
+   {
+    "path": "traditional_ml/ARTIFACT_MANIFEST.json",
+    "sha256": "0cb0b5bf308d8447f3a8e305d076d079fa430da4c65f387f75082ad7b2062fee",
+    "how_read": "read in full"
+   },
+   {
+    "path": "traditional_ml/curriculum/curriculum_audit.json",
+    "sha256": "0f49b6ffed95cbb7092ed84790f85b81f91b8a494056a87da319e21b1d17a424",
+    "how_read": "read in part or searched (sections relevant to the audited items)"
+   },
+   {
+    "path": "traditional_ml/misconceptions/misconception_database.json",
+    "sha256": "0b69ffa6ad71c0453ca635d5a9e5e0adf50c264863dfd56115b757e319522804",
+    "how_read": "read in part or searched (sections relevant to the audited items)"
+   },
+   {
+    "path": "traditional_ml/architecture/difficulty_framework.json",
+    "sha256": "b7d8c7b9423737f7bddf065abf141a84ca254654744c663a764a97c7554e8c10",
+    "how_read": "read in part or searched (sections relevant to the audited items)"
+   },
+   {
+    "path": "traditional_ml/architecture/assembly_rules.json",
+    "sha256": "86707928242c96dcf4534192f6af9b3975643f2a0a6639659f182f147706214f",
+    "how_read": "read in part or searched (sections relevant to the audited items)"
+   },
+   {
+    "path": "traditional_ml/architecture/feedback_framework.json",
+    "sha256": "629f5f26df5f2d1e1523cc66b4e74fee236dc946522014923f86c7bc2fa22f9f",
+    "how_read": "read in part or searched (sections relevant to the audited items)"
+   },
+   {
+    "path": "traditional_ml/architecture/grading_spec.json",
+    "sha256": "b3e01fabc795977c4ea7c41f3c01c942107ad6a25ca38083a6f7743c23b28e51",
+    "how_read": "read in part or searched (sections relevant to the audited items)"
+   },
+   {
+    "path": "traditional_ml/architecture/misconception_mapping.json",
+    "sha256": "d276c2eacbc606e07d951108651bc273638f64287275dda4162f74e72f3312a1",
+    "how_read": "read in part or searched (sections relevant to the audited items)"
+   },
+   {
+    "path": "traditional_ml/architecture/review_protocol.json",
+    "sha256": "f9c427252ef00d9860c684bfe92396f30713d7f06ed3484d63be7575c6f11417",
+    "how_read": "read in part or searched (sections relevant to the audited items)"
+   },
+   {
+    "path": "traditional_ml/validation/validation_results.json",
+    "sha256": "c11be7dc20b57ad86d11e871c4378818627f30829ce91af0e0564cc350fa9d96",
+    "how_read": "read in part or searched (sections relevant to the audited items)"
+   },
+   {
+    "path": "traditional_ml/validation/human_review_queue.json",
+    "sha256": "47acd4e001c1f93b9e467c6c1203613e114f7ff7eaeed227830c103e6591aae2",
+    "how_read": "read in part or searched (sections relevant to the audited items)"
+   },
+   {
+    "path": "traditional_ml/PHASE3_5_BACKLOG.md",
+    "sha256": "168d028187ca333d6626909d4860ef3a0e059f4af8a21f1109e73554494f98a1",
+    "how_read": "read in part or searched (sections relevant to the audited items)"
+   },
+   {
+    "path": "/cursor/stores/user/grok-bot/agents/558af06f-57dc-4f8a-81b8-d64ca9e6ad55/assets/01M79R50YR6WW5D7PEP9SCVVJ4.md",
+    "sha256": "e1b22149f8b97cfb50484bbee1522bd97a47c12ad18d1c35a9a780a76b4bfe1d",
+    "how_read": "repository inspection report, sections 4 to 7 read"
+   }
+  ],
+  "executed": [
+   "scratch/hashcheck.py: sha256 of every file under traditional_ml/ against ARTIFACT_MANIFEST.json, before (hashes_before.json) and after (hashes_after.json) the audit",
+   "scratch/recompute_numeric.py: independent recomputation of every numeric key, distractor and diagnostic value in the three banks (output recompute_numeric_out.json); all keys correct",
+   "scratch/recompute_m06_q003.py: simulation of M06 Q003 (select-on-all-rows vs train-only feature selection on noise, 100 seeds)",
+   "scratch/code_harness.py: ran every coding/debugging item's reference or corrected code, every defective original, and 21 auditor-written mutants against the item's own public, hidden and failing tests, each in a fresh python -I subprocess (output code_harness_out.json). Note: no sandbox or import hook was available, so allowed_imports was not enforced.",
+   "scratch/option_cue_analysis.py: option-length analysis of 22 single-choice decisions (output option_cue_out.json)",
+   "scratch/build_patches.py: applied each of 39 patches to a deep copy of its source with jsonpatch 1.33, validated patched items against question.schema.json and patched banks against question_bank.schema.json with jsonschema 4.26.0 Draft202012Validator and a Registry over traditional_ml/schemas (validator sanity-checked to reject a deliberately invalid item); then applied all patches per target in sequence to a copy and validated again",
+   "scratch/retest_patched.py: re-ran the code tests on patched copies of M02 Q009, Q011, Q012, Q013 and M06 Q004, Q006 (output retest_patched_out.json)",
+   "scratch/build_findings.py and assemble.py: generated this file; every quoted excerpt was asserted to occur verbatim at its JSON pointer"
+  ],
+  "not_executed": [
+   "The repository validators (validate_phase1.py, validators/*) were read in part but not re-run; the 1,134-check figure is taken from validation_results.json.",
+   "No learner data or calibration responses were available; difficulty and time judgements are expert estimates.",
+   "The live product and lab were not opened; lab facts come from the lab contract and the repository inspection report."
+  ],
+  "environment": "Separate audit venv /workspace/atlas_audit_venv (Python 3.13.5, numpy 2.5.4, pandas 3.1.1, jsonschema 4.26.0, jsonpatch 1.33); existing venvs untouched.",
+  "source_integrity": "See top-level source_integrity."
+ },
+ "severity_definitions": {
+  "critical": "Wrong key, grading that misgrades most learners, or the item teaches false content as correct.",
+  "high": "The item cannot measure its objective; a pass gate depends on untaught content; feedback states something false; a strong test-wiseness cue (key at least 2x the next-longest option or an equivalent giveaway); or a specification contradiction that enables a banned practice.",
+  "medium": "Weakened validity, transfer or grading reliability; graders could disagree; tests accept specific wrong answers or reject legitimate ones while the rubric or other items partly mitigate.",
+  "low": "Polish, metadata or minor wording issues with no material effect on scores."
+ },
+ "criteria": [
+  "technical_correctness",
+  "mathematical_correctness",
+  "prerequisite_validity",
+  "pedagogical_clarity",
+  "assessment_validity",
+  "misconception_alignment",
+  "feedback_quality",
+  "difficulty_calibration",
+  "independent_transfer",
+  "ambiguity_edge_cases"
+ ],
+ "scorecard_scale": {
+  "pass": "no problem found",
+  "concern": "medium or low defect, or a weak point below defect threshold",
+  "fail": "high or critical defect on this criterion"
+ },
+ "scorecards": [
+  {
+   "question_id": "TML-M01-L002-Q001",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "type": "multi_select",
+   "difficulty": 1,
+   "learning_objectives": [
+    "TML-M01-L002-O01",
+    "TML-M01-L002-O03"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 3,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M01.Q001.defined."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O01, O03."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-003; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 1 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 1 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "pass",
+   "defect_ids": [],
+   "auditor_note": "Strong item: multi-select on shape compatibility; every option resolves by shape rules."
+  },
+  {
+   "question_id": "TML-M01-L002-Q002",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "type": "numerical",
+   "difficulty": 1,
+   "learning_objectives": [
+    "TML-M01-L002-O02"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 2,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M01.Q002.AB, M01.Q002.key_(2,1), M01.Q002.common_error_row1, M01.Q002.note_0based_row3_exists."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O02."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "No misconception linked; acceptable for this item."
+    },
+    "feedback_quality": {
+     "result": "concern",
+     "reason": "AUD-002 (low): A has only 2 rows, so 'picking row 3' is impossible; the listed error cannot be matched to any numeric response, which defeats the value-specific feedback rule in feedback_framework.json."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 1 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 1 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "concern",
+     "reason": "AUD-002 (low): A has only 2 rows, so 'picking row 3' is impossible; the listed error cannot be matched to any numeric response, which defeats the value-specific feedback rule in feedback_framework.json."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-002"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M01-L002-Q003",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "type": "prediction",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M01-L002-O02",
+    "TML-M01-L002-O05"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 2,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "fail",
+     "reason": "AUD-001 (high): Option B, (2, 2) for A * B.T, is not what a learner who reads * as a matrix product would predict: a matrix product of two (2, 3) arrays is undefined, so that learner predicts a ValueError (option C)."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O02, O05."
+    },
+    "misconception_alignment": {
+     "result": "fail",
+     "reason": "AUD-001 (high): Option B, (2, 2) for A * B.T, is not what a learner who reads * as a matrix product would predict: a matrix product of two (2, 3) arrays is undefined, so that learner predicts a ValueError (option C)."
+    },
+    "feedback_quality": {
+     "result": "fail",
+     "reason": "AUD-001 (high): Option B, (2, 2) for A * B.T, is not what a learner who reads * as a matrix product would predict: a matrix product of two (2, 3) arrays is undefined, so that learner predicts a ValueError (option C)."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 2 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "fail",
+   "defect_ids": [
+    "AUD-001"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M01-L002-Q004",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "type": "formula_derivation",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M01-L002-O03"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 6,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "No numeric claim beyond trivial ones; nothing incorrect found."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "concern",
+     "reason": "AUD-003 (low): 'the product rule' is ambiguous for learners who know the calculus product rule; the hint means the transpose-of-a-product rule."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O03."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-005; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 2 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-003"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M01-L002-Q005",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "type": "fill_blank",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M01-L002-O04",
+    "TML-M01-L002-O01"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 3,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M01.Q005."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O04, O01."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-006; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 2 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "pass",
+   "defect_ids": [],
+   "auditor_note": "Strong item: fill-blank on axis semantics with unambiguous answers."
+  },
+  {
+   "question_id": "TML-M01-L002-Q006",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "type": "multiple_choice",
+   "difficulty": 1,
+   "learning_objectives": [
+    "TML-M01-L002-O06"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 2,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M01.Q006.det, M01.Q006.fb_D_det_[[1,2],[2,1]], M01.Q006.fb_A_det_[[1,1],[1,1]]."
+    },
+    "prerequisite_validity": {
+     "result": "concern",
+     "reason": "AUD-004 (medium): The keyed option, explanation and first hint rely on the 2x2 determinant."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "fail",
+     "reason": "AUD-004 (medium): The keyed option, explanation and first hint rely on the 2x2 determinant. AUD-005 (high): Test-wiseness cue: the key is 135 characters against at most 59 for any distractor (2.29x) and is the only option with a justification, so 'pick the longest, most qualified option' scores without understanding."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-273; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 1 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 1 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "fail",
+     "reason": "AUD-005 (high): Test-wiseness cue: the key is 135 characters against at most 59 for any distractor (2.29x) and is the only option with a justification, so 'pick the longest, most qualified option' scores without understanding."
+    }
+   },
+   "overall": "fail",
+   "defect_ids": [
+    "AUD-004",
+    "AUD-005"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M01-L002-Q007",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "type": "short_answer",
+   "difficulty": 3,
+   "learning_objectives": [
+    "TML-M01-L002-O06"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 5,
+   "scores": {
+    "technical_correctness": {
+     "result": "concern",
+     "reason": "AUD-006 (medium): If A does not change inside the loop (a common reading of 'hot loop'), the best answer is to factorise once outside the loop (lu_factor/cho_factor and lu_solve)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M01.Q007.inv_over_solve_single, M01.Q007.loop_invariant_A_K1000_flops."
+    },
+    "prerequisite_validity": {
+     "result": "concern",
+     "reason": "AUD-007 (medium): R04 is required for pass and asks for 'no solution or infinitely many'."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-007 (medium): R04 is required for pass and asks for 'no solution or infinitely many'."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-007; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 3 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "concern",
+     "reason": "AUD-006 (medium): If A does not change inside the loop (a common reading of 'hot loop'), the best answer is to factorise once outside the loop (lu_factor/cho_factor and lu_solve)."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-006",
+    "AUD-007"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M01-L002-Q008",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "type": "debugging",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M01-L002-O05",
+    "TML-M01-L002-O04"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 6,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Reference or corrected code passes its own tests and the defective code (if any) fails them in the auditor harness (python -I subprocess)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M01.Q008.buggy, M01.Q008.correct."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O05, O04."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-006, TML-MC-268; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 2 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "concern",
+     "reason": "AUD-008 (low): The config refers to a 'hidden shape-variant test' that does not exist in the item; the shape-variant check is the public failing test fail_both_weight_shapes."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-008"
+   ],
+   "auditor_note": "Strong debugging item: the (n,1) vs (n,) broadcasting bug is realistic; a wrong fix (reshaping y only) is rejected by the tests."
+  },
+  {
+   "question_id": "TML-M01-L002-Q009",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "type": "code_reading",
+   "difficulty": 3,
+   "learning_objectives": [
+    "TML-M01-L002-O05"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 4,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M01.Q009.cols_centered_by_bug, M01.Q009.error_message."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-009 (medium): Key is 221 characters against at most 123 (1.8x) and is the only option with a complete mechanism plus fix, which cues test-wise learners."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-268, TML-MC-006; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 3 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-009"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M01-L002-Q010",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "type": "coding",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M01-L002-O02",
+    "TML-M01-L002-O01"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 10,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Reference or corrected code passes its own tests and the defective code (if any) fails them in the auditor harness (python -I subprocess)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M01.Q010.pub_basic."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O02, O01."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-004; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 2 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "pass",
+   "defect_ids": [],
+   "auditor_note": "Strong coding item: from-scratch matmul with a shape check; a wrong length check is rejected by the tests."
+  },
+  {
+   "question_id": "TML-M01-L002-Q011",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "type": "multi_step",
+   "difficulty": 4,
+   "learning_objectives": [
+    "TML-M01-L002-O01",
+    "TML-M01-L002-O04",
+    "TML-M01-L002-O05"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 12,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M01.Q011.s2_bytes, M01.Q011.chunk_bytes, M01.Q011.s2_if_learner_chose_B_(10000,32), M01.Q011.E_full_bytes_2e6x64."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-010 (medium): R03 is required and prescribes a running best."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-003, TML-MC-004; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "concern",
+     "reason": "AUD-012 (medium): The level-4 mastery item is scaffolded into four steps; s1 and s3 are single-step shape recognition at the level of Q001 (s3 is nearly s1 again), so 2 of 5 points need no transfer."
+    },
+    "independent_transfer": {
+     "result": "concern",
+     "reason": "AUD-012 (medium): The level-4 mastery item is scaffolded into four steps; s1 and s3 are single-step shape recognition at the level of Q001 (s3 is nearly s1 again), so 2 of 5 points need no transfer."
+    },
+    "ambiguity_edge_cases": {
+     "result": "concern",
+     "reason": "AUD-010 (medium): R03 is required and prescribes a running best. AUD-011 (low): Carry-forward is meaningless here: S and S.T have the same byte count (auditor-recomputed 2,560,000 either way), and the other s1 options are undefined products, so there is no learner shape to carry forward."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-010",
+    "AUD-011",
+    "AUD-012"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M02-L006-Q001",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "multiple_choice",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M02-L006-O01"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 3,
+   "scores": {
+    "technical_correctness": {
+     "result": "concern",
+     "reason": "AUD-014 (low): Option A feedback overgeneralises: the gradient also points at the minimum from an axis start on this bowl."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M02.Q001.ratios."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-015 (medium): Key is 191 characters against at most 134 (1.43x) and is the most qualified option."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-023; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "concern",
+     "reason": "AUD-014 (low): Option A feedback overgeneralises: the gradient also points at the minimum from an axis start on this bowl."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 2 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-014",
+    "AUD-015"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M02-L006-Q002",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "numerical",
+   "difficulty": 1,
+   "learning_objectives": [
+    "TML-M02-L006-O01"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 2,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M02.Q002."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O01."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-034; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 1 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 1 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "pass",
+   "defect_ids": [],
+   "auditor_note": "Clean two-step numeric item on a bowl not used by the lab."
+  },
+  {
+   "question_id": "TML-M02-L006-Q003",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "multi_step",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M02-L006-O01",
+    "TML-M02-L006-O02"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 5,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M02.Q003."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-016 (medium): s1 (gradient 5) and s2 (w1 = 3.25) reproduce the lab's Understand step on the same bowl, rate and start, which the lab displays."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-034; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "concern",
+     "reason": "AUD-016 (medium): s1 (gradient 5) and s2 (w1 = 3.25) reproduce the lab's Understand step on the same bowl, rate and start, which the lab displays."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-016"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M02-L006-Q004",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "multi_step",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M02-L006-O02"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 6,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M02.Q004.multipliers, M02.Q004.s5_loss_after_10."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O02."
+    },
+    "misconception_alignment": {
+     "result": "concern",
+     "reason": "MC-031 evidence on s4 option A is weak: choosing \"converges monotonically\" at eta 1.5 does not specifically indicate MC-031 (folded into the MAP-03 curriculum finding, see the MAP-03 defect)."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "concern",
+     "reason": "AUD-017 (medium): The prompt hands over the multiplier that decides every step, and three of the four rates (0.1, 0.5, 1.5) are the lab's Predict-stage rates on the same bowl, whose outcomes the lab reveals immediately."
+    },
+    "independent_transfer": {
+     "result": "concern",
+     "reason": "AUD-017 (medium): The prompt hands over the multiplier that decides every step, and three of the four rates (0.1, 0.5, 1.5) are the lab's Predict-stage rates on the same bowl, whose outcomes the lab reveals immediately."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-017"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M02-L006-Q005",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "numerical",
+   "difficulty": 3,
+   "learning_objectives": [
+    "TML-M02-L006-O02"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 4,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M02.Q005.eta_max, M02.Q005.steep_clear_set, M02.Q005.flat_clear_set, M02.Q005.loss_at_eta_0.2, M02.Q005.distractors."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O02."
+    },
+    "misconception_alignment": {
+     "result": "concern",
+     "reason": "AUD-030 (low): The item recognises diagnostic values (0.1 and 0.4) in feedback but links no misconception, while sibling items (Q002, Q003) link diagnostic numeric values under the broadened MAP-03 rule."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 3 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-030"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M02-L006-Q006",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "prediction",
+   "difficulty": 3,
+   "learning_objectives": [
+    "TML-M02-L006-O02"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 4,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M02.Q006, M02.Q006.start_distance_where_eta0.15_stops_clearing."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "concern",
+     "reason": "AUD-019 (low): Presupposes a lab history the learner may not have: the lab lets learners continue without clearing, and 0.05 and 0.10 also clear that bowl (auditor-recomputed clearing set 0.05, 0.10, 0.15)."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-018 (medium): Key is 188 characters against at most 120 (1.57x) and states the full reasoning."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "No misconception linked; acceptable for this item."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 3 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-018",
+    "AUD-019"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M02-L006-Q007",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "visual_interpretation",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M02-L006-O05",
+    "TML-M02-L006-O02"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 4,
+   "scores": {
+    "technical_correctness": {
+     "result": "concern",
+     "reason": "AUD-022 (low): For a convex quadratic in any number of dimensions, converging full-batch GD decreases every eigen-component of the loss monotonically, so a multi-dimensional quadratic loss does not show oscillation either."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M02.Q007.A, M02.Q007.B, M02.Q007.C, M02.Q007.D."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "fail",
+     "reason": "AUD-020 (high): Key is 193 characters, the next longest 67 (2.88x). AUD-021 (medium): The item is tagged O05 (interpret a training loss curve), but it shows parameter trajectories, and the item itself notes that the loss curve would not show the oscillation."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-033, TML-MC-270; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 2 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "fail",
+   "defect_ids": [
+    "AUD-020",
+    "AUD-021",
+    "AUD-022"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M02-L006-Q008",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "data_interpretation",
+   "difficulty": 3,
+   "learning_objectives": [
+    "TML-M02-L006-O05",
+    "TML-M02-L006-O02"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 6,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M02.Q008.table, M02.Q008.share_w2_term_step50, M02.Q008.w1_mult_eta0.1."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "fail",
+     "reason": "AUD-023 (high): Key is 303 characters against at most 119 (2.55x) and is the only option with a mechanism, evidence and remedy."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-031; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 3 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "fail",
+   "defect_ids": [
+    "AUD-023"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M02-L006-Q009",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "debugging",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M02-L006-O03"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 4,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Reference or corrected code passes its own tests and the defective code (if any) fails them in the auditor harness (python -I subprocess)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M02.Q009.observed, M02.Q009.loss_end, M02.Q009.expected_end."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-024 (medium): Item is the lab Debug case B verbatim; the lab already reveals the diagnosis, so it tests recall. AUD-025 (medium): The tests call run() only with its defaults."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-034; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "concern",
+     "reason": "AUD-024 (medium): Item is the lab Debug case B verbatim; the lab already reveals the diagnosis, so it tests recall."
+    },
+    "ambiguity_edge_cases": {
+     "result": "concern",
+     "reason": "AUD-025 (medium): The tests call run() only with its defaults."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-024",
+    "AUD-025"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M02-L006-Q010",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "debugging",
+   "difficulty": 3,
+   "learning_objectives": [
+    "TML-M02-L006-O03",
+    "TML-M02-L006-O05"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 5,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Reference or corrected code passes its own tests and the defective code (if any) fails them in the auditor harness (python -I subprocess)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M02.Q010.observed_w10, M02.Q010.observed_loss, M02.Q010.expected_loss10."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O03, O05."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-027; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 3 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "pass",
+   "defect_ids": [],
+   "auditor_note": "Strong debugging item; the MC-027 link is acceptable."
+  },
+  {
+   "question_id": "TML-M02-L006-Q011",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "coding",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M02-L006-O04",
+    "TML-M02-L006-O01"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 8,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Reference or corrected code passes its own tests and the defective code (if any) fails them in the auditor harness (python -I subprocess)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M02.Q011.divergence_len, M02.Q011.shifted_bowl_w1."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-026 (low): Unenforced constraint: a run() that inlines w - lr * grad and never calls step passed every test in the auditor's harness."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-034, TML-MC-032; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 2 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-026"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M02-L006-Q012",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "coding",
+   "difficulty": 3,
+   "learning_objectives": [
+    "TML-M02-L006-O04"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 15,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Reference or corrected code passes its own tests and the defective code (if any) fails them in the auditor harness (python -I subprocess)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "No numeric claim beyond trivial ones; nothing incorrect found."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-027 (low): Two stated constraints are not checked."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-033; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 3 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-027"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M02-L006-Q013",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "type": "coding",
+   "difficulty": 4,
+   "learning_objectives": [
+    "TML-M02-L006-O04",
+    "TML-M02-L006-O02",
+    "TML-M02-L006-O01"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 20,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Reference or corrected code passes its own tests and the defective code (if any) fails them in the auditor harness (python -I subprocess)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M02.Q013.tight_root, M02.Q013.tight_curvature, M02.Q013.largest_eta_locally_stable_on_tight_test, M02.Q013.pub_outlier_root."
+    },
+    "prerequisite_validity": {
+     "result": "fail",
+     "reason": "AUD-028 (high): The mastery item requires differentiating log(cosh(u)) and bounding sech^2, which no lesson teaches."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "fail",
+     "reason": "AUD-028 (high): The mastery item requires differentiating log(cosh(u)) and bounding sech^2, which no lesson teaches. AUD-029 (medium): The hid_tight_cluster test (added in Phase 3.5) catches eta = 2.5 but not rates just above the bound."
+    },
+    "misconception_alignment": {
+     "result": "concern",
+     "reason": "AUD-029 (medium): The hid_tight_cluster test (added in Phase 3.5) catches eta = 2.5 but not rates just above the bound."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 4 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "fail",
+   "defect_ids": [
+    "AUD-028",
+    "AUD-029"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M06-L008-Q001",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "type": "multi_select",
+   "difficulty": 1,
+   "learning_objectives": [
+    "TML-M06-L008-O02"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 3,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "No numeric claim beyond trivial ones; nothing incorrect found."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O02."
+    },
+    "misconception_alignment": {
+     "result": "concern",
+     "reason": "Evidence for the linked misconception(s) rests partly on omission of a keyed option, which cannot separate the misconception from carelessness (see the MAP-03 defect)."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 1 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 1 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "concern",
+     "reason": "AUD-031 (low): The key depends on when the historical row was written."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-031"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M06-L008-Q002",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "type": "multi_step",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M06-L008-O01"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 5,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "No numeric claim beyond trivial ones; nothing incorrect found."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-032 (medium): s2 has two defensible labels: the item's own feedback concedes that the feature is also post-outcome in time, so 'temporal leakage (future information)' is correct as well."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-272; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 2 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "concern",
+     "reason": "AUD-032 (medium): s2 has two defensible labels: the item's own feedback concedes that the feature is also post-outcome in time, so 'temporal leakage (future information)' is correct as well."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-032"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M06-L008-Q003",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "type": "multi_step",
+   "difficulty": 3,
+   "learning_objectives": [
+    "TML-M06-L008-O01",
+    "TML-M06-L008-O04"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 8,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: recompute_m06_q003.py (100 seeds)."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O01, O04."
+    },
+    "misconception_alignment": {
+     "result": "concern",
+     "reason": "AUD-033 (low): MC-106 is about scaling before splitting."
+    },
+    "feedback_quality": {
+     "result": "concern",
+     "reason": "AUD-034 (low): 'run it' assumes a runnable environment in a predict-before-run item; the product cannot run Python (repo report, section 5)."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 3 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-033",
+    "AUD-034"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M06-L008-Q004",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "type": "debugging",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M06-L008-O03"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 6,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Reference or corrected code passes its own tests and the defective code (if any) fails them in the auditor harness (python -I subprocess)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "No numeric claim beyond trivial ones; nothing incorrect found."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-035 (medium): The tests compare against np.std (ddof=0) of the imputed training rows, but the task never says so."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-095, TML-MC-106; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 2 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "concern",
+     "reason": "AUD-035 (medium): The tests compare against np.std (ddof=0) of the imputed training rows, but the task never says so."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-035"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M06-L008-Q005",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "type": "data_interpretation",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M06-L008-O04",
+    "TML-M06-L008-O02"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 4,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "No numeric claim beyond trivial ones; nothing incorrect found."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "fail",
+     "reason": "AUD-036 (high): Key is 396 characters against at most 114 (3.47x)."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-105, TML-MC-272; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 2 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "fail",
+   "defect_ids": [
+    "AUD-036"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M06-L008-Q006",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "type": "debugging",
+   "difficulty": 3,
+   "learning_objectives": [
+    "TML-M06-L008-O02",
+    "TML-M06-L008-O03"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 7,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Reference or corrected code passes its own tests and the defective code (if any) fails them in the auditor harness (python -I subprocess)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "No numeric claim beyond trivial ones; nothing incorrect found."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-037 (medium): The tests check only that the future and the same day are excluded, not the 7-day window."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-238, TML-MC-271; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 3 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-037"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M06-L008-Q007",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "type": "coding",
+   "difficulty": 2,
+   "learning_objectives": [
+    "TML-M06-L008-O03",
+    "TML-M06-L008-O05"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 12,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Reference or corrected code passes its own tests and the defective code (if any) fails them in the auditor harness (python -I subprocess)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "No numeric claim beyond trivial ones; nothing incorrect found."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "AUD-038 (low): Tagged O05 (redesign a leaky workflow), but the problem statement prescribes every fitted step, so no redesign is asked for."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-095; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 2 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Level 2 item; full transfer is not expected at this level."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "concern",
+   "defect_ids": [
+    "AUD-038"
+   ],
+   "auditor_note": "Solid implementation item (but see the objective tag)."
+  },
+  {
+   "question_id": "TML-M06-L008-Q008",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "type": "coding",
+   "difficulty": 3,
+   "learning_objectives": [
+    "TML-M06-L008-O02",
+    "TML-M06-L008-O05"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 15,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Reference or corrected code passes its own tests and the defective code (if any) fails them in the auditor harness (python -I subprocess)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "No numeric claim beyond trivial ones; nothing incorrect found."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "pass",
+     "reason": "Response evidence bears directly on the tagged objective(s) O02, O05."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-271; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 3 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "pass",
+   "defect_ids": [],
+   "auditor_note": "Strong coding item: a tie-handling mutant (shift within group) is rejected by the tests."
+  },
+  {
+   "question_id": "TML-M06-L008-Q009",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "type": "scenario",
+   "difficulty": 3,
+   "learning_objectives": [
+    "TML-M06-L008-O04"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 15,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M06.Q009."
+    },
+    "prerequisite_validity": {
+     "result": "fail",
+     "reason": "AUD-039 (high): R07-R10 are required for pass but assess M09 operating-point content outside O04; a learner meeting O04 fully still fails."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "fail",
+     "reason": "AUD-039 (high): R07-R10 are required for pass but assess M09 operating-point content outside O04; a learner meeting O04 fully still fails."
+    },
+    "misconception_alignment": {
+     "result": "concern",
+     "reason": "AUD-040 (low): MC-093 is evidenced only by optional criterion R06."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 3 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "fail",
+   "defect_ids": [
+    "AUD-039",
+    "AUD-040"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M06-L008-Q010",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "type": "model_selection",
+   "difficulty": 3,
+   "learning_objectives": [
+    "TML-M06-L008-O05",
+    "TML-M06-L008-O01"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 6,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "No numeric claim beyond trivial ones; nothing incorrect found."
+    },
+    "prerequisite_validity": {
+     "result": "pass",
+     "reason": "Uses only concepts from this lesson and its auditor-computed prerequisite closure."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "fail",
+     "reason": "AUD-041 (high): Key is 185 characters against at most 86 (2.15x) and is the only option that names both safeguards."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-102; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "pass",
+     "reason": "Level 3 matches the difficulty_framework definition for the task demand."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Requires applying the idea in a context not given in the prompt."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "fail",
+   "defect_ids": [
+    "AUD-041"
+   ],
+   "auditor_note": null
+  },
+  {
+   "question_id": "TML-M06-L008-Q011",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "type": "multi_step",
+   "difficulty": 4,
+   "learning_objectives": [
+    "TML-M06-L008-O05",
+    "TML-M06-L008-O01",
+    "TML-M06-L008-O02",
+    "TML-M06-L008-O04"
+   ],
+   "review_state_observed": "auto_validated",
+   "estimated_time_minutes": 22,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Key, explanation and feedback are technically sound on auditor review."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "All numbers the auditor recomputed match the key and feedback: M06.Q011.s2_rubric_total."
+    },
+    "prerequisite_validity": {
+     "result": "fail",
+     "reason": "AUD-042 (high): All s2 criteria are required, including R03 (M10-L005 purging), R05 (M09/M15 resampling) and R07 (M09 metrics), so the mastery item gates on untaught content."
+    },
+    "pedagogical_clarity": {
+     "result": "pass",
+     "reason": "Prompt states what is given and what is asked; no clarity problem found."
+    },
+    "assessment_validity": {
+     "result": "fail",
+     "reason": "AUD-042 (high): All s2 criteria are required, including R03 (M10-L005 purging), R05 (M09/M15 resampling) and R07 (M09 metrics), so the mastery item gates on untaught content."
+    },
+    "misconception_alignment": {
+     "result": "pass",
+     "reason": "Linked TML-MC-271, TML-MC-106, TML-MC-102, TML-MC-093; the cited evidence elements can elicit them."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback explains why each wrong response is wrong, not only what is right."
+    },
+    "difficulty_calibration": {
+     "result": "concern",
+     "reason": "AUD-043 (medium): The s2 prompt lists the rubric's dimensions, including the purging cue."
+    },
+    "independent_transfer": {
+     "result": "concern",
+     "reason": "AUD-043 (medium): The s2 prompt lists the rubric's dimensions, including the purging cue."
+    },
+    "ambiguity_edge_cases": {
+     "result": "pass",
+     "reason": "No second defensible answer found on auditor review."
+    }
+   },
+   "overall": "fail",
+   "defect_ids": [
+    "AUD-042",
+    "AUD-043"
+   ],
+   "auditor_note": null
+  }
+ ],
+ "lesson_scorecards": [
+  {
+   "lesson_id": "TML-M01-L002",
+   "title": "Matrices, Shapes, Multiplication and Transpose",
+   "practice_minutes_sum_of_item_estimates": 55,
+   "items": 11,
+   "planned_items": null,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "All keys and code are technically correct (auditor harness and recomputation)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "Every recomputed number matches."
+    },
+    "prerequisite_validity": {
+     "result": "concern",
+     "reason": "The determinant (Q006) and rank or consistency (Q007 R04, O06) are used but not taught in this lesson or its single prerequisite (determinant, O06 and R04 defects)."
+    },
+    "pedagogical_clarity": {
+     "result": "concern",
+     "reason": "No lesson body exists to check items against (lesson-body defect); items themselves are mostly clear."
+    },
+    "assessment_validity": {
+     "result": "concern",
+     "reason": "Length-cued keys (Q006, Q009) and the unassessed \"verify with NumPy\" half of O02."
+    },
+    "misconception_alignment": {
+     "result": "fail",
+     "reason": "Q003 links MC-004 to the wrong option, and its feedback states a false implication (Q003 defect)."
+    },
+    "feedback_quality": {
+     "result": "concern",
+     "reason": "Q003 option B feedback is false; Q002 lists an unreachable common error."
+    },
+    "difficulty_calibration": {
+     "result": "concern",
+     "reason": "55 minutes of practice against a 20-30 minute target; the level-4 mastery item is partly recognition scaffolding."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Q011 s4 is a genuine transfer task (memory-bounded top-k over chunked embeddings)."
+    },
+    "ambiguity_edge_cases": {
+     "result": "concern",
+     "reason": "Q007 \"hot loop\" ambiguity; Q011 R03 rejects an equally valid reduction."
+    }
+   },
+   "defect_ids": [
+    "AUD-001",
+    "AUD-002",
+    "AUD-003",
+    "AUD-004",
+    "AUD-005",
+    "AUD-006",
+    "AUD-007",
+    "AUD-008",
+    "AUD-009",
+    "AUD-010",
+    "AUD-011",
+    "AUD-012",
+    "AUD-013",
+    "AUD-047",
+    "AUD-049",
+    "AUD-051"
+   ],
+   "item_defect_ids": [
+    "AUD-001",
+    "AUD-002",
+    "AUD-003",
+    "AUD-004",
+    "AUD-005",
+    "AUD-006",
+    "AUD-007",
+    "AUD-008",
+    "AUD-009",
+    "AUD-010",
+    "AUD-011",
+    "AUD-012"
+   ]
+  },
+  {
+   "lesson_id": "TML-M02-L006",
+   "title": "Gradient Descent and Learning Rates",
+   "practice_minutes_sum_of_item_estimates": 86,
+   "items": 13,
+   "planned_items": null,
+   "scores": {
+    "technical_correctness": {
+     "result": "concern",
+     "reason": "Keys correct, but Q007 explanation misstates that multi-dimensional quadratic losses show oscillation, and tests accept wrong fixes (Q009, Q011, Q012, Q013)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "Every recomputed number matches, including the Q005 clearing sets and the Q013 curvature at the tight-cluster root."
+    },
+    "prerequisite_validity": {
+     "result": "fail",
+     "reason": "The mastery item Q013 needs hyperbolic-function calculus taught nowhere; the prerequisite closure is over-tight (eigenvalues, PSD)."
+    },
+    "pedagogical_clarity": {
+     "result": "fail",
+     "reason": "The only instruction is the lab, which has no dataset, MSE, second parameter or stopping criterion, yet Q001, Q008 and Q012 assess them."
+    },
+    "assessment_validity": {
+     "result": "fail",
+     "reason": "Strong length cues on Q007 (2.88x) and Q008 (2.55x); Q007 does not measure its O05 tag."
+    },
+    "misconception_alignment": {
+     "result": "concern",
+     "reason": "Mostly sound (MC-027, MC-033, MC-270); MC-031 on Q004 is weak; Q005 links nothing despite diagnostic values."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Value-specific feedback is good across the numeric items; Q001 A feedback overgeneralises (low)."
+    },
+    "difficulty_calibration": {
+     "result": "concern",
+     "reason": "86 minutes of practice; Q004 hands over the recurrence."
+    },
+    "independent_transfer": {
+     "result": "concern",
+     "reason": "Q003, Q004, Q009 and Q011 reproduce lab steps whose answers the lab reveals; Q009 is lab Debug case B verbatim."
+    },
+    "ambiguity_edge_cases": {
+     "result": "concern",
+     "reason": "Q006 presupposes lab history; the lab contract is pinned to build hashes."
+    }
+   },
+   "defect_ids": [
+    "AUD-014",
+    "AUD-015",
+    "AUD-016",
+    "AUD-017",
+    "AUD-018",
+    "AUD-019",
+    "AUD-020",
+    "AUD-021",
+    "AUD-022",
+    "AUD-023",
+    "AUD-024",
+    "AUD-025",
+    "AUD-026",
+    "AUD-027",
+    "AUD-028",
+    "AUD-029",
+    "AUD-030",
+    "AUD-044",
+    "AUD-047",
+    "AUD-050"
+   ],
+   "item_defect_ids": [
+    "AUD-014",
+    "AUD-015",
+    "AUD-016",
+    "AUD-017",
+    "AUD-018",
+    "AUD-019",
+    "AUD-020",
+    "AUD-021",
+    "AUD-022",
+    "AUD-023",
+    "AUD-024",
+    "AUD-025",
+    "AUD-026",
+    "AUD-027",
+    "AUD-028",
+    "AUD-029",
+    "AUD-030"
+   ]
+  },
+  {
+   "lesson_id": "TML-M06-L008",
+   "title": "Data Leakage",
+   "practice_minutes_sum_of_item_estimates": 103,
+   "items": 11,
+   "planned_items": 18,
+   "scores": {
+    "technical_correctness": {
+     "result": "pass",
+     "reason": "Keys and code are correct; the M06 Q003 noise-feature-selection claim was reproduced (select-on-all-rows mean accuracy 0.98 vs train-only 0.482)."
+    },
+    "mathematical_correctness": {
+     "result": "pass",
+     "reason": "Q009 fraud volume (2,200 a day) and rubric totals recomputed."
+    },
+    "prerequisite_validity": {
+     "result": "fail",
+     "reason": "Required criteria in Q009 and Q011 depend on M09, M10-L005 and M15-L005; the prerequisite closure (31 lessons) is over-tight."
+    },
+    "pedagogical_clarity": {
+     "result": "concern",
+     "reason": "No lesson body; Q002 labels restate the stems."
+    },
+    "assessment_validity": {
+     "result": "fail",
+     "reason": "Strong length cues on Q005 (3.47x) and Q010 (2.15x); gates on untaught content in Q009 and Q011."
+    },
+    "misconception_alignment": {
+     "result": "concern",
+     "reason": "MC-106 mismatched on Q003; MC-093 evidenced only by an optional criterion on Q009."
+    },
+    "feedback_quality": {
+     "result": "pass",
+     "reason": "Feedback is specific; Q003 \"run it\" assumes a runtime (low)."
+    },
+    "difficulty_calibration": {
+     "result": "fail",
+     "reason": "103 minutes of practice against 20-30; Q011 s2 prompt enumerates the rubric in a level-4 item."
+    },
+    "independent_transfer": {
+     "result": "pass",
+     "reason": "Q008, Q009 and Q011 pose genuinely new contexts."
+    },
+    "ambiguity_edge_cases": {
+     "result": "concern",
+     "reason": "Q002 s2 has two defensible labels; Q004 ddof unspecified; Q006 window not pinned by tests."
+    }
+   },
+   "defect_ids": [
+    "AUD-031",
+    "AUD-032",
+    "AUD-033",
+    "AUD-034",
+    "AUD-035",
+    "AUD-036",
+    "AUD-037",
+    "AUD-038",
+    "AUD-039",
+    "AUD-040",
+    "AUD-041",
+    "AUD-042",
+    "AUD-043",
+    "AUD-045",
+    "AUD-046",
+    "AUD-047",
+    "AUD-051"
+   ],
+   "item_defect_ids": [
+    "AUD-031",
+    "AUD-032",
+    "AUD-033",
+    "AUD-034",
+    "AUD-035",
+    "AUD-036",
+    "AUD-037",
+    "AUD-038",
+    "AUD-039",
+    "AUD-040",
+    "AUD-041",
+    "AUD-042",
+    "AUD-043"
+   ]
+  }
+ ],
+ "defects": [
+  {
+   "id": "AUD-001",
+   "issue": "Option B, (2, 2) for A * B.T, is not what a learner who reads * as a matrix product would predict: a matrix product of two (2, 3) arrays is undefined, so that learner predicts a ValueError (option C).",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "question_id": "TML-M01-L002-Q003",
+   "criteria": [
+    "mathematical_correctness",
+    "feedback_quality",
+    "misconception_alignment"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/2/option_feedback/B",
+     "quoted_text": "This assumes * is a matrix product. In NumPy * is element-wise, so it keeps shape (2, 3).",
+     "quote_is_excerpt": false
+    },
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/2/misconception_evidence/0/rationale",
+     "quoted_text": "Predicting (2, 2) for A * B.T treats the element-wise * as the matrix product, the converse confusion of MC-004 (element-wise vs matrix product).",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Option B, (2, 2) for A * B.T, is not what a learner who reads * as a matrix product would predict: a matrix product of two (2, 3) arrays is undefined, so that learner predicts a ValueError (option C). The feedback for B therefore states a false implication, and the MC-004 evidence pointer is attached to the wrong option. The validator check misconception_evidence_resolves passed because it only confirms that the pointer exists and is not the key.",
+   "proposed_correction": "Rewrite option_feedback B and C and repoint the MC-004 evidence to option C (patch). Optionally replace distractor B with a value that a real misconception produces.",
+   "sme_verification_required": false,
+   "sme_reason": "Shape arithmetic; any reviewer can verify that (2x3)(2x3) is undefined.",
+   "patch": {
+    "file": "proposed_patches/AUD-001.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-002",
+   "issue": "A has only 2 rows, so 'picking row 3' is impossible; the listed error cannot be matched to any numeric response, which defeats the value-specific feedback rule in feedback_framework.json.",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "question_id": "TML-M01-L002-Q002",
+   "criteria": [
+    "feedback_quality",
+    "ambiguity_edge_cases"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/1/feedback/common_errors/2",
+     "quoted_text": "Using 0-based indexing and picking row 3 or column 2.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "A has only 2 rows, so 'picking row 3' is impossible; the listed error cannot be matched to any numeric response, which defeats the value-specific feedback rule in feedback_framework.json.",
+   "proposed_correction": "Replace with a reachable error and its value: reading column 1 as the second column gives (AB)_{2,2} = 10 (auditor-recomputed).",
+   "sme_verification_required": false,
+   "sme_reason": "Plain arithmetic or wording; a pedagogy reviewer can confirm without ML expertise.",
+   "patch": {
+    "file": "proposed_patches/AUD-002.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-003",
+   "issue": "'the product rule' is ambiguous for learners who know the calculus product rule; the hint means the transpose-of-a-product rule.",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "question_id": "TML-M01-L002-Q004",
+   "criteria": [
+    "pedagogical_clarity"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/3/hints/0",
+     "quoted_text": "Start from G^T and apply the product rule with A = X^T and B = X.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "'the product rule' is ambiguous for learners who know the calculus product rule; the hint means the transpose-of-a-product rule.",
+   "proposed_correction": "Name the rule explicitly: (AB)^T = B^T A^T (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Plain arithmetic or wording; a pedagogy reviewer can confirm without ML expertise.",
+   "patch": {
+    "file": "proposed_patches/AUD-003.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-004",
+   "issue": "The keyed option, explanation and first hint rely on the 2x2 determinant.",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "question_id": "TML-M01-L002-Q006",
+   "criteria": [
+    "prerequisite_validity",
+    "assessment_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/5/content/options/1/text",
+     "quoted_text": "det(A) = 2*2 - 4*1 = 0",
+     "quote_is_excerpt": true
+    },
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/5/hints/0",
+     "quoted_text": "Compute ad - bc.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The keyed option, explanation and first hint rely on the 2x2 determinant. No lesson in lesson_index.json lists a determinant concept, and DEC-005 assumes learners have no formal mathematics. O06 asks when a matrix is invertible; the column-dependence argument alone meets it.",
+   "proposed_correction": "Make the key and hints rely on column dependence and mention ad - bc only as an aside (patch). Alternatively the owner adds the 2x2 determinant to TML-M01-L002's concepts.",
+   "sme_verification_required": true,
+   "sme_reason": "Whether the 2x2 determinant is taught in M01-L002 is a curriculum decision.",
+   "patch": {
+    "file": "proposed_patches/AUD-004.json",
+    "shared_with": [
+     "AUD-005"
+    ],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-005",
+   "issue": "Test-wiseness cue: the key is 135 characters against at most 59 for any distractor (2.29x) and is the only option with a justification, so 'pick the longest, most qualified option' scores without understanding.",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "question_id": "TML-M01-L002-Q006",
+   "criteria": [
+    "assessment_validity",
+    "ambiguity_edge_cases"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/5/content/options/1/text",
+     "quoted_text": "A is not invertible: its second column is 2 times its first, so it maps the whole plane onto a single line, and det(A) = 2*2 - 4*1 = 0.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Test-wiseness cue: the key is 135 characters against at most 59 for any distractor (2.29x) and is the only option with a justification, so 'pick the longest, most qualified option' scores without understanding. Schema and structure validation passed.",
+   "proposed_correction": "Shorten the key to a claim of similar length to the distractors; the patch for the determinant defect does this.",
+   "sme_verification_required": false,
+   "sme_reason": "Option-length balance is a pedagogy check.",
+   "patch": {
+    "file": "proposed_patches/AUD-004.json",
+    "shared_with": [
+     "AUD-004"
+    ],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-006",
+   "issue": "If A does not change inside the loop (a common reading of 'hot loop'), the best answer is to factorise once outside the loop (lu_factor/cho_factor and lu_solve).",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "question_id": "TML-M01-L002-Q007",
+   "criteria": [
+    "technical_correctness",
+    "ambiguity_edge_cases"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/6/prompt",
+     "quoted_text": "inside a hot loop",
+     "quote_is_excerpt": true
+    },
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/6/answer/example_excellent_answer",
+     "quoted_text": "forming the inverse costs roughly three times the floating-point operations of one solve",
+     "quote_is_excerpt": true
+    }
+   ],
+   "why_incorrect_or_weak": "If A does not change inside the loop (a common reading of 'hot loop'), the best answer is to factorise once outside the loop (lu_factor/cho_factor and lu_solve). Calling np.linalg.solve every iteration is then far more expensive than computing inv(A) once (auditor estimate for 1,000 iterations with n = 2000: about 5.3e12 versus 2.4e10 flops). The 3x claim holds only for a single solve. Expert graders could disagree on a strong answer.",
+   "proposed_correction": "State in the prompt that A and b are rebuilt on every iteration (patch); optionally add a rubric note crediting 'factorise once and reuse' when A is fixed.",
+   "sme_verification_required": true,
+   "sme_reason": "Numerical linear algebra judgement about the reference answer.",
+   "patch": {
+    "file": "proposed_patches/AUD-006.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-007",
+   "issue": "R04 is required for pass and asks for 'no solution or infinitely many'.",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "question_id": "TML-M01-L002-Q007",
+   "criteria": [
+    "prerequisite_validity",
+    "assessment_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/6/grading/rubric/3/description",
+     "quoted_text": "States that A is singular (not invertible) and the system has no solution or infinitely many.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "R04 is required for pass and asks for 'no solution or infinitely many'. That needs consistency and rank, which are taught in TML-M01-L004 (Linear Transformations, Independence, Basis and Rank), a later lesson that is not a prerequisite of M01-L002.",
+   "proposed_correction": "Require only 'singular, so no unique solution'; credit naming both cases but do not require it (patch).",
+   "sme_verification_required": true,
+   "sme_reason": "Prerequisite placement of rank and consistency.",
+   "patch": {
+    "file": "proposed_patches/AUD-007.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-008",
+   "issue": "The config refers to a 'hidden shape-variant test' that does not exist in the item; the shape-variant check is the public failing test fail_both_weight_shapes.",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "question_id": "TML-M01-L002-Q008",
+   "criteria": [
+    "ambiguity_edge_cases"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/7/grading/config/run",
+     "quoted_text": "failing_tests plus hidden shape-variant test",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The config refers to a 'hidden shape-variant test' that does not exist in the item; the shape-variant check is the public failing test fail_both_weight_shapes. A grading implementation that follows the config literally would look for a missing test.",
+   "proposed_correction": "Name the tests that actually run (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Plain arithmetic or wording; a pedagogy reviewer can confirm without ML expertise.",
+   "patch": {
+    "file": "proposed_patches/AUD-008.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-009",
+   "issue": "Key is 221 characters against at most 123 (1.8x) and is the only option with a complete mechanism plus fix, which cues test-wise learners.",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "question_id": "TML-M01-L002-Q009",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/8/content/response/options/0/text",
+     "quoted_text": "X.mean(axis=1) computes one mean per row, shape (n,). Broadcasting lines it up with the last axis (columns), which only works when n equals the number of columns, so the 4 x 4 result was already wrong. Use X.mean(axis=0).",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Key is 221 characters against at most 123 (1.8x) and is the only option with a complete mechanism plus fix, which cues test-wise learners.",
+   "proposed_correction": "Shorten the key (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Pedagogy check.",
+   "patch": {
+    "file": "proposed_patches/AUD-009.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-010",
+   "issue": "R03 is required and prescribes a running best.",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "question_id": "TML-M01-L002-Q011",
+   "criteria": [
+    "assessment_validity",
+    "ambiguity_edge_cases"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/10/answer/steps/s4/rubric/2/description",
+     "quoted_text": "Keeps a running best score and best index per user across chunks, updating where the chunk max is larger.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "R03 is required and prescribes a running best. Storing each chunk's per-user max and global index (20 chunks x 32 users) and reducing at the end is equally correct and memory-bounded, but a literal grader would fail it. Two graders could disagree on that answer.",
+   "proposed_correction": "Accept either reduction strategy (patch).",
+   "sme_verification_required": true,
+   "sme_reason": "Confirms both strategies are acceptable.",
+   "patch": {
+    "file": "proposed_patches/AUD-010.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-011",
+   "issue": "Carry-forward is meaningless here: S and S.T have the same byte count (auditor-recomputed 2,560,000 either way), and the other s1 options are undefined products, so there is no learner shape to carry forward.",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "question_id": "TML-M01-L002-Q011",
+   "criteria": [
+    "ambiguity_edge_cases"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/10/grading/config/carry_forward",
+     "quoted_text": "s2 is graded against the learner's own s1 shape if s1 is wrong (error carried forward)",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Carry-forward is meaningless here: S and S.T have the same byte count (auditor-recomputed 2,560,000 either way), and the other s1 options are undefined products, so there is no learner shape to carry forward.",
+   "proposed_correction": "Say carry-forward is not needed (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Plain arithmetic or wording; a pedagogy reviewer can confirm without ML expertise.",
+   "patch": {
+    "file": "proposed_patches/AUD-011.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-012",
+   "issue": "The level-4 mastery item is scaffolded into four steps; s1 and s3 are single-step shape recognition at the level of Q001 (s3 is nearly s1 again), so 2 of 5 points need no transfer.",
+   "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "question_id": "TML-M01-L002-Q011",
+   "criteria": [
+    "difficulty_calibration",
+    "independent_transfer"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/architecture/difficulty_framework.json",
+     "json_pointer": "/levels/4/definition",
+     "quoted_text": "No scaffold in the prompt.",
+     "quote_is_excerpt": true
+    },
+    {
+     "file": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+     "json_pointer": "/questions/10/content/steps/2/prompt",
+     "quoted_text": "A teammate types scores = U @ E. What happens?",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The level-4 mastery item is scaffolded into four steps; s1 and s3 are single-step shape recognition at the level of Q001 (s3 is nearly s1 again), so 2 of 5 points need no transfer. Only s4 meets the level-4 definition.",
+   "proposed_correction": "Redesign: drop s3, make s1 free-response (write the expression and its shape) or fold it into s4, and weight s4 more. No patch, because this changes the item's structure.",
+   "sme_verification_required": true,
+   "sme_reason": "Difficulty calibration needs an assessment specialist.",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-013",
+   "issue": "The 'verify it with NumPy' half of O02 is not assessed.",
+   "file": "traditional_ml/curriculum/lesson_index.json",
+   "question_id": "TML-M01-L002",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/curriculum/lesson_index.json",
+     "json_pointer": "/lessons/1/learning_objectives/1/text",
+     "quoted_text": "Compute a small matrix product by hand and verify it with NumPy",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The 'verify it with NumPy' half of O02 is not assessed. Q002 is hand computation, Q010 forbids NumPy, and Q003 predicts shapes, not values.",
+   "proposed_correction": "Add a step to Q002 or a new practice item that checks a hand result against NumPy, or narrow the objective (owner decision). No patch, because objectives must not be invented or changed by the auditor.",
+   "sme_verification_required": true,
+   "sme_reason": "Objective scope is an owner or curriculum decision.",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-014",
+   "issue": "Option A feedback overgeneralises: the gradient also points at the minimum from an axis start on this bowl.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q001",
+   "criteria": [
+    "technical_correctness",
+    "feedback_quality"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/0/option_feedback/A",
+     "quoted_text": "This holds only for perfectly round bowls",
+     "quote_is_excerpt": true
+    }
+   ],
+   "why_incorrect_or_weak": "Overgeneralised: on this elongated bowl the negative gradient does point at the minimum when the start lies on an axis (e.g. (3, 0)). Learners could take away a false rule.",
+   "proposed_correction": "Qualify the statement (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Simple vector check.",
+   "patch": {
+    "file": "proposed_patches/AUD-014.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-015",
+   "issue": "Key is 191 characters against at most 134 (1.43x) and is the most qualified option.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q001",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/0/content/options/1/text",
+     "quoted_text": "The negative gradient (-6, -20) is the direction of steepest local decrease, but it is not parallel to (-3, -1), the direction towards the minimum, so the path to the minimum generally bends.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Key is 191 characters against at most 134 (1.43x) and is the most qualified option.",
+   "proposed_correction": "Shorten the key (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Pedagogy check.",
+   "patch": {
+    "file": "proposed_patches/AUD-015.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-016",
+   "issue": "s1 (gradient 5) and s2 (w1 = 3.25) reproduce the lab's Understand step on the same bowl, rate and start, which the lab displays.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q003",
+   "criteria": [
+    "independent_transfer",
+    "assessment_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/2/prompt",
+     "quoted_text": "The lab shows the first step; here you take two.",
+     "quote_is_excerpt": true
+    }
+   ],
+   "why_incorrect_or_weak": "s1 (gradient 5) and s2 (w1 = 3.25) reproduce the lab's Understand step on the same bowl, rate and start, which the lab displays. Two of the four points can be earned by recalling the lab screen.",
+   "proposed_correction": "Use a new start or rate (e.g. w0 = 0.5 on the same bowl: gradient -3, w1 = 1.25, w2 = 1.625) and update the lab_contract claim and s4 wording. No patch, because the contract claim, key, feedback and execution check all change together and need v_lab re-run.",
+   "sme_verification_required": true,
+   "sme_reason": "Lab alignment decision (AT-027).",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-017",
+   "issue": "The prompt hands over the multiplier that decides every step, and three of the four rates (0.1, 0.5, 1.5) are the lab's Predict-stage rates on the same bowl, whose outcomes the lab reveals immediately.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q004",
+   "criteria": [
+    "independent_transfer",
+    "difficulty_calibration"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/3/prompt",
+     "quoted_text": "gives w_{t+1} = (1 - 2 eta) w_t",
+     "quote_is_excerpt": true
+    }
+   ],
+   "why_incorrect_or_weak": "The prompt hands over the multiplier that decides every step, and three of the four rates (0.1, 0.5, 1.5) are the lab's Predict-stage rates on the same bowl, whose outcomes the lab reveals immediately. What remains is arithmetic and recall.",
+   "proposed_correction": "Remove the recurrence from the prompt (patch); consider replacing 0.1 or 1.5 with rates not used by the lab.",
+   "sme_verification_required": true,
+   "sme_reason": "Item design trade-off.",
+   "patch": {
+    "file": "proposed_patches/AUD-017.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": "transfer"
+  },
+  {
+   "id": "AUD-018",
+   "issue": "Key is 188 characters against at most 120 (1.57x) and states the full reasoning.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q006",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/5/content/response/options/1/text",
+     "quoted_text": "It converges and clears the target: stability depends only on the curvature (8 here, so the limit is 2/8 = 0.25); at eta = 0.15 the distance to 3 is multiplied by 1 - 1.2 = -0.2 each step.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Key is 188 characters against at most 120 (1.57x) and states the full reasoning.",
+   "proposed_correction": "Shorten the key and move the reasoning to feedback (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Pedagogy check.",
+   "patch": {
+    "file": "proposed_patches/AUD-018.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-019",
+   "issue": "Presupposes a lab history the learner may not have: the lab lets learners continue without clearing, and 0.05 and 0.10 also clear that bowl (auditor-recomputed clearing set 0.05, 0.10, 0.15).",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q006",
+   "criteria": [
+    "pedagogical_clarity"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/5/prompt",
+     "quoted_text": "In the lab you cleared the steeper bowl 5 w^2 with eta = 0.15.",
+     "quote_is_excerpt": true
+    }
+   ],
+   "why_incorrect_or_weak": "Presupposes a lab history the learner may not have: the lab lets learners continue without clearing, and 0.05 and 0.10 also clear that bowl (auditor-recomputed clearing set 0.05, 0.10, 0.15).",
+   "proposed_correction": "State it as a fact about the lab (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Plain arithmetic or wording; a pedagogy reviewer can confirm without ML expertise.",
+   "patch": {
+    "file": "proposed_patches/AUD-019.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-020",
+   "issue": "Key is 193 characters, the next longest 67 (2.88x).",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q007",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/6/content/response/options/0/text",
+     "quoted_text": "A: well-chosen rate; B: diverging (sign flips with growing amplitude); C: rate too small (slow, steady decrease); D: just below the stability limit (sign flips with slowly shrinking amplitude).",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Key is 193 characters, the next longest 67 (2.88x). It is the only option that labels all four runs, so a learner can pick it without reading the chart.",
+   "proposed_correction": "Make all four options complete four-run mappings of equal form, keep the MC-033 and MC-270 distractors, and repoint the evidence (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Pedagogy check; keyed mapping auditor-recomputed from the multipliers.",
+   "patch": {
+    "file": "proposed_patches/AUD-020.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-021",
+   "issue": "The item is tagged O05 (interpret a training loss curve), but it shows parameter trajectories, and the item itself notes that the loss curve would not show the oscillation.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q007",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/6/content/visualization/y_label",
+     "quoted_text": "w_t",
+     "quote_is_excerpt": false
+    },
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/6/answer/expected_interpretation",
+     "quoted_text": "oscillation in the parameter does not always appear in the loss curve",
+     "quote_is_excerpt": true
+    }
+   ],
+   "why_incorrect_or_weak": "The item is tagged O05 (interpret a training loss curve), but it shows parameter trajectories, and the item itself notes that the loss curve would not show the oscillation. It does not measure O05, and O05's 'oscillation' part is not measurable with convex-quadratic bowls at all.",
+   "proposed_correction": "Tag the item to O02 only (patch) and flag the O05 oscillation gap to the owner. A loss-curve oscillation item needs a non-quadratic or mini-batch example.",
+   "sme_verification_required": true,
+   "sme_reason": "Objective mapping.",
+   "patch": {
+    "file": "proposed_patches/AUD-021.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-022",
+   "issue": "For a convex quadratic in any number of dimensions, converging full-batch GD decreases every eigen-component of the loss monotonically, so a multi-dimensional quadratic loss does not show oscillation either.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q007",
+   "criteria": [
+    "technical_correctness"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/6/explanation",
+     "quoted_text": "(or a multi-dimensional, noisy or non-quadratic loss)",
+     "quote_is_excerpt": true
+    }
+   ],
+   "why_incorrect_or_weak": "For a convex quadratic in any number of dimensions, converging full-batch GD decreases every eigen-component of the loss monotonically, so a multi-dimensional quadratic loss does not show oscillation either.",
+   "proposed_correction": "Correct the parenthetical (patch).",
+   "sme_verification_required": true,
+   "sme_reason": "Technical claim about loss curves.",
+   "patch": {
+    "file": "proposed_patches/AUD-022.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-023",
+   "issue": "Key is 303 characters against at most 119 (2.55x) and is the only option with a mechanism, evidence and remedy.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q008",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/7/content/response/options/0/text",
+     "quoted_text": "The steep direction (curvature 100) caps the learning rate: w1 is already near its stability limit (multiplier -0.9) while w2 (curvature 1) shrinks only 1.9% per step. Raising eta to 0.1 would make w1 diverge; the fix is to reduce the mismatch in curvature, e.g. by rescaling the parameters or features.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Key is 303 characters against at most 119 (2.55x) and is the only option with a mechanism, evidence and remedy.",
+   "proposed_correction": "Shorten the key and lengthen the saddle-point distractor (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Pedagogy check.",
+   "patch": {
+    "file": "proposed_patches/AUD-023.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-024",
+   "issue": "Item is the lab Debug case B verbatim; the lab already reveals the diagnosis, so it tests recall.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q009",
+   "criteria": [
+    "independent_transfer",
+    "assessment_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/8/prompt",
+     "quoted_text": "This is the second case in the lab's Debug stage.",
+     "quote_is_excerpt": true
+    }
+   ],
+   "why_incorrect_or_weak": "Prior concern confirmed: the item is the lab's Debug case B (same bowl, w0 1.2, lr 0.25, 6 steps, ascent), and the lab reveals the diagnosis 'update adds the gradient' immediately after the learner commits. Recognising it is recall, not diagnosis.",
+   "proposed_correction": "Keep the fault type but use new numbers and do not name the lab case (patch: w0 = -0.8, lr = 0.3, 5 steps; observed, expected values and tests auditor-recomputed).",
+   "sme_verification_required": true,
+   "sme_reason": "Lab alignment and v_lab re-run.",
+   "patch": {
+    "file": "proposed_patches/AUD-024.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": "m02_q009"
+  },
+  {
+   "id": "AUD-025",
+   "issue": "The tests call run() only with its defaults.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q009",
+   "criteria": [
+    "assessment_validity",
+    "ambiguity_edge_cases"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/8/answer/failing_tests/1/code",
+     "quoted_text": "tr = run()\nassert abs(tr[1] - 0.6) < 1e-12 and abs(tr[-1] - 0.01875) < 1e-12 and len(tr) == 7\n",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The tests call run() only with its defaults. In the auditor's harness, three wrong fixes passed every test: changing the default to lr=-0.25 (keeps the 'add the gradient' rule, which is the misconception itself), negating grad() so it no longer returns the gradient, and hard-coding w = w * 0.5. The v_mutants coverage check passed because these mutants were not in its registry.",
+   "proposed_correction": "Add a failing test with explicit arguments that also checks grad() (patch); the auditor ran it against all three mutants and they fail.",
+   "sme_verification_required": false,
+   "sme_reason": "Test behaviour verified by execution.",
+   "patch": {
+    "file": "proposed_patches/AUD-025.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-026",
+   "issue": "Unenforced constraint: a run() that inlines w - lr * grad and never calls step passed every test in the auditor's harness.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q011",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/10/content/constraints/0",
+     "quoted_text": "run must call step for every update.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Unenforced constraint: a run() that inlines w - lr * grad and never calls step passed every test in the auditor's harness.",
+   "proposed_correction": "Add a hidden test that counts calls to step (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Verified by execution.",
+   "patch": {
+    "file": "proposed_patches/AUD-026.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-027",
+   "issue": "Two stated constraints are not checked.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q012",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/11/content/constraints/0",
+     "quoted_text": "No Python loops over samples or features (vectorise with NumPy).",
+     "quote_is_excerpt": false
+    },
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/11/content/constraints/1",
+     "quoted_text": "Raise ValueError if lr <= 0.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Two stated constraints are not checked. A per-sample Python loop passed every test, and a solution that rejects only lr == 0 (not lr < 0) passed every test. The sandbox's import hook cannot detect loops.",
+   "proposed_correction": "Add a negative-lr hidden test and state that vectorisation is not auto-graded (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Verified by execution.",
+   "patch": {
+    "file": "proposed_patches/AUD-027.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-028",
+   "issue": "The mastery item requires differentiating log(cosh(u)) and bounding sech^2, which no lesson teaches.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q013",
+   "criteria": [
+    "prerequisite_validity",
+    "assessment_validity"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/12/content/problem_statement",
+     "quoted_text": "The gradient and the learning-rate choice are part of the task and are not given.",
+     "quote_is_excerpt": true
+    },
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/12/hints/0",
+     "quoted_text": "d/du log(cosh(u)) = sinh(u)/cosh(u). What is that function?",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The mastery item (pass rule >= 0.8) requires differentiating log(cosh(u)) and bounding sech^2. No lesson in lesson_index.json mentions hyperbolic functions (auditor search for tanh, cosh, hyperbolic: 0 hits), and DEC-005 assumes no formal mathematics. A learner who has mastered every M02-L006 objective can fail on untaught calculus. Hints are off in mastery checks (feedback_framework attempt_policy), so the sinh/cosh hint does not rescue it.",
+   "proposed_correction": "Give the two derivative identities as usable facts, so the transfer is applying them, bounding the curvature and choosing eta (patch). Alternatively switch to a loss built only from taught functions (e.g. pseudo-Huber sqrt(1 + u^2) - 1, whose curvature is also bounded by 1).",
+   "sme_verification_required": true,
+   "sme_reason": "Mastery-item design and prerequisite judgement.",
+   "patch": {
+    "file": "proposed_patches/AUD-028.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-029",
+   "issue": "The hid_tight_cluster test (added in Phase 3.5) catches eta = 2.5 but not rates just above the bound.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q013",
+   "criteria": [
+    "assessment_validity",
+    "misconception_alignment"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/12/answer/hidden_tests/5/description",
+     "quoted_text": "Tightly clustered, asymmetric data (curvature close to 1): must match an independent bisection root.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The hid_tight_cluster test (added in Phase 3.5) catches eta = 2.5 but not rates just above the bound. In the auditor's harness eta = 2.1 and eta = 2.2 (both above 2 / max L'' = 2) passed every test, because curvature at that root is about 0.895, so the locally stable limit there is about 2.23. A Newton-step solution (not gradient descent) also passed. The curvature argument tied to MC-031 and MC-269 is enforced only by the human rubric.",
+   "proposed_correction": "Add a hidden test whose curvature at the root is essentially 1, and state the fixed-learning-rate constraint (patch). In the auditor's harness the new test rejects eta 2.05, 2.1, 2.2 and 2.5 and accepts the reference and eta 1.9. Known limit: the Newton-step solution still passes the tests after the patch, so the rubric marker must enforce the new constraint.",
+   "sme_verification_required": true,
+   "sme_reason": "Confirm the added constraint does not exclude intended solutions.",
+   "patch": {
+    "file": "proposed_patches/AUD-029.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-030",
+   "issue": "The item recognises diagnostic values (0.1 and 0.4) in feedback but links no misconception, while sibling items (Q002, Q003) link diagnostic numeric values under the broadened MAP-03 rule.",
+   "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "question_id": "TML-M02-L006-Q005",
+   "criteria": [
+    "misconception_alignment"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+     "json_pointer": "/questions/4/feedback/common_errors/1",
+     "quoted_text": "Using the coefficient 5 instead of the curvature 10, giving 0.4.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The item recognises diagnostic values (0.1 and 0.4) in feedback but links no misconception, while sibling items (Q002, Q003) link diagnostic numeric values under the broadened MAP-03 rule. That is inconsistent application. 'Curvature equals the coefficient in front of the square' has no database entry.",
+   "proposed_correction": "Add a misconception entry for coefficient-versus-curvature (MAP-05) and link it via the 0.4 diagnostic value, or explicitly accept the item as misconception-free. No patch, because the database entry needs an owner-approved new ID.",
+   "sme_verification_required": true,
+   "sme_reason": "New misconception entry.",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-031",
+   "issue": "The key depends on when the historical row was written.",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q001",
+   "criteria": [
+    "ambiguity_edge_cases"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/0/content/stem_context",
+     "quoted_text": "Every column below exists in the historical table.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The key depends on when the historical row was written. If the table were snapshotted on the 1st, account_closed_flag would be 0 for every active customer (available but useless), and 'next month' has no stated reference point.",
+   "proposed_correction": "State that rows were filled in after the month ended (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Plain arithmetic or wording; a pedagogy reviewer can confirm without ML expertise.",
+   "patch": {
+    "file": "proposed_patches/AUD-031.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-032",
+   "issue": "s2 has two defensible labels: the item's own feedback concedes that the feature is also post-outcome in time, so 'temporal leakage (future information)' is correct as well.",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q002",
+   "criteria": [
+    "ambiguity_edge_cases",
+    "assessment_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/1/answer/steps/s2/feedback/C",
+     "quoted_text": "It is also post-outcome in time, but the core problem is that the feature is caused by the label; 'target leakage' is the best label.",
+     "quote_is_excerpt": false
+    },
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/1/content/steps/0/options/1/text",
+     "quoted_text": "Train-test contamination (preprocessing statistics from the test set)",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "s2 has two defensible labels: the item's own feedback concedes that the feature is also post-outcome in time, so 'temporal leakage (future information)' is correct as well. The parenthetical definitions also restate each stem (e.g. 'preprocessing statistics from the test set' for a stem about column means on the full dataset), so the item can be answered by keyword matching.",
+   "proposed_correction": "Define option C as leakage through the split (training rows after test rows) and drop the restating parentheticals (patch).",
+   "sme_verification_required": true,
+   "sme_reason": "Leakage taxonomy wording.",
+   "patch": {
+    "file": "proposed_patches/AUD-032.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-033",
+   "issue": "MC-106 is about scaling before splitting.",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q003",
+   "criteria": [
+    "misconception_alignment"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/2/misconception_evidence/0/rationale",
+     "quoted_text": "Predicting chance-level accuracy for fit-before-split selection assumes fitting before splitting does not leak.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "MC-106 is about scaling before splitting. This item is about supervised feature selection, and its s3 prompt targets the belief that leakage needs the target column as a feature (MC-272).",
+   "proposed_correction": "Relink to MC-272 (patch). MAP-02 holds because MC-272 is mapped to TML-M06-L008.",
+   "sme_verification_required": true,
+   "sme_reason": "SME-07 misconception fit.",
+   "patch": {
+    "file": "proposed_patches/AUD-033.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": "evidence"
+  },
+  {
+   "id": "AUD-034",
+   "issue": "'run it' assumes a runnable environment in a predict-before-run item; the product cannot run Python (repo report, section 5).",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q003",
+   "criteria": [
+    "feedback_quality"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/2/answer/steps/s1/feedback/B",
+     "quoted_text": "run it",
+     "quote_is_excerpt": true
+    }
+   ],
+   "why_incorrect_or_weak": "'run it' assumes a runnable environment in a predict-before-run item; the product cannot run Python (repo report, section 5).",
+   "proposed_correction": "Replace with a reasoning prompt (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Plain arithmetic or wording; a pedagogy reviewer can confirm without ML expertise.",
+   "patch": {
+    "file": "proposed_patches/AUD-034.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-035",
+   "issue": "The tests compare against np.std (ddof=0) of the imputed training rows, but the task never says so.",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q004",
+   "criteria": [
+    "assessment_validity",
+    "ambiguity_edge_cases"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/3/content/expected_behaviour",
+     "quoted_text": "The fill values, means and standard deviations are computed from the training rows only; changing test rows must not change the training output or the parameters. The test rows are transformed with the training fill values, means and standard deviations.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The tests compare against np.std (ddof=0) of the imputed training rows, but the task never says so. In the auditor's harness, a fix that removes the leak but uses the sample standard deviation (ddof=1) failed 2 of the 3 tests. A learner who fully meets O03 can lose the test points.",
+   "proposed_correction": "State ddof=0 on imputed training rows in the expected behaviour (patch), or accept either ddof in the tests.",
+   "sme_verification_required": false,
+   "sme_reason": "Verified by execution.",
+   "patch": {
+    "file": "proposed_patches/AUD-035.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-036",
+   "issue": "Key is 396 characters against at most 114 (3.47x).",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q005",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/4/content/response/options/0/text",
+     "quoted_text": "days_in_collections is almost certainly target leakage: it describes the scored loan after it was issued, so it does not exist when the application is scored and is largely a consequence of defaulting. Confirm its timing with the data owner and remove it. A count of collections days on the applicant's earlier, already-closed loans, frozen at application time, could be a legitimate replacement.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Key is 396 characters against at most 114 (3.47x). It contains the diagnosis, the timing argument, a next action and a legitimate replacement feature. The distractors (B 'excellent model', C 'impossible accuracy', D 'income is the leak') are weak, so the item barely discriminates.",
+   "proposed_correction": "Shorten the key and replace D with a plausible leakage suspect (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Pedagogy check.",
+   "patch": {
+    "file": "proposed_patches/AUD-036.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-037",
+   "issue": "The tests check only that the future and the same day are excluded, not the 7-day window.",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q006",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/5/answer/failing_tests/0/description",
+     "quoted_text": "Changing future sales must not change earlier features.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The tests check only that the future and the same day are excluded, not the 7-day window. In the auditor's harness, shift(1).expanding().mean() and shift(1).rolling(30) both passed every test even though they change the feature definition.",
+   "proposed_correction": "Add a failing test with exact expected values (patch; values auditor-recomputed: f[1] = 0, f[3] = 1, f[10] = 6, f[19] = 15).",
+   "sme_verification_required": false,
+   "sme_reason": "Verified by execution.",
+   "patch": {
+    "file": "proposed_patches/AUD-037.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-038",
+   "issue": "Tagged O05 (redesign a leaky workflow), but the problem statement prescribes every fitted step, so no redesign is asked for.",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q007",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/6/content/problem_statement",
+     "quoted_text": "Compute per-column medians of X_train (ignoring NaN), fill NaN in both arrays with them, then compute per-column mean and population standard deviation (ddof=0) of the imputed X_train and standardise both arrays. Return (Z_train, Z_test, {'median': ..., 'mean': ..., 'std': ...}).",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Tagged O05 (redesign a leaky workflow), but the problem statement prescribes every fitted step, so no redesign is asked for. It measures O03 implementation only.",
+   "proposed_correction": "Tag the item to O03 only (patch). O05 stays covered by Q008, Q010 and Q011.",
+   "sme_verification_required": true,
+   "sme_reason": "Objective mapping.",
+   "patch": {
+    "file": "proposed_patches/AUD-038.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-039",
+   "issue": "R07-R10 are required for pass but assess M09 operating-point content outside O04; a learner meeting O04 fully still fails.",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q009",
+   "criteria": [
+    "prerequisite_validity",
+    "assessment_validity"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/8/grading/rubric/7/description",
+     "quoted_text": "Asks what share of flagged transactions are real fraud at that alert volume (precision), measured under the honest protocol, not only the share of fraud caught (recall). Plain-language wording is sufficient.",
+     "quote_is_excerpt": false
+    },
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/8/grading/rubric/9/description",
+     "quoted_text": "States that the operating threshold (how many transactions to flag) is chosen from capacity and error costs, not left at a default, and agreed before launch.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Prior concern confirmed. R07-R10 are required for pass (4 of the 7 required criteria) and assess alert volume against capacity, precision, error costs and threshold choice. These are taught in TML-M09-L001 to L005 (sequence 64-68, 20+ lessons after this one), are not ancestors of M06-L008, and are not part of O04 ('recognise suspiciously high scores as a leakage signal and design checks'). A learner who scores full marks on R01-R06 (8 points, which meets pass_threshold 8) still fails.",
+   "proposed_correction": "Make R07-R10 credit-earning but not required (patch), and move the operating-point reasoning to a cumulative assessment after M09 (AT-033).",
+   "sme_verification_required": true,
+   "sme_reason": "Rubric gating and placement.",
+   "patch": {
+    "file": "proposed_patches/AUD-039.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": "m06_rubrics"
+  },
+  {
+   "id": "AUD-040",
+   "issue": "MC-093 is evidenced only by optional criterion R06.",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q009",
+   "criteria": [
+    "misconception_alignment"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/8/misconception_evidence/3/rationale",
+     "quoted_text": "Duplicates across the split as a further check (optional criterion).",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "MC-093 is evidenced only by optional criterion R06. Not mentioning an optional check does not show the learner holds 'duplicates only waste compute', so this evidence cannot elicit the misconception.",
+   "proposed_correction": "Drop the MC-093 link from this item (patch); MC-093 remains tested in Q011.",
+   "sme_verification_required": true,
+   "sme_reason": "SME-07.",
+   "patch": {
+    "file": "proposed_patches/AUD-040.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": "evidence"
+  },
+  {
+   "id": "AUD-041",
+   "issue": "Key is 185 characters against at most 86 (2.15x) and is the only option that names both safeguards.",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q010",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/9/content/response/options/3/text",
+     "quoted_text": "Split by both: train on customers who joined before a cutoff using their transactions before it; test on different customers who joined after the cutoff, using their later transactions.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Key is 185 characters against at most 86 (2.15x) and is the only option that names both safeguards.",
+   "proposed_correction": "Shorten the key (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Pedagogy check.",
+   "patch": {
+    "file": "proposed_patches/AUD-041.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-042",
+   "issue": "All s2 criteria are required, including R03 (M10-L005 purging), R05 (M09/M15 resampling) and R07 (M09 metrics), so the mastery item gates on untaught content.",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q011",
+   "criteria": [
+    "prerequisite_validity",
+    "assessment_validity"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/10/answer/steps/s2/rubric/2/description",
+     "quoted_text": "Handles the 24-hour horizon at the boundary: training rows whose outcome window (06:00 to 06:00 the next day) reaches into the validation period are dropped (purged), or a gap of at least one day is left, so no training label depends on validation-period events. Plain-language wording is sufficient.",
+     "quote_is_excerpt": false
+    },
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/10/answer/steps/s2/rubric/6/description",
+     "quoted_text": "Replaces accuracy with measures suited to rare-failure detection, e.g. the share of real failures caught and the share of alarms that are real (or false alarms per day) at a chosen alert threshold, and notes that accuracy is misleading at a 2% failure rate. Plain-language wording is sufficient; metric names are not required.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Prior concern confirmed, with one nuance. All eight s2 criteria are required, so missing any one fails the step that carries 4 of 7 points on the mastery item (pass rule >= 0.8). R03 (purge or gap for the 24-hour outcome window) is taught in TML-M10-L005 (sequence 75). R05 (natural class distribution in validation) relies on TML-M09-L002 and TML-M15-L005 (sequence 65 and 116). R07 (rare-event metrics) relies on TML-M09. The nuance: R04 (oversample after splitting) follows from the contamination principle taught here, and R08 relies on group splits from the prerequisite TML-M06-L007, so those two are fair.",
+   "proposed_correction": "Make R03, R05 and R07 credit-earning but not required (patch). Keep R01, R02, R04, R06 and R08 required.",
+   "sme_verification_required": true,
+   "sme_reason": "Mastery gating.",
+   "patch": {
+    "file": "proposed_patches/AUD-042.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": "m06_rubrics"
+  },
+  {
+   "id": "AUD-043",
+   "issue": "The s2 prompt lists the rubric's dimensions, including the purging cue.",
+   "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "question_id": "TML-M06-L008-Q011",
+   "criteria": [
+    "difficulty_calibration",
+    "independent_transfer"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+     "json_pointer": "/questions/10/content/steps/1/prompt",
+     "quoted_text": "Be specific about feature windows, the order of operations, the split (including what happens to the 24-hour outcome window at the boundary between training and validation), any resampling, and how you would measure success.",
+     "quote_is_excerpt": true
+    }
+   ],
+   "why_incorrect_or_weak": "The s2 prompt lists the rubric's dimensions, including the purging cue. That contradicts the level-4 definition ('No scaffold in the prompt') and turns the redesign into a checklist.",
+   "proposed_correction": "Remove the enumerated cues (patch). Apply only together with the M06-Q011 required-criteria patch; otherwise uncued required criteria make the item harsher.",
+   "sme_verification_required": true,
+   "sme_reason": "Difficulty calibration.",
+   "patch": {
+    "file": "proposed_patches/AUD-043.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": true
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-044",
+   "issue": "The prerequisite closure is 10 lessons (auditor-computed) and includes eigenvalues (M01-L006) and PSD matrices (M01-L007), reached via M02-L005 Convexity, then M02-L004 Hessians, then M01-L007.",
+   "file": "traditional_ml/curriculum/lesson_index.json",
+   "question_id": "TML-M02-L006",
+   "criteria": [
+    "prerequisite_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/curriculum/lesson_index.json",
+     "json_pointer": "/lessons/13/prerequisites",
+     "quoted_text": "[\"TML-M02-L002\", \"TML-M02-L005\"]",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The prerequisite closure is 10 lessons (auditor-computed) and includes eigenvalues (M01-L006) and PSD matrices (M01-L007), reached via M02-L005 Convexity, then M02-L004 Hessians, then M01-L007. The lab and items Q002-Q007 and Q009-Q011 need only a one-parameter derivative, and the live product uses this lab as an early experience.",
+   "proposed_correction": "Owner decision: make M02-L005 a soft prerequisite of M02-L006, or move the 1-D core of M02-L006 ahead of convexity, and update prerequisite_graph.json in step. No patch (two files and a curriculum decision).",
+   "sme_verification_required": true,
+   "sme_reason": "Curriculum sequencing.",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-045",
+   "issue": "The prerequisite closure is 31 lessons (auditor-computed), including Hessians, convexity, gradient descent and MLE, because of the chain M06-L007, M05-L004, M05-L003 (which requires M02-L005 and M04-L007).",
+   "file": "traditional_ml/curriculum/lesson_index.json",
+   "question_id": "TML-M06-L008",
+   "criteria": [
+    "prerequisite_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/curriculum/lesson_index.json",
+     "json_pointer": "/lessons/43/prerequisites",
+     "quoted_text": "[\"TML-M06-L007\", \"TML-M06-L004\", \"TML-M06-L006\"]",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The prerequisite closure is 31 lessons (auditor-computed), including Hessians, convexity, gradient descent and MLE, because of the chain M06-L007, M05-L004, M05-L003 (which requires M02-L005 and M04-L007). None of the 11 items uses those ideas, which delays a high-value practical lesson. Placement can skip S1, which partly mitigates this.",
+   "proposed_correction": "Owner decision: review the M05-L003 hard edges, or mark them soft for M06. No patch.",
+   "sme_verification_required": true,
+   "sme_reason": "Curriculum sequencing.",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-046",
+   "issue": "The summary lists duplicate leakage and the items test it (Q002 s4, Q011 option D), but O01 enumerates only target leakage, contamination and temporal leakage, so those parts assess no stated objective.",
+   "file": "traditional_ml/curriculum/lesson_index.json",
+   "question_id": "TML-M06-L008",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "low",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/curriculum/lesson_index.json",
+     "json_pointer": "/lessons/43/summary",
+     "quoted_text": "duplicate leakage",
+     "quote_is_excerpt": true
+    },
+    {
+     "file": "traditional_ml/curriculum/lesson_index.json",
+     "json_pointer": "/lessons/43/learning_objectives/0/text",
+     "quoted_text": "Classify a described leak as target leakage, contamination or temporal leakage",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The summary lists duplicate leakage and the items test it (Q002 s4, Q011 option D), but O01 enumerates only target leakage, contamination and temporal leakage, so those parts assess no stated objective.",
+   "proposed_correction": "Owner decision: extend O01 to include group or duplicate leakage, or drop those parts. Not patched, because the auditor must not invent objectives.",
+   "sme_verification_required": true,
+   "sme_reason": "Objective wording.",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-047",
+   "issue": "Practice time is 55/86/103 minutes against a 20-30 minute target, and lesson_index has no time field.",
+   "file": "traditional_ml/curriculum/lesson_index.json",
+   "question_id": "TML-M01-L002, TML-M02-L006, TML-M06-L008",
+   "criteria": [
+    "difficulty_calibration",
+    "pedagogical_clarity"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/curriculum/lesson_index.json",
+     "json_pointer": "/lessons/43/estimated_question_count/planned",
+     "quoted_text": "18",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "Prior concern confirmed. Practice time from the items' own estimates is 55, 86 and 103 minutes (auditor-summed) against the PM's 20-30 minute core target. That is before reading time, and the planned counts (12/18/18) exceed the current 11/13/11. lesson_index.json has no time field, so the target cannot be checked per lesson. Several estimates look low (M06 Q009: 15 minutes for a 10-criterion, 12-point written plan; M06 Q011: 22 minutes for a three-part mastery task).",
+   "proposed_correction": "Add a core/practice/deep-challenge tag per item and a lesson time budget (AT-030). Re-estimate item times from the calibration sample. No patch.",
+   "sme_verification_required": true,
+   "sme_reason": "Time calibration needs learner data.",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": "length"
+  },
+  {
+   "id": "AUD-048",
+   "issue": "assembly_rules specifies a provisional LLM score for rubric items, contradicting DEC-018 (no AI grader at launch).",
+   "file": "traditional_ml/architecture/assembly_rules.json",
+   "question_id": null,
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/architecture/assembly_rules.json",
+     "json_pointer": "/lesson_practice/rules/2",
+     "quoted_text": "Rubric items show a provisional LLM score labelled 'provisional' until human-graded or calibrated.",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "This contradicts DEC-018 (no AI grader at launch) and grading_spec.general_rules, which say rubric_llm_assisted stays specified only for a future approved study. A developer implementing assembly_rules would build the LLM grader the PM ruled out. The validators check items for no_ai_grader_DEC018, but not this architecture file.",
+   "proposed_correction": "Replace with human-only grading wording (patch).",
+   "sme_verification_required": false,
+   "sme_reason": "Owner decision already made (DEC-018).",
+   "patch": {
+    "file": "proposed_patches/AUD-048.json",
+    "shared_with": [],
+    "applies_cleanly_to_copy": true,
+    "schema_valid_after_patch": null
+   },
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-049",
+   "issue": "The lesson's concepts do not list the determinant, which Q006 uses (see the Q006 determinant defect).",
+   "file": "traditional_ml/curriculum/lesson_index.json",
+   "question_id": "TML-M01-L002",
+   "criteria": [
+    "prerequisite_validity"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/curriculum/lesson_index.json",
+     "json_pointer": "/lessons/1/learning_objectives/5/text",
+     "quoted_text": "Explain when a square matrix is invertible and why explicit inversion is avoided numerically",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The lesson's concepts do not list the determinant, which Q006 uses (see the Q006 determinant defect). O06's 'singular' and 'cannot be solved uniquely' rely on rank and consistency, which TML-M01-L004 (a later lesson) teaches, and its least-squares follow-up is M02-L008. The objective is assessable only partly with what M01-L002 and its single prerequisite teach.",
+   "proposed_correction": "Owner decision: add 'determinant of a 2x2 matrix (as a test)' to M01-L002 concepts, or keep O06 at the column-dependence level and move the rank language to M01-L004. No patch.",
+   "sme_verification_required": true,
+   "sme_reason": "Curriculum scope.",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-050",
+   "issue": "The only M02-L006 instruction is the lab, which does not teach O04 batch GD on data, 2-D conditioning or stopping criteria that items assess.",
+   "file": "traditional_ml/curriculum/lesson_index.json",
+   "question_id": "TML-M02-L006",
+   "criteria": [
+    "assessment_validity",
+    "prerequisite_validity"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/curriculum/lesson_index.json",
+     "json_pointer": "/lessons/13/learning_objectives/3/text",
+     "quoted_text": "Implement batch gradient descent for a differentiable loss in NumPy",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The only lesson text in the product is the /lab copy (repo report, section 7). The lab has 'no dataset, no mean squared error over points, no second parameter' and no tolerance-based stopping (repo report, section 4). So O04 (batch GD in NumPy), two-dimensional conditioning (Q001, Q008), stopping criteria (Q012) and loss curves (O05) are assessed without any instruction anyone can check the items against.",
+   "proposed_correction": "Write the lesson body (AT-031), or limit the M02-L006 core to what the lab teaches and mark Q001, Q008, Q012 and Q013 as practice or deep challenge until it exists. No patch.",
+   "sme_verification_required": true,
+   "sme_reason": "Instruction-assessment alignment.",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-051",
+   "issue": "No lesson body exists in the product for either lesson (repo report, section 7), so no item can be checked against what was taught, and the prerequisite guards (PRQ-01) can only compare item text with concept names.",
+   "file": "traditional_ml/curriculum/lesson_index.json",
+   "question_id": "TML-M01-L002, TML-M06-L008",
+   "criteria": [
+    "assessment_validity"
+   ],
+   "severity": "high",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/curriculum/lesson_index.json",
+     "json_pointer": "/lessons/1/status",
+     "quoted_text": "proposed_pending_owner_approval",
+     "quote_is_excerpt": false
+    },
+    {
+     "file": "traditional_ml/curriculum/lesson_index.json",
+     "json_pointer": "/lessons/43/status",
+     "quoted_text": "proposed_pending_owner_approval",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "No lesson body exists in the product for either lesson (repo report, section 7), so no item can be checked against what was taught, and the prerequisite guards (PRQ-01) can only compare item text with concept names. Automated validation cannot detect this.",
+   "proposed_correction": "Write the lesson bodies before SME review, so the SME can check items against instruction (AT-031). No patch.",
+   "sme_verification_required": true,
+   "sme_reason": "SME review is not meaningful without instruction.",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-052",
+   "issue": "The contract is pinned to a Next.js build-hash filename, which the repo report says will change with each build.",
+   "file": "traditional_ml/labs/gradient_descent_lab.contract.json",
+   "question_id": null,
+   "criteria": [
+    "technical_correctness"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/labs/gradient_descent_lab.contract.json",
+     "json_pointer": "/source_checked/lab_chunk",
+     "quoted_text": "/_next/static/immutable/chunks/1sfwzy5n6rkdm.js",
+     "quote_is_excerpt": false
+    }
+   ],
+   "why_incorrect_or_weak": "The contract is pinned to a Next.js build-hash filename, which the repo report says will change with each build. It also omits 11 behaviours in the source (repo report, section 4), including that the four Apply checks accept non-descent steps. M02 Q011 calls its public test 'The lab's four step checks', so learners may meet two different standards for the same step.",
+   "proposed_correction": "Re-pin the contract to lib/descent.ts, lib/step-expr.ts and components/lab-app.tsx and record the 11 differences, or classify them as defects (AT-027, owner). No patch.",
+   "sme_verification_required": true,
+   "sme_reason": "Lab owner confirmation.",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": null
+  },
+  {
+   "id": "AUD-053",
+   "issue": "MAP-03 counts omissions and optional criteria as misconception evidence, which cannot separate a misconception from carelessness.",
+   "file": "traditional_ml/architecture/misconception_mapping.json",
+   "question_id": null,
+   "criteria": [
+    "misconception_alignment"
+   ],
+   "severity": "medium",
+   "problematic_content": [
+    {
+     "file": "traditional_ml/architecture/misconception_mapping.json",
+     "json_pointer": "/rules/2/rule",
+     "quoted_text": "(or a keyed multi-select option whose omission reveals it)",
+     "quote_is_excerpt": true
+    }
+   ],
+   "why_incorrect_or_weak": "Prior concern confirmed in part. The broadened rule counts omissions (distractor_omission, step_distractor_omission) and optional rubric criteria as evidence. An omission cannot tell a misconception from carelessness, yet feedback_framework's misconception layer shows corrective feedback and schedules detection items when a response 'matches a linked misconception's signature'. Concrete weak or wrong links: M01 Q003 (wrong option, see the Q003 defect), M06 Q009 R06 (optional criterion), M06 Q003 (MC-106 about scaling on a feature-selection item), M02 Q004 s4:A (MC-031 is a stretch for 'converges monotonically' at eta 1.5), M06 Q001 omissions. Pointer resolution is mechanically correct; the alignment is what is weak.",
+   "proposed_correction": "Add an evidence-strength field (strong: chosen distractor, produced defect, or diagnostic value; weak: omission or optional criterion) and let only strong evidence trigger the misconception feedback layer. SME-07 to rule per link. No patch (schema change).",
+   "sme_verification_required": true,
+   "sme_reason": "SME-07.",
+   "patch": null,
+   "automated_validation_passed_but_weak": true,
+   "prior_concern": "evidence"
+  }
+ ],
+ "curriculum_level_findings": [
+  {
+   "topic": "Systemic length cue",
+   "severity": "high",
+   "text": "In 13 of 22 single-choice decisions the key is the longest option, in 5 it is at least 2x the next longest, and among standalone single-choice items 8 of 9 key the longest option. Keys fall on A 11 times, B 5, C 3, D 3. A test-wise learner can beat chance across the bank without understanding. Validation has no option-balance check.",
+   "defects": [
+    "AUD-005",
+    "AUD-009",
+    "AUD-015",
+    "AUD-018",
+    "AUD-020",
+    "AUD-023",
+    "AUD-036",
+    "AUD-041"
+   ]
+  },
+  {
+   "topic": "AI grader contradiction",
+   "severity": "high",
+   "text": "assembly_rules.json lesson_practice rule 2 specifies a provisional LLM score, contradicting DEC-018.",
+   "defects": [
+    "AUD-048"
+   ]
+  },
+  {
+   "topic": "Lesson length",
+   "severity": "high",
+   "text": "Practice alone is 55, 86 and 103 minutes against a 20-30 minute target; no time field exists per lesson.",
+   "defects": [
+    "AUD-047"
+   ]
+  },
+  {
+   "topic": "Gates on untaught content",
+   "severity": "high",
+   "text": "Required rubric criteria in M06 Q009 and Q011 rely on M09, M10-L005 and M15-L005; M02 Q013 mastery relies on hyperbolic functions taught nowhere; M01 Q007 R04 relies on rank from M01-L004; M01 Q006 relies on the determinant, taught nowhere.",
+   "defects": [
+    "AUD-004",
+    "AUD-007",
+    "AUD-028",
+    "AUD-039",
+    "AUD-042",
+    "AUD-049"
+   ]
+  },
+  {
+   "topic": "Missing lesson bodies",
+   "severity": "high",
+   "text": "No lesson text exists for M01-L002 or M06-L008, and M02-L006 has only the lab, which does not cover O04, 2-D conditioning or stopping criteria. Items cannot be checked against instruction.",
+   "defects": [
+    "AUD-050",
+    "AUD-051"
+   ]
+  },
+  {
+   "topic": "Prerequisite over-tightness",
+   "severity": "medium",
+   "text": "Closures of 10 (M02-L006) and 31 (M06-L008) lessons include material none of the items use.",
+   "defects": [
+    "AUD-044",
+    "AUD-045"
+   ]
+  },
+  {
+   "topic": "Broadened misconception evidence",
+   "severity": "medium",
+   "text": "MAP-03 counts omissions and optional criteria as evidence; several links are weak and one (M01 Q003) is wrong.",
+   "defects": [
+    "AUD-001",
+    "AUD-033",
+    "AUD-040",
+    "AUD-053"
+   ]
+  },
+  {
+   "topic": "Level-4 scaffolding",
+   "severity": "medium",
+   "text": "Both level-4 items with steps scaffold the response (M01 Q011 s1/s3, M06 Q011 s2 prompt), contradicting \"No scaffold in the prompt\".",
+   "defects": [
+    "AUD-012",
+    "AUD-043"
+   ]
+  },
+  {
+   "topic": "Lab overlap",
+   "severity": "medium",
+   "text": "M02 Q003, Q004, Q009 and Q011 reproduce lab steps whose answers the lab reveals.",
+   "defects": [
+    "AUD-016",
+    "AUD-017",
+    "AUD-024"
+   ]
+  },
+  {
+   "topic": "Lab contract fragility",
+   "severity": "medium",
+   "text": "Contract pinned to minified build-hash chunks, with 11 undocumented differences.",
+   "defects": [
+    "AUD-052"
+   ]
+  }
+ ],
+ "validation_passed_but_still_weak": {
+  "statement": "All 35 items are auto_validated and the suite reports 1,134 checks with 0 errors and 11 warnings. That proves structure, schema conformance, numeric consistency and that registered mutants fail; it does not prove educational quality. Every defect in this file was present in items that passed validation.",
+  "mutation_category_note": "validation_results.json reports mutation 50/50 passed, yet the auditor's own mutants below passed every test of their item before patching.",
+  "auditor_mutants_that_passed_all_tests_before_patching": [
+   "TML-M01-L002-Q010 mutant:uses_numpy_forbidden",
+   "TML-M02-L006-Q009 mutant:wrong_fix_negative_default_lr",
+   "TML-M02-L006-Q009 mutant:wrong_fix_negate_grad_function",
+   "TML-M02-L006-Q009 mutant:wrong_fix_hardcode_halving",
+   "TML-M02-L006-Q011 mutant:run_inlines_update_without_calling_step",
+   "TML-M02-L006-Q012 mutant:python_loop_over_samples_forbidden",
+   "TML-M02-L006-Q012 mutant:only_rejects_lr_equal_zero",
+   "TML-M02-L006-Q013 mutant:eta_2.1",
+   "TML-M02-L006-Q013 mutant:eta_2.2",
+   "TML-M02-L006-Q013 mutant:newton_step_not_gd",
+   "TML-M06-L008-Q006 mutant:wrong_fix_expanding_mean_not_7day",
+   "TML-M06-L008-Q006 mutant:wrong_fix_shift8_window"
+  ],
+  "note_on_that_list": "M01 Q010 uses_numpy passes only because no import hook was available in the auditor harness; the production sandbox is specified to block it, so it is not a test defect. M02 Q012 python_loop is unenforceable by tests (see the Q012 defect).",
+  "legitimate_alternatives_correctly_accepted": [
+   "TML-M01-L002-Q008 mutant:alt_correct_ravel_w",
+   "TML-M02-L006-Q013 mutant:eta_1.9"
+  ],
+  "items": [
+   "M02 Q009 (wrong fixes pass; exact lab case)",
+   "M02 Q011 (step not required to be called)",
+   "M02 Q012 (negative lr unchecked)",
+   "M02 Q013 (eta above bound and Newton step pass; untaught calculus)",
+   "M06 Q006 (wrong windows pass)",
+   "M06 Q004 (legitimate ddof=1 fix fails)",
+   "every length-cued item: M01 Q006, Q009; M02 Q001, Q006, Q007, Q008; M06 Q005, Q010",
+   "M01 Q003 (misconception_evidence_resolves passed on a wrong pointer)",
+   "M06 Q009 and Q011 (rubric structure valid; gates on untaught content)"
+  ]
+ },
+ "prior_concerns": [
+  {
+   "concern": "M06 Q009/Q011 mandatory criteria depend on M09, M10 and M15",
+   "verdict": "confirmed",
+   "detail": "Q009 R07-R10 (required) need M09-L001 to L005. Q011 s2 R03 needs M10-L005, R05 needs M09-L002 and M15-L005, R07 needs M09. Nuance: R04 follows from the contamination principle taught here and R08 from the prerequisite M06-L007, so those are fair; and the s2 prompt cues R03.",
+   "defects": [
+    "AUD-039",
+    "AUD-042",
+    "AUD-043"
+   ]
+  },
+  {
+   "concern": "Misconception-evidence rule was broadened",
+   "verdict": "confirmed with nuance",
+   "detail": "MAP-03 now admits omission and optional-criterion evidence. Every pointer resolves, but M01 Q003 is wrong, and M06 Q009 MC-093, M06 Q003 MC-106 and M02 Q004 MC-031 are weak. The M02 Q010 MC-027 link is sound, so the concern is refuted for that item.",
+   "defects": [
+    "AUD-001",
+    "AUD-033",
+    "AUD-040",
+    "AUD-053"
+   ]
+  },
+  {
+   "concern": "M02 Q009 is an exact lab case",
+   "verdict": "confirmed",
+   "detail": "Same bowl, start, rate, step count and fault as lab Debug case B. Q003, Q004 and Q011 also overlap the lab.",
+   "defects": [
+    "AUD-024",
+    "AUD-016",
+    "AUD-017"
+   ]
+  },
+  {
+   "concern": "Lessons are too long (55/86/103 vs 20-30 minutes)",
+   "verdict": "confirmed",
+   "detail": "Auditor sums of estimated_time_minutes are 55, 86 and 103. Estimates for M06 Q009 (15) and Q011 (22) look optimistic, so true times are likely higher.",
+   "defects": [
+    "AUD-047"
+   ]
+  }
+ ],
+ "proposed_patches": {
+  "directory": "proposed_patches/",
+  "count": 39,
+  "applied_to_source": false,
+  "all_apply_cleanly_to_copy": true,
+  "all_patched_items_and_banks_schema_valid": true,
+  "all_patches_per_target_in_sequence": {
+   "traditional_ml/question_banks/module_01/lesson_01_002.json": {
+    "applies_cleanly_in_sequence": true,
+    "error": null,
+    "question_schema_errors": {},
+    "bank_schema_errors": []
+   },
+   "traditional_ml/question_banks/module_02/lesson_02_006.json": {
+    "applies_cleanly_in_sequence": true,
+    "error": null,
+    "question_schema_errors": {},
+    "bank_schema_errors": []
+   },
+   "traditional_ml/question_banks/module_06/lesson_06_008.json": {
+    "applies_cleanly_in_sequence": true,
+    "error": null,
+    "question_schema_errors": {},
+    "bank_schema_errors": []
+   },
+   "traditional_ml/architecture/assembly_rules.json": {
+    "applies_cleanly_in_sequence": true,
+    "error": null
+   }
+  },
+  "code_retest_on_patched_copies": {
+   "M02-Q009[patched_all] corrected": {
+    "all_tests_pass": true,
+    "expected_all_pass": true,
+    "as_expected": true,
+    "failed_tests": []
+   },
+   "M02-Q009[patched_all] defective": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "fail_loss_decreases",
+     "fail_matches_descent",
+     "fail_explicit_args_and_gradient"
+    ]
+   },
+   "M02-Q009[patched_all] mutant negative default lr": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "fail_explicit_args_and_gradient"
+    ]
+   },
+   "M02-Q009[patched_all] mutant negated grad()": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "fail_explicit_args_and_gradient"
+    ]
+   },
+   "M02-Q009[patched_all] mutant hard-coded w*0.5": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "fail_matches_descent",
+     "fail_explicit_args_and_gradient"
+    ]
+   },
+   "M02-Q009[patched_tests_only] corrected": {
+    "all_tests_pass": true,
+    "expected_all_pass": true,
+    "as_expected": true,
+    "failed_tests": []
+   },
+   "M02-Q009[patched_tests_only] defective": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "fail_loss_decreases",
+     "fail_matches_descent",
+     "fail_explicit_args_and_gradient"
+    ]
+   },
+   "M02-Q009[patched_tests_only] mutant negative default lr": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "fail_explicit_args_and_gradient"
+    ]
+   },
+   "M02-Q009[patched_tests_only] mutant negated grad()": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "fail_explicit_args_and_gradient"
+    ]
+   },
+   "M02-Q009[patched_tests_only] mutant hard-coded w*0.5": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "fail_explicit_args_and_gradient"
+    ]
+   },
+   "M02-Q011 reference": {
+    "all_tests_pass": true,
+    "expected_all_pass": true,
+    "as_expected": true,
+    "failed_tests": []
+   },
+   "M02-Q011 mutant run() never calls step": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "hid_run_calls_step"
+    ]
+   },
+   "M02-Q012 reference": {
+    "all_tests_pass": true,
+    "expected_all_pass": true,
+    "as_expected": true,
+    "failed_tests": []
+   },
+   "M02-Q012 mutant rejects only lr==0": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "hid_negative_lr"
+    ]
+   },
+   "M02-Q013 reference": {
+    "all_tests_pass": true,
+    "expected_all_pass": true,
+    "as_expected": true,
+    "failed_tests": []
+   },
+   "M02-Q013 eta=1.9": {
+    "all_tests_pass": true,
+    "expected_all_pass": true,
+    "as_expected": true,
+    "failed_tests": []
+   },
+   "M02-Q013 eta=2.05": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "hid_max_curvature"
+    ]
+   },
+   "M02-Q013 eta=2.1": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "hid_max_curvature"
+    ]
+   },
+   "M02-Q013 eta=2.2": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "hid_max_curvature"
+    ]
+   },
+   "M02-Q013 eta=2.5": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "hid_tight_cluster",
+     "hid_max_curvature"
+    ]
+   },
+   "M02-Q013 Newton step": {
+    "all_tests_pass": true,
+    "expected_all_pass": true,
+    "as_expected": true,
+    "failed_tests": []
+   },
+   "M06-Q006 corrected": {
+    "all_tests_pass": true,
+    "expected_all_pass": true,
+    "as_expected": true,
+    "failed_tests": []
+   },
+   "M06-Q006 defective": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "fail_no_future",
+     "fail_no_same_day",
+     "fail_exact_window"
+    ]
+   },
+   "M06-Q006 mutant expanding mean": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "fail_exact_window"
+    ]
+   },
+   "M06-Q006 mutant 30-day window": {
+    "all_tests_pass": false,
+    "expected_all_pass": false,
+    "as_expected": true,
+    "failed_tests": [
+     "fail_exact_window"
+    ]
+   },
+   "M06-Q004 corrected (spec now pins ddof=0)": {
+    "all_tests_pass": true,
+    "expected_all_pass": true,
+    "as_expected": true,
+    "failed_tests": []
+   }
+  }
+ },
+ "summary": {
+  "total_defects": 53,
+  "by_severity": {
+   "critical": 0,
+   "high": 13,
+   "medium": 23,
+   "low": 17
+  },
+  "by_criterion": {
+   "ambiguity_edge_cases": 10,
+   "assessment_validity": 30,
+   "difficulty_calibration": 4,
+   "feedback_quality": 4,
+   "independent_transfer": 5,
+   "mathematical_correctness": 1,
+   "misconception_alignment": 6,
+   "pedagogical_clarity": 3,
+   "prerequisite_validity": 9,
+   "technical_correctness": 4
+  },
+  "by_lesson": {
+   "TML-M01-L002": {
+    "critical": 0,
+    "high": 4,
+    "medium": 7,
+    "low": 5
+   },
+   "TML-M02-L006": {
+    "critical": 0,
+    "high": 5,
+    "medium": 9,
+    "low": 6
+   },
+   "TML-M06-L008": {
+    "critical": 0,
+    "high": 6,
+    "medium": 5,
+    "low": 6
+   },
+   "curriculum_or_architecture": {
+    "critical": 0,
+    "high": 1,
+    "medium": 2,
+    "low": 0
+   }
+  },
+  "with_proposed_patch": 40,
+  "requiring_sme": 30,
+  "question_scorecard_result_counts_by_criterion": {
+   "technical_correctness": {
+    "pass": 32,
+    "concern": 3
+   },
+   "mathematical_correctness": {
+    "pass": 34,
+    "fail": 1
+   },
+   "prerequisite_validity": {
+    "pass": 30,
+    "concern": 2,
+    "fail": 3
+   },
+   "pedagogical_clarity": {
+    "pass": 33,
+    "concern": 2
+   },
+   "assessment_validity": {
+    "pass": 14,
+    "fail": 8,
+    "concern": 13
+   },
+   "misconception_alignment": {
+    "pass": 28,
+    "fail": 1,
+    "concern": 6
+   },
+   "feedback_quality": {
+    "pass": 31,
+    "concern": 3,
+    "fail": 1
+   },
+   "difficulty_calibration": {
+    "pass": 32,
+    "concern": 3
+   },
+   "independent_transfer": {
+    "pass": 30,
+    "concern": 5
+   },
+   "ambiguity_edge_cases": {
+    "pass": 26,
+    "concern": 8,
+    "fail": 1
+   }
+  },
+  "question_overall": {
+   "pass": 6,
+   "concern": 20,
+   "fail": 9
+  }
+ },
+ "source_integrity": {
+  "manifest_artifacts": 93,
+  "before": {
+   "match": 93,
+   "mismatch": [],
+   "missing": [],
+   "unlisted": []
+  },
+  "after": {
+   "match": 93,
+   "mismatch": [],
+   "missing": [],
+   "unlisted": []
+  },
+  "files_hashed": 94,
+  "all_file_hashes_identical_before_and_after": true,
+  "checked_at_ist": "2026-11-14 12:23 IST"
+ }
+}

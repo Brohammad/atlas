@@ -1,0 +1,56 @@
+{
+ "defect_id": "AUD-001",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+ "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/2/id",
+   "value": "TML-M01-L002-Q003"
+  },
+  {
+   "op": "test",
+   "path": "/questions/2/option_feedback/B",
+   "value": "This assumes * is a matrix product. In NumPy * is element-wise, so it keeps shape (2, 3)."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/2/option_feedback/B",
+   "value": "Neither operator gives (2, 2) here. * is element-wise, so A * B.T keeps the common shape (2, 3); and if * were a matrix product, (2x3)(2x3) would not even be defined."
+  },
+  {
+   "op": "test",
+   "path": "/questions/2/option_feedback/C",
+   "value": "A * B.T is valid because both arrays have shape (2, 3). A * B (without .T) would fail to broadcast."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/2/option_feedback/C",
+   "value": "This is what you would predict if * were the matrix product: (2x3)(2x3) has inner dimensions 3 and 2. But * is element-wise, and A and B.T both have shape (2, 3), so it runs. (A * B, without .T, would fail to broadcast.)"
+  },
+  {
+   "op": "test",
+   "path": "/questions/2/misconception_evidence/0",
+   "value": {
+    "misconception_id": "TML-MC-004",
+    "kind": "distractor",
+    "ref": "B",
+    "rationale": "Predicting (2, 2) for A * B.T treats the element-wise * as the matrix product, the converse confusion of MC-004 (element-wise vs matrix product)."
+   }
+  },
+  {
+   "op": "replace",
+   "path": "/questions/2/misconception_evidence/0",
+   "value": {
+    "misconception_id": "TML-MC-004",
+    "kind": "distractor",
+    "ref": "C",
+    "rationale": "Predicting a ValueError for A * B.T follows from reading the element-wise * as the matrix product (the converse confusion of MC-004): a (2x3)(2x3) matrix product is undefined."
+   }
+  }
+ ]
+}
