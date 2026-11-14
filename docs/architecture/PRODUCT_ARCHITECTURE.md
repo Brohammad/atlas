@@ -1,6 +1,8 @@
 # Architecture
 
-Inspected from the repo at the regression-and-residuals build. Stack actually in `package.json`: Next.js 16.4.6, React 19.3, TypeScript, Tailwind 4.3. The brief's FastAPI, Postgres, NumPy, scikit-learn, Plotly, and Pyodide are not installed. Do not add them to look like the brief.
+Inspected from the repo through the learning-rate unit (November 2026). Stack actually in `package.json`: Next.js 16.4.6, React 19.3, TypeScript, Tailwind 4.3. The brief's FastAPI, Postgres, NumPy, scikit-learn, Plotly, and Pyodide are not installed. Do not add them to look like the brief.
+
+**Verification baseline (14 November 2026):** `npm test` — 41 passing tests in seven `lib/*.test.ts` files (includes full event allowlist regression in `lib/events.test.ts`).
 
 ## Shape
 
@@ -21,12 +23,12 @@ There is one deployable service: this app on Vercel, alias `atlas.brohammad.tech
 |---|---|
 | Bowl, step, stability | `lib/descent.ts` |
 | Restricted Python step | `lib/step-expr.ts` evaluates a subset in the browser. There is no Python process |
-| Line, bias, two inputs, residuals | `lib/line.ts`, `lib/classical.ts`, `lib/two.ts`, `lib/resid.ts` |
+| Line, bias, two inputs, residuals, learning rate | `lib/line.ts`, `lib/classical.ts`, `lib/two.ts`, `lib/resid.ts`, `lib/rate.ts` |
 | Module inventory | `classicalModules` in `lib/classical.ts`. `status: "open"` is only `regression`. `lessons` counts are inventory metadata. The map does not render them |
 | Progress | `sessionStorage` keys listed in `USER_JOURNEYS.md` |
-| Events | `lib/browser-log.ts` posts JSON. `app/api/events/route.ts` allowlists names, then appends a file and ignores write failures |
+| Events | `lib/browser-log.ts` posts JSON. `app/api/events/route.ts` exports `ALLOWED_EVENT_NAMES`, validates against that set, appends a file locally, and ignores write failures on Vercel |
 
-Tests are `node --experimental-strip-types --test` on the `lib/*.test.ts` files. They recompute the published answers. They do not drive a browser.
+Tests are `node --experimental-strip-types --test` on the `lib/*.test.ts` files. They recompute the published answers and lock the event allowlist. They do not drive a browser.
 
 ## Decisions already embodied, and worth keeping
 
@@ -38,8 +40,8 @@ Tests are `node --experimental-strip-types --test` on the `lib/*.test.ts` files.
 
 ## Defects that are architectural
 
-1. **Production log.** The allowlist includes the gradient-descent names and the nine ML names (`line_*`, `regression_*`, `two_*`, `resid_*`). The `catch` around `appendFile` is deliberate. Serverless disks do not keep the file. Any metric that cites production events is invented.
-2. **Retention is off the run.** `retentionDue` remains in `lib/descent.ts` and is tested. The lab does not open that screen, because `sessionStorage` cannot be there a week later. A stored `retention` stage loads as the result.
+1. **Production log.** The allowlist includes gradient-descent names (`session_started`, `pre_answer`, …, `lesson_completed`) and ML sitting names (`line_*`, `regression_*`, `two_*`, `resid_*`, `rate_*`). The `catch` around `appendFile` is deliberate. Serverless disks do not keep the file. Any metric that cites production events is invented.
+2. **Retention is off the run.** `retentionDue` and `retentionBowl` remain in `lib/descent.ts` and are tested. The lab has no navigable retention stage: a stored `retention` stage loads as `results`. `retention_run` is on the API allowlist for a future station; **no client emits it today** (`sendEvent` call sites in `components/`).
 3. **No enforced prerequisite.** Routes are independent. A cleared bias unit links to two inputs, and a cleared two-input unit links to residuals. Nothing stops a learner from opening them in another order.
 
 ## What we will not introduce on a hunch

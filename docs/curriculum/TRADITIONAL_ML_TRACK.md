@@ -25,7 +25,7 @@ Prerequisite: none. This is the real start of the track. Outcome: the learner ca
 
 Bowl `L(w) = (k/2) (w − μ)²`, gradient `k (w − μ)`, update `w ← w − η ∇L`. Stable when `0 < η < 2/k`. For `L = w²`, `k = 2`, so the stable rates are `(0, 1)`. Rate `1.5` multiplies the error by `−2` and produces `1, −2, 4, −8`.
 
-Stations: pre-check, one-step prediction, a 10-step experiment on a flat bowl and a steep bowl, debug of that diverging walk and of an ascent update, a restricted step function, an unseen bowl, and a retention bowl that the storage cannot deliver a week later.
+Stations: pre-check, one-step prediction, a 10-step experiment on a flat bowl and a steep bowl, debug of that diverging walk and of an ascent update, a restricted step function, post-check, and an unseen bowl inside the apply stage. A seven-day retention bowl remains in `lib/descent.ts` for tests only; it is not a navigable station, and `retention_run` is not emitted by the lab UI.
 
 Prerequisite we want: Fit a line. Prerequisite we enforce: none. Outcome: the learner can tell a long step from an uphill step, and can write the update.
 
