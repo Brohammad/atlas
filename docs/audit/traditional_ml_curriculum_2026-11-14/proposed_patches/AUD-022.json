@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-022",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/6/id",
+   "value": "TML-M02-L006-Q007"
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/explanation",
+   "value": "Divergence means the magnitude grows; oscillation means the sign alternates. D alternates but shrinks, so it converges slowly; B alternates and grows. Here the parameter trajectory reveals oscillation. For a quadratic loss under full-batch gradient descent the loss itself decreases monotonically whenever the run converges, so look at the parameters (or a multi-dimensional, noisy or non-quadratic loss) to see oscillation."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/explanation",
+   "value": "Divergence means the magnitude grows; oscillation means the sign alternates. D alternates but shrinks, so it converges slowly; B alternates and grows. Here the parameter trajectory reveals oscillation. For a convex quadratic loss under full-batch gradient descent, the loss itself decreases monotonically whenever the run converges, in one dimension or many, so oscillation shows up in the parameters; it appears in the loss curve mainly for noisy (mini-batch) or non-quadratic problems."
+  }
+ ]
+}

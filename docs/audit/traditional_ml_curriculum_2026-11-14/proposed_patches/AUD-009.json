@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-009",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+ "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/8/id",
+   "value": "TML-M01-L002-Q009"
+  },
+  {
+   "op": "test",
+   "path": "/questions/8/content/response/options/0/text",
+   "value": "X.mean(axis=1) computes one mean per row, shape (n,). Broadcasting lines it up with the last axis (columns), which only works when n equals the number of columns, so the 4 x 4 result was already wrong. Use X.mean(axis=0)."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/8/content/response/options/0/text",
+   "value": "axis=1 gives row means, shape (n,); they broadcast across columns only when n equals the column count, so the 4 x 4 output was wrong too. Use axis=0."
+  }
+ ]
+}

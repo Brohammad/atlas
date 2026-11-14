@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-041",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+ "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/9/id",
+   "value": "TML-M06-L008-Q010"
+  },
+  {
+   "op": "test",
+   "path": "/questions/9/content/response/options/3/text",
+   "value": "Split by both: train on customers who joined before a cutoff using their transactions before it; test on different customers who joined after the cutoff, using their later transactions."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/9/content/response/options/3/text",
+   "value": "Split by customer and time: train on earlier customers before a cutoff; test on later customers after it."
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "defect_id": "AUD-023",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/7/id",
+   "value": "TML-M02-L006-Q008"
+  },
+  {
+   "op": "test",
+   "path": "/questions/7/content/response/options/0/text",
+   "value": "The steep direction (curvature 100) caps the learning rate: w1 is already near its stability limit (multiplier -0.9) while w2 (curvature 1) shrinks only 1.9% per step. Raising eta to 0.1 would make w1 diverge; the fix is to reduce the mismatch in curvature, e.g. by rescaling the parameters or features."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/7/content/response/options/0/text",
+   "value": "w1 is near its stability limit (multiplier -0.9) while w2 shrinks only 1.9% per step; eta = 0.1 would make w1 diverge. Reduce the curvature mismatch instead, e.g. by rescaling."
+  },
+  {
+   "op": "test",
+   "path": "/questions/7/content/response/options/3/text",
+   "value": "The optimiser has reached a saddle point, which is why the loss is stuck around 0.07."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/7/content/response/options/3/text",
+   "value": "The optimiser has reached a saddle point, which is why the loss is stuck around 0.07; a larger learning rate would help it escape."
+  }
+ ]
+}

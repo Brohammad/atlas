@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-010",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+ "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/10/id",
+   "value": "TML-M01-L002-Q011"
+  },
+  {
+   "op": "test",
+   "path": "/questions/10/answer/steps/s4/rubric/2/description",
+   "value": "Keeps a running best score and best index per user across chunks, updating where the chunk max is larger."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/10/answer/steps/s4/rubric/2/description",
+   "value": "Combines the chunks correctly: either keeps a running best score and index per user, replacing them where a chunk's max is larger, or stores each chunk's per-user max and global index and reduces them at the end. Either way memory stays bounded by one chunk's scores."
+  }
+ ]
+}

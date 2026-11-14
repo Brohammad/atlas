@@ -73,3 +73,7 @@ Tests lock the answers. Lint is clean on the files touched. A fresh session can 
 ## Recommendation
 
 Send the pilot ask (`PILOT_ASK.md`) and collect the first five pasted replies before building baseline (C-03). Fix any station that wins the same distractor in those replies. Do not open classification to compensate for a failed gate.
+
+## Curriculum audit import (reference)
+
+Independent audit of three pilot JSON lessons (M01-L002, M02-L006, M06-L008) is imported under `docs/audit/traditional_ml_curriculum_2026-11-14/`. It does not change shipped sittings. Lab source-of-truth for `/lab`: `docs/audit/gradient_descent_lab.SOURCE_OF_TRUTH.md` (AT-027 / AUD-052). Patches are **not applied** until `traditional_ml/` exists in-repo.

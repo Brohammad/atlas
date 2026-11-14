@@ -1,0 +1,653 @@
+{
+ "per_patch": [
+  {
+   "patch_file": "AUD-001.json",
+   "patch_key": "M01-Q003-feedback",
+   "defect_ids": [
+    "AUD-001"
+   ],
+   "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+   "n_ops": 7,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M01-L002-Q003": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-002.json",
+   "patch_key": "M01-Q002-error",
+   "defect_ids": [
+    "AUD-002"
+   ],
+   "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M01-L002-Q002": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-003.json",
+   "patch_key": "M01-Q004-hint",
+   "defect_ids": [
+    "AUD-003"
+   ],
+   "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M01-L002-Q004": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-004.json",
+   "patch_key": "M01-Q006-det",
+   "defect_ids": [
+    "AUD-004",
+    "AUD-005"
+   ],
+   "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+   "n_ops": 15,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M01-L002-Q006": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-006.json",
+   "patch_key": "M01-Q007-prompt",
+   "defect_ids": [
+    "AUD-006"
+   ],
+   "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M01-L002-Q007": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-007.json",
+   "patch_key": "M01-Q007-R04",
+   "defect_ids": [
+    "AUD-007"
+   ],
+   "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+   "n_ops": 7,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M01-L002-Q007": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-008.json",
+   "patch_key": "M01-Q008-config",
+   "defect_ids": [
+    "AUD-008"
+   ],
+   "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M01-L002-Q008": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-009.json",
+   "patch_key": "M01-Q009-cue",
+   "defect_ids": [
+    "AUD-009"
+   ],
+   "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M01-L002-Q009": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-010.json",
+   "patch_key": "M01-Q011-R03",
+   "defect_ids": [
+    "AUD-010"
+   ],
+   "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M01-L002-Q011": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-011.json",
+   "patch_key": "M01-Q011-carry",
+   "defect_ids": [
+    "AUD-011"
+   ],
+   "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+   "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M01-L002-Q011": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-014.json",
+   "patch_key": "M02-Q001-fbA",
+   "defect_ids": [
+    "AUD-014"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q001": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-015.json",
+   "patch_key": "M02-Q001-cue",
+   "defect_ids": [
+    "AUD-015"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q001": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-017.json",
+   "patch_key": "M02-Q004-prompt",
+   "defect_ids": [
+    "AUD-017"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q004": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-018.json",
+   "patch_key": "M02-Q006-cue",
+   "defect_ids": [
+    "AUD-018"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 5,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q006": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-019.json",
+   "patch_key": "M02-Q006-prompt",
+   "defect_ids": [
+    "AUD-019"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q006": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-020.json",
+   "patch_key": "M02-Q007-cue",
+   "defect_ids": [
+    "AUD-020"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 19,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q007": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-021.json",
+   "patch_key": "M02-Q007-obj",
+   "defect_ids": [
+    "AUD-021"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 5,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q007": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-022.json",
+   "patch_key": "M02-Q007-expl",
+   "defect_ids": [
+    "AUD-022"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q007": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-023.json",
+   "patch_key": "M02-Q008-cue",
+   "defect_ids": [
+    "AUD-023"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 5,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q008": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-024.json",
+   "patch_key": "M02-Q009-transfer",
+   "defect_ids": [
+    "AUD-024"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 17,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q009": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-025.json",
+   "patch_key": "M02-Q009-tests",
+   "defect_ids": [
+    "AUD-025"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 2,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q009": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-026.json",
+   "patch_key": "M02-Q011-step",
+   "defect_ids": [
+    "AUD-026"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q011": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-027.json",
+   "patch_key": "M02-Q012-tests",
+   "defect_ids": [
+    "AUD-027"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 5,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q012": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-028.json",
+   "patch_key": "M02-Q013-prereq",
+   "defect_ids": [
+    "AUD-028"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 5,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q013": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-029.json",
+   "patch_key": "M02-Q013-tests",
+   "defect_ids": [
+    "AUD-029"
+   ],
+   "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+   "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+   "n_ops": 4,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M02-L006-Q013": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-031.json",
+   "patch_key": "M06-Q001-timing",
+   "defect_ids": [
+    "AUD-031"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q001": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-032.json",
+   "patch_key": "M06-Q002-labels",
+   "defect_ids": [
+    "AUD-032"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 27,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q002": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-033.json",
+   "patch_key": "M06-Q003-mc",
+   "defect_ids": [
+    "AUD-033"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 5,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q003": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-034.json",
+   "patch_key": "M06-Q003-fb",
+   "defect_ids": [
+    "AUD-034"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q003": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-035.json",
+   "patch_key": "M06-Q004-ddof",
+   "defect_ids": [
+    "AUD-035"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q004": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-036.json",
+   "patch_key": "M06-Q005-cue",
+   "defect_ids": [
+    "AUD-036"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 7,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q005": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-037.json",
+   "patch_key": "M06-Q006-window",
+   "defect_ids": [
+    "AUD-037"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 2,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q006": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-038.json",
+   "patch_key": "M06-Q007-obj",
+   "defect_ids": [
+    "AUD-038"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 5,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q007": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-039.json",
+   "patch_key": "M06-Q009-req",
+   "defect_ids": [
+    "AUD-039"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 13,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q009": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-040.json",
+   "patch_key": "M06-Q009-mc",
+   "defect_ids": [
+    "AUD-040"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 5,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q009": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-041.json",
+   "patch_key": "M06-Q010-cue",
+   "defect_ids": [
+    "AUD-041"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q010": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-042.json",
+   "patch_key": "M06-Q011-req",
+   "defect_ids": [
+    "AUD-042"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 10,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q011": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-043.json",
+   "patch_key": "M06-Q011-prompt",
+   "defect_ids": [
+    "AUD-043"
+   ],
+   "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+   "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+   "n_ops": 3,
+   "applies_cleanly": true,
+   "question_schema_errors": {
+    "TML-M06-L008-Q011": []
+   },
+   "bank_schema_errors": [],
+   "schema_valid": true
+  },
+  {
+   "patch_file": "AUD-048.json",
+   "patch_key": "ASM-llm",
+   "defect_ids": [
+    "AUD-048"
+   ],
+   "target": "traditional_ml/architecture/assembly_rules.json",
+   "target_sha256_at_audit": "86707928242c96dcf4534192f6af9b3975643f2a0a6639659f182f147706214f",
+   "n_ops": 2,
+   "applies_cleanly": true,
+   "schema_validation": "not applicable: no JSON Schema for architecture/assembly_rules.json; checked it parses and only rules[2] changed",
+   "schema_valid": null,
+   "changed_paths": [
+    "/lesson_practice/rules/2"
+   ]
+  }
+ ],
+ "all_patches_per_target_in_sequence": {
+  "traditional_ml/question_banks/module_01/lesson_01_002.json": {
+   "applies_cleanly_in_sequence": true,
+   "error": null,
+   "question_schema_errors": {},
+   "bank_schema_errors": []
+  },
+  "traditional_ml/question_banks/module_02/lesson_02_006.json": {
+   "applies_cleanly_in_sequence": true,
+   "error": null,
+   "question_schema_errors": {},
+   "bank_schema_errors": []
+  },
+  "traditional_ml/question_banks/module_06/lesson_06_008.json": {
+   "applies_cleanly_in_sequence": true,
+   "error": null,
+   "question_schema_errors": {},
+   "bank_schema_errors": []
+  },
+  "traditional_ml/architecture/assembly_rules.json": {
+   "applies_cleanly_in_sequence": true,
+   "error": null
+  }
+ }
+}

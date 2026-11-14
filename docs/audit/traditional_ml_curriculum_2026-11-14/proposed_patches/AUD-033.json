@@ -1,0 +1,50 @@
+{
+ "defect_id": "AUD-033",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+ "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/2/id",
+   "value": "TML-M06-L008-Q003"
+  },
+  {
+   "op": "test",
+   "path": "/questions/2/misconceptions_tested",
+   "value": [
+    "TML-MC-106"
+   ]
+  },
+  {
+   "op": "replace",
+   "path": "/questions/2/misconceptions_tested",
+   "value": [
+    "TML-MC-272"
+   ]
+  },
+  {
+   "op": "test",
+   "path": "/questions/2/misconception_evidence/0",
+   "value": {
+    "misconception_id": "TML-MC-106",
+    "kind": "step_distractor",
+    "ref": "s1:A",
+    "rationale": "Predicting chance-level accuracy for fit-before-split selection assumes fitting before splitting does not leak."
+   }
+  },
+  {
+   "op": "replace",
+   "path": "/questions/2/misconception_evidence/0",
+   "value": {
+    "misconception_id": "TML-MC-272",
+    "kind": "step_distractor",
+    "ref": "s1:A",
+    "rationale": "Predicting chance-level accuracy when the selection step saw the test labels treats leakage as requiring the target column itself as a feature; s3 asks the learner to confront exactly this."
+   }
+  }
+ ]
+}

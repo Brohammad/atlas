@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-035",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+ "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/3/id",
+   "value": "TML-M06-L008-Q004"
+  },
+  {
+   "op": "test",
+   "path": "/questions/3/content/expected_behaviour",
+   "value": "The fill values, means and standard deviations are computed from the training rows only; changing test rows must not change the training output or the parameters. The test rows are transformed with the training fill values, means and standard deviations."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/3/content/expected_behaviour",
+   "value": "The fill values, means and standard deviations are computed from the training rows only; changing test rows must not change the training output or the parameters. The test rows are transformed with the training fill values, means and standard deviations. Standardise with the population standard deviation (ddof=0, NumPy's default) of the imputed training rows."
+  }
+ ]
+}

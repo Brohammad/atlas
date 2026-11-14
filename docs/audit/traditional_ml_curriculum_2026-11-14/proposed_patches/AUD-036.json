@@ -1,0 +1,46 @@
+{
+ "defect_id": "AUD-036",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+ "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/4/id",
+   "value": "TML-M06-L008-Q005"
+  },
+  {
+   "op": "test",
+   "path": "/questions/4/content/response/options/0/text",
+   "value": "days_in_collections is almost certainly target leakage: it describes the scored loan after it was issued, so it does not exist when the application is scored and is largely a consequence of defaulting. Confirm its timing with the data owner and remove it. A count of collections days on the applicant's earlier, already-closed loans, frozen at application time, could be a legitimate replacement."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/4/content/response/options/0/text",
+   "value": "days_in_collections is target leakage: it describes this loan after it is issued, so it does not exist at application time. Confirm its timing and remove it."
+  },
+  {
+   "op": "test",
+   "path": "/questions/4/content/response/options/3/text",
+   "value": "applicant_income is the leak, because income is the strongest real driver of default."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/4/content/response/options/3/text",
+   "value": "debt_to_income_ratio is the leak, because a ratio that uses the loan amount depends on what was approved."
+  },
+  {
+   "op": "test",
+   "path": "/questions/4/option_feedback/D",
+   "value": "Income gives a modest 0.61 alone and is known at application time: it shows no sign of leakage."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/4/option_feedback/D",
+   "value": "The table shows debt_to_income_ratio is recorded at application, and on its own it scores a modest 0.66: no sign of leakage."
+  }
+ ]
+}

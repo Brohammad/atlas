@@ -1,0 +1,40 @@
+{
+ "defect_id": "AUD-038",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_06/lesson_06_008.json",
+ "target_sha256_at_audit": "21e24f49d1d8707e6a35a3f429a8b136f191c631a5e39bdb7ae246714380d442",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/6/id",
+   "value": "TML-M06-L008-Q007"
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/learning_objectives",
+   "value": [
+    "TML-M06-L008-O03",
+    "TML-M06-L008-O05"
+   ]
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/learning_objectives",
+   "value": [
+    "TML-M06-L008-O03"
+   ]
+  },
+  {
+   "op": "test",
+   "path": "/objectives_covered/TML-M06-L008-O05/0",
+   "value": "TML-M06-L008-Q007"
+  },
+  {
+   "op": "remove",
+   "path": "/objectives_covered/TML-M06-L008-O05/0"
+  }
+ ]
+}

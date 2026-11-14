@@ -1,0 +1,46 @@
+{
+ "defect_id": "AUD-007",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+ "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/6/id",
+   "value": "TML-M01-L002-Q007"
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/grading/rubric/3/description",
+   "value": "States that A is singular (not invertible) and the system has no solution or infinitely many."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/grading/rubric/3/description",
+   "value": "States that A is singular (not invertible), so Ax = b has no unique solution."
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/grading/rubric/3/partial_credit_rule",
+   "value": "0.5 if only one of 'no solution' or 'infinitely many' is given."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/grading/rubric/3/partial_credit_rule",
+   "value": "0.5 if the answer says only 'not invertible' without saying that a unique solution is not available. Naming both cases (no solution or infinitely many) is welcome but not required, because consistency and rank are taught in TML-M01-L004."
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/answer/required_concepts/4",
+   "value": "no solution or infinitely many solutions"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/answer/required_concepts/4",
+   "value": "no unique solution (naming both 'no solution' and 'infinitely many' is not required before TML-M01-L004)"
+  }
+ ]
+}

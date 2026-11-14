@@ -1,0 +1,36 @@
+{
+ "defect_id": "AUD-028",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/12/id",
+   "value": "TML-M02-L006-Q013"
+  },
+  {
+   "op": "test",
+   "path": "/questions/12/prompt",
+   "value": "Mastery check (unfamiliar loss). A sensor's readings contain occasional wild outliers, so you want a robust 'centre' c that minimises L(c) = mean(log(cosh(c - y_i))). Derive the gradient yourself, choose a learning rate you can justify from the loss's curvature, and implement gradient descent. In the docstring, state your learning rate and why it is safe."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/12/prompt",
+   "value": "Mastery check (unfamiliar loss). A sensor's readings contain occasional wild outliers, so you want a robust 'centre' c that minimises L(c) = mean(log(cosh(c - y_i))). Using the derivative facts given below, derive L'(c) and a bound on L''(c), choose a learning rate you can justify from that curvature bound, and implement gradient descent. In the docstring, state your learning rate and why it is safe."
+  },
+  {
+   "op": "test",
+   "path": "/questions/12/content/problem_statement",
+   "value": "Return the minimiser of L(c) = mean(log(cosh(c - y_i))) using gradient descent you implement yourself. Stop when |L'(c)| < tol or after max_iter updates. The gradient and the learning-rate choice are part of the task and are not given."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/12/content/problem_statement",
+   "value": "Return the minimiser of L(c) = mean(log(cosh(c - y_i))) using gradient descent you implement yourself. Stop when |L'(c)| < tol or after max_iter updates. Facts you may use (hyperbolic functions are not taught in this track): d/du log(cosh(u)) = tanh(u), and d/du tanh(u) = 1 - tanh(u)^2, which always lies in (0, 1]. Applying these to L, and choosing the learning rate, are part of the task."
+  }
+ ]
+}

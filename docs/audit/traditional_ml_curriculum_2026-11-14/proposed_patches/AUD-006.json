@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-006",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+ "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/6/id",
+   "value": "TML-M01-L002-Q007"
+  },
+  {
+   "op": "test",
+   "path": "/questions/6/prompt",
+   "value": "A colleague solves a linear system inside a hot loop with x = np.linalg.inv(A) @ b, where A is a 2000 x 2000 matrix and b is a vector. (a) What should they call instead, and why? Give two distinct reasons. (b) Their improved code raises numpy.linalg.LinAlgError: Singular matrix. What does this tell you about A and about how many solutions Ax = b can have?"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/6/prompt",
+   "value": "A colleague solves a linear system inside a hot loop with x = np.linalg.inv(A) @ b. On every iteration both A (2000 x 2000) and the vector b are rebuilt from new data. (a) What should they call instead, and why? Give two distinct reasons. (b) Their improved code raises numpy.linalg.LinAlgError: Singular matrix. What does this tell you about A and about how many solutions Ax = b can have?"
+  }
+ ]
+}

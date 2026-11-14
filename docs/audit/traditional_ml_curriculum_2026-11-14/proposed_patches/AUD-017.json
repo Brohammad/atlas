@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-017",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/3/id",
+   "value": "TML-M02-L006-Q004"
+  },
+  {
+   "op": "test",
+   "path": "/questions/3/prompt",
+   "value": "Predict before you run. The Atlas lab's bowl L(w) = w^2 has gradient 2w, so the update w <- w - eta * 2w gives w_{t+1} = (1 - 2 eta) w_t. Start at w0 = 1. Classify each learning rate, then apply the lab's clearing rule."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/3/prompt",
+   "value": "Predict before you run. The Atlas lab's bowl L(w) = w^2 has gradient 2w and the update is w <- w - eta * gradient. Start at w0 = 1. Work out what one update does to w for a general eta, then classify each learning rate and apply the lab's clearing rule."
+  }
+ ]
+}

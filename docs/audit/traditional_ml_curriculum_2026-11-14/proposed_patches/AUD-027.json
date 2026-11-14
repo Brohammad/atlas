@@ -1,0 +1,41 @@
+{
+ "defect_id": "AUD-027",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_02/lesson_02_006.json",
+ "target_sha256_at_audit": "b9b8b4198533f12c50b443056c686c0c9a398b5eb41b5960e3f882306096a935",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/11/id",
+   "value": "TML-M02-L006-Q012"
+  },
+  {
+   "op": "add",
+   "path": "/questions/11/answer/hidden_tests/-",
+   "value": {
+    "id": "hid_negative_lr",
+    "description": "Negative lr raises ValueError.",
+    "code": "import numpy as np\ntry:\n    fit_linear_gd(np.ones((3, 1)), np.ones(3), lr=-0.1)\n    raise AssertionError('no error')\nexcept ValueError:\n    pass\n",
+    "timeout_seconds": 10
+   }
+  },
+  {
+   "op": "add",
+   "path": "/questions/11/content/hidden_test_descriptions/-",
+   "value": "Negative lr raises ValueError."
+  },
+  {
+   "op": "test",
+   "path": "/questions/11/content/constraints/0",
+   "value": "No Python loops over samples or features (vectorise with NumPy)."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/11/content/constraints/0",
+   "value": "Vectorise with NumPy (no Python loops over samples or features). The automated tests cannot detect loops, so this is checked only if a human reviews the code."
+  }
+ ]
+}

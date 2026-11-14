@@ -1,0 +1,88 @@
+{
+ "defect_id": "AUD-004",
+ "also_fixes": [
+  "AUD-005"
+ ],
+ "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+ "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+ "requires_sme": true,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/5/id",
+   "value": "TML-M01-L002-Q006"
+  },
+  {
+   "op": "test",
+   "path": "/questions/5/content/options/1/text",
+   "value": "A is not invertible: its second column is 2 times its first, so it maps the whole plane onto a single line, and det(A) = 2*2 - 4*1 = 0."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/5/content/options/1/text",
+   "value": "A is not invertible: its second column is 2 times its first."
+  },
+  {
+   "op": "test",
+   "path": "/questions/5/option_feedback/B",
+   "value": "Correct: det = 0 because the columns are proportional, so the transformation is not reversible."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/5/option_feedback/B",
+   "value": "Correct: the columns are proportional, so A squashes the plane onto a line and different inputs give the same output; nothing can undo that. (For a 2x2 matrix this is the same as ad - bc = 0.)"
+  },
+  {
+   "op": "test",
+   "path": "/questions/5/explanation",
+   "value": "A 2x2 matrix [[a, b], [c, d]] is invertible exactly when ad - bc != 0. Here 2*2 - 4*1 = 0. Geometrically, both columns point in the same direction, so A squashes the plane onto a line and different inputs map to the same output; no inverse can undo that."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/5/explanation",
+   "value": "Both columns of A point in the same direction (the second is 2 times the first), so A squashes the plane onto a line and different inputs map to the same output; no inverse can undo that. If the 2x2 determinant has been introduced, the same fact appears as ad - bc = 2*2 - 4*1 = 0."
+  },
+  {
+   "op": "test",
+   "path": "/questions/5/feedback/correct",
+   "value": "Correct: zero determinant, and the columns are multiples of each other."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/5/feedback/correct",
+   "value": "Correct: one column is a multiple of the other, so information is lost and A has no inverse."
+  },
+  {
+   "op": "test",
+   "path": "/questions/5/feedback/incorrect",
+   "value": "Invertibility depends on whether information is lost, which is detected by det = 0 for 2x2 matrices, not on zero entries or symmetry."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/5/feedback/incorrect",
+   "value": "Invertibility depends on whether information is lost (for example, one column is a multiple of another), not on zero entries or symmetry."
+  },
+  {
+   "op": "test",
+   "path": "/questions/5/hints/0",
+   "value": "Compute ad - bc."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/5/hints/0",
+   "value": "Compare the two columns of A: is one a multiple of the other?"
+  },
+  {
+   "op": "test",
+   "path": "/questions/5/hints/1",
+   "value": "Compare the two columns of A."
+  },
+  {
+   "op": "replace",
+   "path": "/questions/5/hints/1",
+   "value": "If two different inputs give the same output, can any matrix undo A?"
+  }
+ ]
+}

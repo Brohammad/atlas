@@ -1,0 +1,26 @@
+{
+ "defect_id": "AUD-011",
+ "also_fixes": [],
+ "target": "traditional_ml/question_banks/module_01/lesson_01_002.json",
+ "target_sha256_at_audit": "8c7f7fcecc8b200e7d04fe383ef6653caefb4a8ca2889427116770775d980d13",
+ "requires_sme": false,
+ "applied": false,
+ "format": "RFC 6902 JSON Patch; paths relative to the target document",
+ "patch": [
+  {
+   "op": "test",
+   "path": "/questions/10/id",
+   "value": "TML-M01-L002-Q011"
+  },
+  {
+   "op": "test",
+   "path": "/questions/10/grading/config/carry_forward",
+   "value": "s2 is graded against the learner's own s1 shape if s1 is wrong (error carried forward)"
+  },
+  {
+   "op": "replace",
+   "path": "/questions/10/grading/config/carry_forward",
+   "value": "Not needed: s2 has the same value (2,560,000 bytes) for either orientation of S (32 x 10000 or 10000 x 32), and the other s1 options are undefined products."
+  }
+ ]
+}
