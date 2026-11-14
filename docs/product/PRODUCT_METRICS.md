@@ -34,7 +34,7 @@ These are diagnostic, not gates:
 - Whether the code station passed after a failed behavior check. That is the implementation signal for unit 1.
 - Experiment attempts on the bowls, and whether the steep bowl was passed only after a cut in the rate.
 
-The gradient-descent lab already emits pre, post, hints, experiment, debug, apply, and retention events. The ML units emit started and per-answer events that the route currently rejects. Fix the contract before interpreting a zero.
+The gradient-descent lab emits `pre_answer`, `post_answer`, `hint`, `experiment_*`, `debug_*`, `apply_*`, `lesson_completed`, and related names listed in `ALLOWED_EVENT_NAMES` in `app/api/events/route.ts`. The ML units emit `line_*`, `regression_*`, `two_*`, `resid_*`, and `rate_*` names; the route accepts them. `retention_run` is allowlisted but not sent by any sitting until a retention UI exists. Use a local log to debug; do not quote production counts.
 
 ## What we will not optimize
 
