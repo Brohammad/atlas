@@ -14,6 +14,7 @@ import {
   debugBowl,
   debugOscBowl,
   describeBowl,
+  experimentCanContinue,
   flatBowl,
   fmt,
   predictItems,
@@ -607,7 +608,7 @@ function ExperimentStage({
   const spec = bowl === "flat" ? flatBowl : steepBowl;
   const saved = traces[bowl];
   const fresh = saved?.lr === lr;
-  const bothIn = finalPass.flat !== null && finalPass.steep !== null;
+  const bothIn = experimentCanContinue(finalPass.flat, finalPass.steep);
 
   function run() {
     const trace = runDescent(spec, lr, EXPERIMENT_STEPS);
@@ -659,6 +660,11 @@ function ExperimentStage({
         and run again. A bowl is cleared only when the loss after step {EXPERIMENT_STEPS} is under {LOSS_OK}.
         The loss on the way does not count.
       </p>
+      <p className="mt-3 text-sm leading-6 text-muted">
+        These two bowls do not share a rate on this slider. Clear the flat bowl with a rate of at least 0.25
+        and the steep bowl with 0.15 or less, then submit each one. You can continue after both have been
+        submitted.
+      </p>
       <ul className="mt-5 grid grid-cols-2 gap-2">
         {(["flat", "steep"] as const).map((name) => {
           const mark = finalPass[name];
@@ -697,7 +703,9 @@ function ExperimentStage({
         <p className="mt-4 text-sm text-muted">
           {finalPass.flat && finalPass.steep
             ? "Both cleared. The steeper bowl has larger curvature, so it needed the smaller rate."
-            : "One bowl is still above 0.05 after 10 steps. Run another rate, or continue with this result."}
+            : finalPass.flat || finalPass.steep
+              ? "One bowl cleared. The steeper bowl needs 0.15 or less; the flat bowl needs at least 0.25. Run another rate on the open bowl, or continue after both have been submitted."
+              : "Neither bowl cleared at this rate. Try at least 0.25 on the flat bowl and 0.15 or less on the steep bowl. Submit each bowl when you are done; you can continue after both have been submitted."}
         </p>
       )}
     </Frame>
