@@ -6,23 +6,23 @@ import { Choices, Verdict } from "@/components/choices";
 import { sendEvent } from "@/lib/browser-log";
 import {
   FIT_B,
-  FIT_LR,
   FIT_W,
   REG_KEY,
-  partialW,
   freshReg,
   parseReg,
   predictLinear,
   regCleared,
   regMisses,
   regReply,
+  descend,
   regressionCodeNote,
   regressionQuestions,
+  regressionStepCases,
   regressionStations,
   trainPoints,
   type RegRun,
 } from "@/lib/classical";
-import { STARTER_STEP, evaluateStep } from "@/lib/step-expr";
+import { checkStepSource, evaluateStep, STARTER_STEP } from "@/lib/step-expr";
 
 const button =
   "inline-flex min-h-11 items-center justify-center rounded-full px-5 text-sm font-semibold disabled:opacity-40";
@@ -63,8 +63,7 @@ export function ClassicalLab() {
   }
 
   function checkCode() {
-    const got = evaluateStep(run.code, { w: FIT_W, grad: partialW(FIT_W, FIT_B), lr: FIT_LR });
-    const result = got.ok ? regressionCodeNote(got.value) : { ok: false, note: got.error };
+    const result = checkRegressionStep(run.code);
     sendEvent(run.sessionId, "regression_code", { correct: result.ok });
     setRun({ ...run, codeNote: result.note, codeOk: result.ok });
   }
@@ -216,7 +215,7 @@ function CodeStation({
   return (
     <section className="mt-8">
       <p className="text-sm leading-6 text-muted">
-        Write the descent step. It receives w, the partial as grad, and lr. On this unit, step(1, −12, 0.05) has to return 1.6. The checker calls your function. It does not match the source text.
+        Write the descent step. It receives w, the partial as grad, and lr. The checker calls your function on several inputs.
       </p>
       <label className="mt-4 block text-sm" htmlFor="reg-step">
         Step function
@@ -245,6 +244,35 @@ function CodeStation({
       </div>
     </section>
   );
+}
+
+function checkRegressionStep(source: string): { ok: boolean; note: string } {
+  const general = checkStepSource(source);
+  if (!general.ok) {
+    const fail = general.tests.find((test) => !test.pass);
+    return {
+      ok: false,
+      note: general.error ?? fail?.name ?? "That step did not pass every check.",
+    };
+  }
+  for (const triple of regressionStepCases) {
+    const got = evaluateStep(source, triple);
+    const expect = descend(triple.w, triple.grad, triple.lr);
+    if (!got.ok) {
+      return { ok: false, note: got.error };
+    }
+    if (Math.abs(got.value - expect) > 1e-9) {
+      return {
+        ok: false,
+        note: `That step returned ${got.value}. Descent on that input returns ${expect}.`,
+      };
+    }
+  }
+  const anchor = evaluateStep(source, regressionStepCases[0]!);
+  if (!anchor.ok) {
+    return { ok: false, note: anchor.error };
+  }
+  return regressionCodeNote(anchor.value);
 }
 
 function Track({ index }: { index: number }) {
