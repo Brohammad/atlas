@@ -155,6 +155,18 @@ export function reachedLoss(
   return Boolean(last && Number.isFinite(last.loss) && last.loss < limit);
 }
 
+export function experimentSliderRates(min = 0.05, max = 1, step = 0.05): number[] {
+  const rates: number[] = [];
+  for (let lr = min; lr <= max + step / 2; lr += step) {
+    rates.push(Math.round(lr * 100) / 100);
+  }
+  return rates;
+}
+
+export function experimentCanContinue(flat: boolean | null, steep: boolean | null): boolean {
+  return flat !== null && steep !== null;
+}
+
 export function fmt(n: number): string {
   if (!Number.isFinite(n)) return "—";
   const abs = Math.abs(n);

@@ -9,6 +9,8 @@ import {
   debugBowl,
   debugOscBowl,
   describeBowl,
+  experimentCanContinue,
+  experimentSliderRates,
   flatBowl,
   gradient,
   loss,
@@ -69,13 +71,31 @@ describe("gradient descent", () => {
     assert.equal(reachedLoss(runDescent(flatBowl, 0.4, EXPERIMENT_STEPS), EXPERIMENT_STEPS, LOSS_OK), true);
     assert.equal(reachedLoss(runDescent(steepBowl, 0.4, EXPERIMENT_STEPS), EXPERIMENT_STEPS, LOSS_OK), false);
     assert.equal(reachedLoss(runDescent(steepBowl, 0.1, EXPERIMENT_STEPS), EXPERIMENT_STEPS, LOSS_OK), true);
-    const grid = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.6, 0.8, 1];
+    const grid = experimentSliderRates();
     const both = grid.filter(
       (lr) =>
         reachedLoss(runDescent(flatBowl, lr, EXPERIMENT_STEPS), EXPERIMENT_STEPS, LOSS_OK) &&
         reachedLoss(runDescent(steepBowl, lr, EXPERIMENT_STEPS), EXPERIMENT_STEPS, LOSS_OK),
     );
     assert.deepEqual(both, []);
+    const flatClearing = grid.filter((lr) =>
+      reachedLoss(runDescent(flatBowl, lr, EXPERIMENT_STEPS), EXPERIMENT_STEPS, LOSS_OK),
+    );
+    const steepClearing = grid.filter((lr) =>
+      reachedLoss(runDescent(steepBowl, lr, EXPERIMENT_STEPS), EXPERIMENT_STEPS, LOSS_OK),
+    );
+    assert.ok(flatClearing.every((lr) => lr >= 0.25));
+    assert.ok(steepClearing.every((lr) => lr <= 0.15));
+    assert.ok(flatClearing.length > 0);
+    assert.ok(steepClearing.length > 0);
+  });
+
+  it("allows experiment continuation after both bowls are submitted", () => {
+    assert.equal(experimentCanContinue(null, null), false);
+    assert.equal(experimentCanContinue(true, null), false);
+    assert.equal(experimentCanContinue(false, true), true);
+    assert.equal(experimentCanContinue(true, true), true);
+    assert.equal(experimentCanContinue(false, false), true);
   });
 
   it("walks 1, −2, 4, −8 when the rate is too large, and walks uphill when the sign is flipped", () => {
