@@ -58,6 +58,18 @@ export function ClassicalMap() {
         Regression is the open module. Four units. The rest of the track is named below and has no
         lessons yet.
       </p>
+      <p className="mt-4 max-w-xl text-sm leading-6 text-muted">
+        Fit a line and the gradient descent lab come first. They are not on this list. The four units
+        below assume you have done both.
+      </p>
+      <div className="mt-3 flex flex-wrap gap-3">
+        <Link href="/beginner" className={quiet}>
+          Fit a line
+        </Link>
+        <Link href="/lab" className={quiet}>
+          Gradient descent lab
+        </Link>
+      </div>
       <h2 className="mt-10 text-xs font-semibold tracking-[0.14em] text-copper uppercase">Regression</h2>
       <p className="mt-2 max-w-xl text-sm leading-6 text-muted">
         Predict a number. House prices come after these units.
