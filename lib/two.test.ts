@@ -40,6 +40,11 @@ describe("two-input regression", () => {
       (point) => predictTwo(W1, W2, B, point.x1, point.x2) - point.y,
     );
     assert.deepEqual(residuals, [0, -1, -2]);
+    assert.equal(residuals.reduce((sum, residual) => sum + residual, 0), -3);
+    assert.equal(
+      residuals.reduce((sum, residual) => sum + Math.abs(residual), 0),
+      3,
+    );
     assert.equal(
       residuals.reduce((sum, residual, index) => sum + residual * (twoPoints[index]?.x2 ?? 0), 0),
       -4,
@@ -51,6 +56,9 @@ describe("two-input regression", () => {
     assert.equal(descend(W2, partialFeature("x2"), TWO_LR), 3);
     assert.equal(W2 + TWO_LR * partialFeature("x2"), -1);
     assert.equal(descend(W2, -4, TWO_LR), 2);
+    assert.equal(twoLoss(), 5);
+    assert.equal(twoLoss(W1, 3, B), 9);
+    assert.ok(twoLoss(W1, 3, B) > twoLoss());
   });
 
   it("scores the new point on its own", () => {

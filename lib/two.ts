@@ -66,7 +66,7 @@ export const twoQuestions: Question[] = [
       "w1 = 1, w2 = 1, and b = 1. The loss is the sum of squared errors on (x1, x2, y): (1, 1, 3), (1, 0, 3), and (0, 2, 5). Do not average.",
     prompt: "What is the loss?",
     answer: "5",
-    idea: "The predictions are 3, 2, and 3. Squared errors are 0, 1, and 4, which add to 5. Scoring only the last miss gives 4. Adding the raw residuals, without squaring, gives 3. Adding the labels gives 11.",
+    idea: "The predictions are 3, 2, and 3. Squared errors are 0, 1, and 4, which add to 5. Scoring only the last miss gives 4. Adding the signed residuals 0, −1, and −2 gives −3, which is not an option. Adding their sizes, 0 + 1 + 2, gives 3. The loss squares first, so those sizes become 0, 1, and 4. Adding the labels gives 11.",
     options: [
       { id: "5", text: "5" },
       { id: "4", text: "4" },
@@ -93,7 +93,7 @@ export const twoQuestions: Question[] = [
     setup: "w2 is 1. ∂L/∂w2 is −8. The learning rate is 0.25. Descent is w2 ← w2 − 0.25 × ∂L/∂w2. w1 and b stay put for this question.",
     prompt: "What is w2 after one update?",
     answer: "3",
-    idea: "1 − 0.25 × (−8) = 3. Adding the partial gives −1. Using −4 in place of −8 gives 2. The rate is large enough to move w2.",
+    idea: "1 − 0.25 × (−8) = 3. Adding the partial gives −1. Using −4 in place of −8 gives 2. The loss was 5 and it is 9 at w2 = 3. The partial said to increase w2, and 0.25 is past 2/10 = 0.2, so the step went too far. The update arithmetic is still 3.",
     options: [
       { id: "3", text: "3" },
       { id: "-1", text: "−1" },
