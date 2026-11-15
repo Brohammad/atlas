@@ -43,6 +43,12 @@ export function descend(w: number, partial: number, lr: number): number {
   return w - lr * partial;
 }
 
+/** Graded code station: two distinct triples so a constant return cannot pass. */
+export const regressionStepCases = [
+  { w: FIT_W, grad: partialW(FIT_W, FIT_B), lr: FIT_LR },
+  { w: 4, grad: 8, lr: 0.25 },
+];
+
 export const regressionStations = [
   "predict",
   "square",
@@ -164,9 +170,14 @@ export function regressionCodeNote(value: number): { ok: boolean; note: string }
       note: `step(1, −12, 0.05) returned ${showNum(value)}. Descent on this partial returns ${showNum(expect)}.`,
     };
   }
+  const lossAfter =
+    value === FIT_W
+      ? sumSquaredError(FIT_W, FIT_B)
+      : sumSquaredError(value, FIT_B);
   return {
     ok: true,
-    note: "step(1, −12, 0.05) returned 1.6. The partial is negative, so subtracting it moves w up, toward the lower loss.",
+    note:
+      `step(1, −12, 0.05) returned ${showNum(value)}. Subtracting a negative partial moves w up. The loss was ${showNum(sumSquaredError(FIT_W, FIT_B))} at w = 1 and is ${showNum(lossAfter)} at w = ${showNum(value)}. The direction was downhill, but the learning rate was too large for this loss to fall. A rate below about 0.047 is where this loss falls.`,
   };
 }
 

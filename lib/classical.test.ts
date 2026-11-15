@@ -10,11 +10,12 @@ import {
   predictLinear,
   regressionCodeNote,
   regressionQuestions,
+  regressionStepCases,
   squaredGap,
   sumSquaredError,
   trainPoints,
 } from "./classical.ts";
-import { evaluateStep } from "./step-expr.ts";
+import { checkStepSource, evaluateStep } from "./step-expr.ts";
 
 describe("linear regression unit", () => {
   it("predicts 1.5 x + 1 at x = 2", () => {
@@ -48,18 +49,46 @@ describe("linear regression unit", () => {
     assert.equal(descend(FIT_W, -6, FIT_LR), 1.3);
   });
 
+  it("raises loss after the taught unit step while moving in gradient direction", () => {
+    assert.equal(sumSquaredError(FIT_W, FIT_B), 2);
+    assert.ok(Math.abs(sumSquaredError(1.6, FIT_B) - 2.36) < 1e-9);
+    assert.ok(sumSquaredError(1.6, FIT_B) > sumSquaredError(FIT_W, FIT_B));
+  });
+
   it("scores the held-out point on its own", () => {
     assert.equal(predictLinear(FIT_W, FIT_B, 3), 5);
     assert.equal(squaredGap(5, 6), 1);
     assert.notEqual(squaredGap(5, 6), sumSquaredError(FIT_W, FIT_B));
   });
 
-  it("accepts a descent step and rejects the starter and the wrong sign", () => {
+  function regressionStepPasses(source: string): boolean {
+    if (!checkStepSource(source).ok) return false;
+    for (const triple of regressionStepCases) {
+      const got = evaluateStep(source, triple);
+      if (!got.ok || Math.abs(got.value - descend(triple.w, triple.grad, triple.lr)) > 1e-9) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  it("accepts a descent step and rejects the starter, wrong sign, and constants", () => {
     const inputs = { w: FIT_W, grad: partialW(FIT_W, FIT_B), lr: FIT_LR };
     const good = evaluateStep("def step(w, grad, lr):\n    return w - lr * grad\n", inputs);
+    const goodSource = "def step(w, grad, lr):\n    return w - lr * grad\n";
+    const altSource = "def step(w, grad, lr):\n    return w - grad * lr\n";
+    assert.equal(regressionStepPasses(goodSource), true);
+    assert.equal(regressionStepPasses(altSource), true);
+    const success = regressionCodeNote(1.6);
+    assert.equal(success.ok, true);
+    assert.match(success.note, /2\.36/);
+    assert.match(success.note, /learning rate was too large/i);
+    assert.doesNotMatch(success.note, /lower loss/i);
+    assert.equal(regressionStepPasses("def step(w, grad, lr):\n    return 1.6\n"), false);
+    assert.equal(regressionStepPasses("def step(w, grad, lr):\n    return w + lr * grad\n"), false);
     const bad = evaluateStep("def step(w, grad, lr):\n    return w + lr * grad\n", inputs);
     const half = evaluateStep("def step(w, grad, lr):\n    return w - 0.5 * lr * grad\n", inputs);
-    assert.equal(good.ok && regressionCodeNote(good.value).ok, true);
+    assert.equal(good.ok, true);
     assert.equal(bad.ok, true);
     if (bad.ok) {
       assert.equal(regressionCodeNote(bad.value).ok, false);
