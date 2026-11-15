@@ -100,7 +100,7 @@ export const lineQuestions: Question[] = [
       "You compared three weights. w = 1.5 had the smallest sum. The model is still ŷ = w × x, with no bias. Suppose the weight can be any number, and trying weights one by one is not practical.",
     prompt: "How do you look for a better weight?",
     answer: "direction",
-    idea: "Three weights were enough to see that 1.5 has a low error. With millions of possible weights, trying them does not scale, and averaging the ones you already tried is still a guess. Calculate the direction that reduces the loss, update the weight, and repeat. That repeated update is gradient descent.",
+    idea: "Three weights were enough to see that 1.5 has a low error. A million random tries can find a good value of this one weight. Use the loss anyway: it already tells you which way to move, and random guesses stop being a plan when each step has to set many weights at once. Averaging 1, 1.5, and 2 gives 1.5 again. Calculate the direction that reduces the loss, update the weight, and repeat. That repeated update is gradient descent.",
     options: [
       { id: "direction", text: "Calculate which direction reduces the loss, then update the weight and repeat." },
       { id: "million", text: "Try a million random weights and keep the smallest loss." },
