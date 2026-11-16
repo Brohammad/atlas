@@ -10,6 +10,10 @@ Secondary instrument, local only: `/api/events` accepts the names the labs send.
 
 Do not add a warehouse, a session replay tool, or an A/B platform for this cohort.
 
+## Pilot 001 (facilitated, five engineers)
+
+Instrument: facilitator rubric in `docs/pilot/PILOT_001_REGRESSION.md` (baseline/post scores 0–2, observation log, interview). Not the same as the async G1–G3 paste-back cohort above. Roll up with `docs/pilot/PILOT_001_RESULTS_TEMPLATE.md`. Do not change the product mid-cohort; aggregate friction after all five sessions.
+
 ## Gates
 
 Invite 20 working engineers. Stop inviting and change the sitting if a gate fails. Do not open classification to compensate.
