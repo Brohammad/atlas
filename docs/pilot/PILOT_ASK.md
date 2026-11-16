@@ -1,5 +1,7 @@
 # Pilot ask — 20 engineers (P-01)
 
+For a **facilitated full-path validation** (5 engineers, baseline/post), use [PILOT_001_REGRESSION.md](./PILOT_001_REGRESSION.md). This file is the lighter async ask.
+
 This is the script for the first regression cohort. It does not require accounts. Do not send a rubric. Do not sit with the participant while they work; a result produced while the author watches is not a valid finish gate (G2).
 
 ## URL to send
