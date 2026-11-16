@@ -375,7 +375,7 @@ function Result({ run, onAgain }: { run: RateRun; onAgain: () => void }) {
       </h1>
       <p className="mt-3 text-sm leading-6 text-muted">
         {misses.length === 0
-          ? "The same rate can finish a shallow line and step past the best weight on a steeper one."
+          ? "The same rate can finish a shallow line and step past the best weight on a steeper one. You finished the open regression units."
           : `Still open: ${misses.join(", ")}.`}
       </p>
       <section className="mt-6 rounded-2xl border border-line bg-plate p-4">

@@ -1056,11 +1056,12 @@ function Results({
           : ""}
       </p>
       <ReplyCard progress={progress} />
-      {missLabels(progress).length === 0 ? (
-        <Link href="/classical/regression" className={`${primary} mt-6`}>
-          A line with a bias
-        </Link>
-      ) : null}
+      <Link
+        href="/classical/regression"
+        className={`${missLabels(progress).length === 0 ? primary : ghost} mt-6 inline-flex`}
+      >
+        A line with a bias
+      </Link>
       <ul className="mt-6 grid gap-2 sm:grid-cols-5">
         <Station
           name="Understand"
