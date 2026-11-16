@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LossChart } from "@/components/curve";
@@ -132,6 +133,7 @@ export function WebPage() {
           ? `${clearedCount(sitting)} cleared so far. Understand, predict, find a rate, name the fault, then write the update.`
           : "Understand the step, predict the next one, find a rate, name the fault, then write the update yourself."}
       </p>
+      <RecommendedPath />
       <LineDoor line={line} onOpen={() => router.push("/beginner")} onReset={resetLine} />
       <TrackDoor
         run={regression}
@@ -139,6 +141,35 @@ export function WebPage() {
         onReset={resetReg}
       />
     </main>
+  );
+}
+
+function RecommendedPath() {
+  const steps: { href: string; label: string }[] = [
+    { href: "/beginner", label: "Fit a line" },
+    { href: "/lab", label: "Gradient descent lab" },
+    { href: "/classical/regression", label: "A line with a bias" },
+    { href: "/classical/two", label: "Two inputs" },
+    { href: "/classical/residuals", label: "Residuals" },
+    { href: "/classical/rate", label: "Learning rate on the line" },
+  ];
+  return (
+    <section className="mt-10 rounded-2xl border border-line bg-plate p-5">
+      <p className="text-xs font-semibold tracking-[0.14em] text-copper uppercase">Recommended path</p>
+      <ol className="mt-3 space-y-2 text-sm leading-6">
+        {steps.map((step, index) => (
+          <li key={step.href} className="flex gap-2">
+            <span className="text-muted tabular-nums">{index + 1}.</span>
+            <Link href={step.href} className="font-medium text-ink underline-offset-2 hover:underline">
+              {step.label}
+            </Link>
+          </li>
+        ))}
+      </ol>
+      <p className="mt-3 text-sm leading-6 text-muted">
+        Deep links still work out of order. Each unit&apos;s result also offers the next sitting when you are ready.
+      </p>
+    </section>
   );
 }
 
