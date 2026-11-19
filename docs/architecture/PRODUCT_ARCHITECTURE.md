@@ -1,8 +1,8 @@
 # Architecture
 
-Inspected from the repo through the learning-rate unit (November 2026). Stack actually in `package.json`: Next.js 16.4.6, React 19.3, TypeScript, Tailwind 4.3. The brief's FastAPI, Postgres, NumPy, scikit-learn, Plotly, and Pyodide are not installed. Do not add them to look like the brief.
+Inspected from the repo through the leakage unit (November 2026). Stack actually in `package.json`: Next.js 16.4.6, React 19.3, TypeScript, Tailwind 4.3. The brief's FastAPI, Postgres, NumPy, scikit-learn, Plotly, and Pyodide are not installed. Do not add them to look like the brief.
 
-**Verification baseline (14 November 2026):** `npm test` — 41 passing tests in seven `lib/*.test.ts` files (includes full event allowlist regression in `lib/events.test.ts`).
+**Verification baseline (19 November 2026):** `npm test` — 54 passing tests. CI runs that suite on Node 22 (`.github/workflows/ci.yml`).
 
 ## Shape
 
@@ -23,7 +23,8 @@ There is one deployable service: this app on Vercel, alias `atlas.brohammad.tech
 |---|---|
 | Bowl, step, stability | `lib/descent.ts` |
 | Restricted Python step | `lib/step-expr.ts` evaluates a subset in the browser. There is no Python process |
-| Line, bias, two inputs, residuals, learning rate | `lib/line.ts`, `lib/classical.ts`, `lib/two.ts`, `lib/resid.ts`, `lib/rate.ts` |
+| Line, bias, two inputs, residuals, learning rate, baseline, leak | `lib/line.ts`, `lib/classical.ts`, `lib/two.ts`, `lib/resid.ts`, `lib/rate.ts`, `lib/baseline.ts`, `lib/leak.ts` |
+| Recommended order | `lib/regression-path.ts` |
 | Module inventory | `classicalModules` in `lib/classical.ts`. `status: "open"` is only `regression`. `lessons` counts are inventory metadata. The map does not render them |
 | Progress | `sessionStorage` keys listed in `USER_JOURNEYS.md` |
 | Events | `lib/browser-log.ts` posts JSON. `app/api/events/route.ts` exports `ALLOWED_EVENT_NAMES`, validates against that set, appends a file locally, and ignores write failures on Vercel |

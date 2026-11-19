@@ -23,11 +23,13 @@ Shipped and deployed:
 | Front door | `/` | Enters the gradient-descent sitting or the Traditional ML track |
 | Gradient descent | `/lab` | Pre-check, predict, experiment on two bowls, debug a diverging step and an uphill step, write a restricted `step`, then post-check. The seven-day retention bowl is not on the run (math stays in `lib/descent.ts`). |
 | Fit a line | `/beginner` | Six questions, no bias, sum of squared errors, which point owns the loss, discrete search, why search has to follow the loss |
-| Track map | `/classical` | Four open units under Regression (bias, two inputs, residuals, learning rate). Other modules are titles and one-line objectives |
+| Track map | `/classical` | Six open units under Regression (bias, two inputs, residuals, learning rate, mean baseline, target leakage). Other modules are titles and one-line objectives |
 | Line with bias | `/classical/regression` | Predict, square, sum, partial, descent step, wrong sign, holdout, handwritten step |
 | Two inputs | `/classical/two` | A partial that only the non-zero feature can move |
 | Residuals | `/classical/residuals` | Sign, which point owns the loss, cancellation, raising a bias that sits under every label |
 | Learning rate | `/classical/rate` | Rate on shallow vs steep line loss, diagnosis, unseen line — bowl lesson transferred to the regression loss |
+| Mean baseline | `/classical/baseline` | Mean of y versus a line that fits training and loses on a holdout |
+| Target leakage | `/classical/leak` | A column that copies y. Training loss 0 is not a feature you can use at serve time |
 
 Design mock at `/design` is unlinked. Pilot table at `/review` reads a local file and tells the truth on Vercel: the server does not keep the log.
 
@@ -38,7 +40,7 @@ The MVP is this regression path, made measurable, and then extended by one unit 
 In:
 
 - The sittings above, with misconception feedback and a tested answer key.
-- Five regression sittings on one linked path (line, gradient descent, four classical units). Learning rate is shipped at `/classical/rate` (`lib/rate.ts`). The next regression unit after pilot review is **mean baseline**, not another rate lesson.
+- Eight regression sittings on one linked path (line, gradient descent, six classical units through target leakage). Order is `lib/regression-path.ts`. Do not add a unit until Pilot 001 names a repeated miss.
 - An event contract that accepts the events the labs already send (`ALLOWED_EVENT_NAMES` in `app/api/events/route.ts`).
 - A pilot protocol for 20 engineers that does not require accounts. Script: `docs/pilot/PILOT_ASK.md`. The sittings produce a result sentence; the pilot asks for that sentence back.
 - Phone layout of the same pages. The site is the app.
@@ -53,7 +55,7 @@ Out, with the reason:
 | Payments, teams, employer dashboard | Willingness to pay is unmeasured. |
 | Flutter | Later, and it must call the same math, not a second copy. |
 | A math textbook module before the models | Derivatives appear at the moment a partial is required. That decision is already in the units. |
-| House-price project | A project on a real table comes after a learner can beat a mean baseline and explain a residual. Neither unit exists yet. |
+| House-price project | Baseline and leakage exist. A real table still waits until a cohort finishes the path. |
 
 ## Success
 
@@ -69,7 +71,7 @@ These change the product. Defaults are in force until a pilot result overturns t
 
 1. **Identity.** Default: anonymous `sessionStorage` per sitting. A login is justified only after we watch people lose a finished unit by closing the tab and caring.
 2. **Seven-day retention.** The station is off the run. The rule stays in `lib/descent.ts`. Put the screen back only when progress survives a week.
-3. **One path.** Default order: line, then gradient descent, then bias, then two inputs, then residuals, then learning rate. Endings link forward; home may still offer multiple doors until F-02 merges the front door.
+3. **One path.** Default order: line, gradient descent, bias, two inputs, residuals, learning rate, mean baseline, target leakage. Endings link forward. Home lists that order and still keeps the line and track doors.
 4. **Durable analytics.** Default for the first 20: pasted result sentences plus a fixed event allowlist so local `/review` is not lying. A hosted table waits until paste-back fails as an operation.
 5. **Price.** Default: free. The first price test is a single track, after the metric gates pass, offered to people who finished. No enterprise motion before one stranger has paid or explicitly refused.
 

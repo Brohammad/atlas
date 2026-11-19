@@ -6,8 +6,8 @@
 2. Finish the line and the result opens `/lab` at the pre-check. There is no second copy of the marketing page inside the lab.
 3. The lab and the track stay direct links. The endings are what carry a cleared sitting forward.
 4. On the track, start unit 1 (bias), unit 2 (two inputs), or unit 3 (residuals) in any order. Nothing requires the previous unit. The home page lists a **recommended path**; endings still carry a cleared sitting forward.
-5. Progress for each sitting is a separate `sessionStorage` key: `atlas.gd.v1`, `atlas.line.v1`, `atlas.reg.v1`, `atlas.two.v1`, `atlas.resid.v1`, `atlas.rate.v1`. Closing the tab ends the sitting. Another browser never sees it.
-6. Finish unit 1 and the result offers two inputs. Finish unit 2 and the result offers residuals. Finish residuals and the result offers the learning rate. That unit is the last open one.
+5. Progress for each sitting is a separate `sessionStorage` key: `atlas.gd.v1`, `atlas.line.v1`, `atlas.reg.v1`, `atlas.two.v1`, `atlas.resid.v1`, `atlas.rate.v1`, `atlas.baseline.v1`, `atlas.leak.v1`. Closing the tab ends the sitting. Another browser never sees it.
+6. Each result offers the next sitting through target leakage. Leak is the last open unit. Partial clears still show the next link.
 7. `/api/events` accepts the gradient-descent names and the ML sitting names. On the deployed site the write is discarded because the filesystem does not persist.
 
 **Pilot 001 (facilitated):** start at `/beginner`, target `beginner → lab → regression → two → residuals → rate → baseline → leak`. See `docs/pilot/PILOT_001_REGRESSION.md`.
@@ -25,7 +25,7 @@ One path, still with no account:
 7. Carry the learning-rate lesson onto this loss at `/classical/rate` (shipped).
 8. Beat a mean baseline on a holdout at `/classical/baseline`.
 9. Reject a feature that copies y at `/classical/leak`.
-9. Stop. The result sentence is what they send back.
+10. Stop. The result sentence is what they send back.
 
 The seven-day bowl is not on the run. `retentionDue` stays tested in `lib/descent.ts`. The screen comes back only when storage can still be there a week later.
 
