@@ -222,11 +222,9 @@ function Result({ run, onAgain }: { run: ResidRun; onAgain: () => void }) {
         </button>
       </section>
       <div className="mt-6 flex flex-wrap gap-3">
-        {misses.length === 0 ? (
-          <Link href="/classical/rate" className={primary}>
-            Learning rate
-          </Link>
-        ) : null}
+        <Link href="/classical/rate" className={misses.length === 0 ? primary : ghost}>
+          Learning rate
+        </Link>
         <Link href="/classical" className={misses.length === 0 ? ghost : primary}>
           Back to the track
         </Link>

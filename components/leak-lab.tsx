@@ -232,7 +232,7 @@ function Result({ run, onAgain }: { run: LeakRun; onAgain: () => void }) {
       </h1>
       <p className="mt-3 text-sm leading-6 text-muted">
         {misses.length === 0
-          ? "Training loss 0 can mean target leakage, not a model you can ship. Score with features that exist at prediction time."
+          ? "Training loss 0 can mean target leakage, not a model you can ship. You reached the end of the open regression track."
           : `Still open: ${misses.join(", ")}.`}
       </p>
       <section className="mt-6 rounded-2xl border border-line bg-plate p-4">

@@ -227,11 +227,9 @@ function Result({ run, onAgain }: { run: TwoRun; onAgain: () => void }) {
         </button>
       </section>
       <div className="mt-6 flex flex-wrap gap-3">
-        {misses.length === 0 ? (
-          <Link href="/classical/residuals" className={primary}>
-            Residuals
-          </Link>
-        ) : null}
+        <Link href="/classical/residuals" className={misses.length === 0 ? primary : ghost}>
+          Residuals
+        </Link>
         <Link href="/classical" className={misses.length === 0 ? ghost : primary}>
           Back to the track
         </Link>
