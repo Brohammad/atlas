@@ -2,7 +2,7 @@
 
 Milestone 0 is done. Milestone 1 analytics and linking are largely in the tree; async pilot ask is in `docs/pilot/PILOT_ASK.md`; facilitated Pilot 001 is in `docs/pilot/PILOT_001_REGRESSION.md`. Milestone 3 (learning rate) is shipped. The next curriculum commit after pilot signal is **baseline** (Milestone 4 C-03). Dates are deliberately absent. The cohort gates in `PRODUCT_METRICS.md` are the clock.
 
-**Verification baseline (19 November 2026):** `npm test` — **53** passing tests (eight `lib/*.test.ts` suites, including full `ALLOWED_EVENT_NAMES` coverage in `lib/events.test.ts`). P0 regression remediation (audit 14 Nov) and browser verification are on `main`. Facilitated protocol: `docs/pilot/PILOT_001_REGRESSION.md`.
+**Verification baseline (19 November 2026):** `npm test` — **54** passing tests (eight `lib/*.test.ts` suites, including full `ALLOWED_EVENT_NAMES` coverage in `lib/events.test.ts`). P0 regression remediation (audit 14 Nov) and browser verification are on `main`. Facilitated protocol: `docs/pilot/PILOT_001_REGRESSION.md`.
 
 Complexity is S (a sitting or less), M (a few sittings), L (a new subsystem). Priority P0 blocks the cohort. P1 is the next learning gain. P2 waits on a gate.
 
@@ -18,7 +18,7 @@ Playable line, gradient-descent lab, bias unit with a graded step, two-input uni
 | F-01 | Frontend | Unit endings link to the next unit | Someone who finishes is not told to stop | P0 | None | S | Copy names the next route | **Done** |
 | P-01 | Product | Pilot ask script | The cohort has a script | P0 | None | S | `docs/pilot/PILOT_ASK.md` | **Done** |
 | T-00 | Testing | Event allowlist regression | Allowlist cannot drift from tests | P0 | A-01 | S | Every `ALLOWED_EVENT_NAMES` entry returns 204 | **Done** |
-| T-01 | Testing | Answer locks green for all unit `lib` suites | A copy change cannot drift the math | P0 | A-01 | S | `npm test` passes | **Done** (53 tests) |
+| T-01 | Testing | Answer locks green for all unit `lib` suites | A copy change cannot drift the math | P0 | A-01 | S | `npm test` passes | **Done** (54 tests) |
 | T-03 | Testing | GitHub Action on `main` | Regressions are caught before deploy | P1 | T-01 | S | `ci.yml` runs test, lint, build | **Done** |
 
 Production still does not persist `data/events.jsonl` on Vercel. P-01 script is ready to send; **the pilot has not been run or validated in this repo.**
@@ -51,7 +51,7 @@ F-02 is a navigation change. It is not a rewrite of the labs.
 |---|---|---|---|---|---|---|---|---|
 | C-03 | Curriculum | Mean baseline versus the line, on a holdout | "I fitted something" stops counting as success | P1 | M3 reviewed | M | Mean loss in test; worse line rejected | **Done** — `lib/baseline.ts`, `/classical/baseline` |
 | C-04 | Curriculum | One leak column that copies y | Training loss 0 is not shippable when the feature is the label | P1 | C-03 | M | Cheat loss 0; honest loss locked; serve-time rule | **Done** — `lib/leak.ts`, `/classical/leak` |
-| P-02 | Product | Run G1–G5 | We learn whether to continue | P0 | M1 | M | Twenty invites, results filed | Not started |
+| P-02 | Product | Run G1–G5 | We learn whether to continue | P0 | M1 | M | Twenty invites, results filed | **Ready** — `docs/pilot/PILOT_001_LAUNCH_CHECKLIST.md`; cohort not run |
 | B-01 | Backend | Durable event store | Only if paste-back fails | P2 | P-02 | L | Events readable next day | Not started |
 
 ## Explicitly later
