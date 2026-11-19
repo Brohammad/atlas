@@ -1,8 +1,8 @@
 # Execution roadmap
 
-Milestone 0 is done. Milestone 1 analytics and linking are largely in the tree; async pilot ask is in `docs/pilot/PILOT_ASK.md`; facilitated Pilot 001 is in `docs/pilot/PILOT_001_REGRESSION.md`. Milestone 3 (learning rate) is shipped. The next curriculum commit after pilot signal is **baseline** (Milestone 4 C-03). Dates are deliberately absent. The cohort gates in `PRODUCT_METRICS.md` are the clock.
+Milestone 0 is done. Milestone 1 analytics and linking are in the tree. Facilitated Pilot 001 is in `docs/pilot/PILOT_001_REGRESSION.md`. The open regression path ends at target leakage. The next product step is the cohort, not another unit. Dates are deliberately absent. The cohort gates in `PRODUCT_METRICS.md` are the clock.
 
-**Verification baseline (19 November 2026):** `npm test` — **54** passing tests (eight `lib/*.test.ts` suites, including full `ALLOWED_EVENT_NAMES` coverage in `lib/events.test.ts`). P0 regression remediation (audit 14 Nov) and browser verification are on `main`. Facilitated protocol: `docs/pilot/PILOT_001_REGRESSION.md`.
+**Verification baseline (19 November 2026):** `npm test` — **54** passing tests (ten `lib/*.test.ts` files, including full `ALLOWED_EVENT_NAMES` coverage in `lib/events.test.ts` and the eight-step path in `lib/regression-path.test.ts`). P0 regression remediation and a production smoke of the eight-step path are on `main`. Facilitated protocol: `docs/pilot/PILOT_001_REGRESSION.md`.
 
 Complexity is S (a sitting or less), M (a few sittings), L (a new subsystem). Priority P0 blocks the cohort. P1 is the next learning gain. P2 waits on a gate.
 
@@ -74,7 +74,7 @@ Tests lock the answers. Lint is clean on the files touched. A fresh session can 
 
 ## Recommendation
 
-Send the pilot ask (`PILOT_ASK.md`) and collect the first five pasted replies before building baseline (C-03). Fix any station that wins the same distractor in those replies. Do not open classification to compensate for a failed gate.
+Run Pilot 001 (`docs/pilot/PILOT_001_LAUNCH_CHECKLIST.md`) before any new unit. Fix a station only when the same distractor wins twice. Do not open classification to compensate for a failed gate.
 
 ## Curriculum audit import (reference)
 
