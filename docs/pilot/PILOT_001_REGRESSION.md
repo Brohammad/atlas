@@ -78,7 +78,7 @@ Give the participant the starting URL:
 
 **Expected journey:**
 
-`/beginner` → `/lab` → `/classical/regression` → `/classical/two` → `/classical/residuals` → `/classical/rate`
+`/beginner` → `/lab` → `/classical/regression` → `/classical/two` → `/classical/residuals` → `/classical/rate` → `/classical/baseline` → `/classical/leak`
 
 **Instructions to participant:**
 
@@ -164,6 +164,16 @@ What is one thing you understand now that you did not understand before?
 
 Response:
 
+**Q5. Target leakage (new curve, not in the lesson numbers)**
+
+A model includes a feature that equals the label on every training row, so training loss is 0. At scoring time the label is not known yet.
+
+Can you use that feature on a new row? In one sentence, why or why not?
+
+**Expected facilitator answer:** No — it is the label (target leakage); it is not available before you predict.
+
+Response:
+
 ---
 
 ## 4. Interview — 10 minutes
@@ -191,6 +201,7 @@ Record exact phrases, not just your interpretation.
 | Calculates a gradient update | 0 / 1 / 2 | 0 / 1 / 2 |
 | Understands learning-rate overshoot | 0 / 1 / 2 | 0 / 1 / 2 |
 | Transfers knowledge to a new example | 0 / 1 / 2 | 0 / 1 / 2 |
+| Rejects a feature that copies the label at serve time | 0 / 1 / 2 | 0 / 1 / 2 |
 
 **Scoring:**
 

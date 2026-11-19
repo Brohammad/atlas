@@ -10,7 +10,7 @@
 6. Finish unit 1 and the result offers two inputs. Finish unit 2 and the result offers residuals. Finish residuals and the result offers the learning rate. That unit is the last open one.
 7. `/api/events` accepts the gradient-descent names and the ML sitting names. On the deployed site the write is discarded because the filesystem does not persist.
 
-**Pilot 001 (facilitated):** start at `/beginner`, target `beginner → lab → regression → two → residuals → rate`. See `docs/pilot/PILOT_001_REGRESSION.md`.
+**Pilot 001 (facilitated):** start at `/beginner`, target `beginner → lab → regression → two → residuals → rate → baseline → leak`. See `docs/pilot/PILOT_001_REGRESSION.md`.
 
 ## Journey we are willing to support
 

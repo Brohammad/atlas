@@ -38,6 +38,7 @@
 | Calculates update | | |
 | LR overshoot | | |
 | Transfer | | |
+| Rejects label-as-feature at serve time | | |
 
 **Post total:** /10
 
@@ -51,6 +52,6 @@
 4. Would change:  
 5. Continue voluntarily:
 
-**Complete path:** Y / N  
+**Complete path:** Y / N (through `/classical/leak`)  
 **Time:** min  
 **Would continue:** Y / N / Unsure

@@ -4,7 +4,7 @@ Subject: 75-minute Atlas learning session (gradient descent + regression)
 
 Hi —
 
-I'm running a short **learning validation** session for [Atlas](https://atlas.brohammad.tech): a browser-based path through linear regression and gradient descent. No account, no install.
+I'm running a short **learning validation** session for [Atlas](https://atlas.brohammad.tech): a browser path through gradient descent, regression, learning rate, mean baseline, and target leakage. No account, no install.
 
 **When:** about **75 minutes** (baseline + lesson + short post-check + brief interview)  
 **Where:** video call; you work in your browser at https://atlas.brohammad.tech/beginner  
