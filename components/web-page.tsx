@@ -152,6 +152,8 @@ function RecommendedPath() {
     { href: "/classical/two", label: "Two inputs" },
     { href: "/classical/residuals", label: "Residuals" },
     { href: "/classical/rate", label: "Learning rate on the line" },
+    { href: "/classical/baseline", label: "Mean baseline" },
+    { href: "/classical/leak", label: "Target leakage" },
   ];
   return (
     <section className="mt-10 rounded-2xl border border-line bg-plate p-5">

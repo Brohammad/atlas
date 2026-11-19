@@ -375,7 +375,7 @@ function Result({ run, onAgain }: { run: RateRun; onAgain: () => void }) {
       </h1>
       <p className="mt-3 text-sm leading-6 text-muted">
         {misses.length === 0
-          ? "The same rate can finish a shallow line and step past the best weight on a steeper one. You finished the open regression units."
+          ? "The same rate can finish a shallow line and step past the best weight on a steeper one. Next: beat the mean baseline on a holdout."
           : `Still open: ${misses.join(", ")}.`}
       </p>
       <section className="mt-6 rounded-2xl border border-line bg-plate p-4">
@@ -386,7 +386,10 @@ function Result({ run, onAgain }: { run: RateRun; onAgain: () => void }) {
         </button>
       </section>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/classical" className={primary}>
+        <Link href="/classical/baseline" className={misses.length === 0 ? primary : ghost}>
+          Mean baseline
+        </Link>
+        <Link href="/classical" className={misses.length === 0 ? ghost : primary}>
           Back to the track
         </Link>
         <button className={ghost} type="button" onClick={onAgain}>

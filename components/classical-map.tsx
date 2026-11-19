@@ -11,6 +11,8 @@ import {
   regressionStations,
   type RegRun,
 } from "@/lib/classical";
+import { BASELINE_KEY, baselineCleared, baselineStations, parseBaseline, type BaselineRun } from "@/lib/baseline";
+import { LEAK_KEY, leakCleared, leakStations, parseLeak, type LeakRun } from "@/lib/leak";
 import { RATE_KEY, parseRate, rateCleared, rateStations, type RateRun } from "@/lib/rate";
 import { RESID_KEY, parseResid, residCleared, residStations, type ResidRun } from "@/lib/resid";
 import { TWO_KEY, parseTwo, twoCleared, twoStations, type TwoRun } from "@/lib/two";
@@ -42,6 +44,11 @@ export function ClassicalMap() {
   const residOpen = resid !== null && (resid.answers.length > 0 || resid.choice !== null || resid.completedAt != null);
   const rate = pathname === "/classical" ? readRate() : null;
   const rateOpen = rate !== null && (rate.answers.length > 0 || rate.choice !== null || rate.completedAt != null);
+  const baseline = pathname === "/classical" ? readBaseline() : null;
+  const baselineOpen =
+    baseline !== null && (baseline.answers.length > 0 || baseline.choice !== null || baseline.completedAt != null);
+  const leak = pathname === "/classical" ? readLeak() : null;
+  const leakOpen = leak !== null && (leak.answers.length > 0 || leak.choice !== null || leak.completedAt != null);
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
@@ -55,11 +62,11 @@ export function ClassicalMap() {
         Implement the model. Do not call fit.
       </h1>
       <p className="mt-4 max-w-xl text-[15px] leading-7 text-muted">
-        Regression is the open module. Four units. The rest of the track is named below and has no
+        Regression is the open module. Six units. The rest of the track is named below and has no
         lessons yet.
       </p>
       <p className="mt-4 max-w-xl text-sm leading-6 text-muted">
-        Fit a line and the gradient descent lab come first. They are not on this list. The four units
+        Fit a line and the gradient descent lab come first. They are not on this list. The six units
         below assume you have done both.
       </p>
       <div className="mt-3 flex flex-wrap gap-3">
@@ -151,6 +158,44 @@ export function ClassicalMap() {
               : undefined
           }
         />
+        <UnitCard
+          kicker="Unit 5"
+          title="Mean baseline"
+          body={
+            baselineOpen && baseline
+              ? `${baselineCleared(baseline)} of ${baselineStations.length} cleared.`
+              : "Predict the mean of y. A fitted line must beat it on a holdout, not only on training."
+          }
+          action={baselineOpen ? "Continue" : "Begin"}
+          onOpen={() => router.push("/classical/baseline")}
+          onReset={
+            baselineOpen
+              ? () => {
+                  sessionStorage.removeItem(BASELINE_KEY);
+                  router.push("/classical/baseline");
+                }
+              : undefined
+          }
+        />
+        <UnitCard
+          kicker="Unit 6"
+          title="Target leakage"
+          body={
+            leakOpen && leak
+              ? `${leakCleared(leak)} of ${leakStations.length} cleared.`
+              : "A column that copies y drives training loss to zero. It is not there at prediction time."
+          }
+          action={leakOpen ? "Continue" : "Begin"}
+          onOpen={() => router.push("/classical/leak")}
+          onReset={
+            leakOpen
+              ? () => {
+                  sessionStorage.removeItem(LEAK_KEY);
+                  router.push("/classical/leak");
+                }
+              : undefined
+          }
+        />
       </div>
       <h2 className="mt-12 text-xs font-semibold tracking-[0.14em] text-muted uppercase">Not open</h2>
       <ul className="mt-4 divide-y divide-line border-y border-line">
@@ -199,6 +244,22 @@ function UnitCard({
       </div>
     </section>
   );
+}
+
+function readLeak(): LeakRun | null {
+  try {
+    return parseLeak(sessionStorage.getItem(LEAK_KEY));
+  } catch {
+    return null;
+  }
+}
+
+function readBaseline(): BaselineRun | null {
+  try {
+    return parseBaseline(sessionStorage.getItem(BASELINE_KEY));
+  } catch {
+    return null;
+  }
 }
 
 function readRate(): RateRun | null {
