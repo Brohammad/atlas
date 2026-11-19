@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { REGRESSION_PATH_STEPS } from "@/lib/regression-path";
 import { useEffect, useState } from "react";
 import { LossChart } from "@/components/curve";
 import { clearedCount, STORAGE_KEY, type Progress } from "@/components/lab-app";
@@ -145,21 +146,11 @@ export function WebPage() {
 }
 
 function RecommendedPath() {
-  const steps: { href: string; label: string }[] = [
-    { href: "/beginner", label: "Fit a line" },
-    { href: "/lab", label: "Gradient descent lab" },
-    { href: "/classical/regression", label: "A line with a bias" },
-    { href: "/classical/two", label: "Two inputs" },
-    { href: "/classical/residuals", label: "Residuals" },
-    { href: "/classical/rate", label: "Learning rate on the line" },
-    { href: "/classical/baseline", label: "Mean baseline" },
-    { href: "/classical/leak", label: "Target leakage" },
-  ];
   return (
     <section className="mt-10 rounded-2xl border border-line bg-plate p-5">
       <p className="text-xs font-semibold tracking-[0.14em] text-copper uppercase">Recommended path</p>
       <ol className="mt-3 space-y-2 text-sm leading-6">
-        {steps.map((step, index) => (
+        {REGRESSION_PATH_STEPS.map((step, index) => (
           <li key={step.href} className="flex gap-2">
             <span className="text-muted tabular-nums">{index + 1}.</span>
             <Link href={step.href} className="font-medium text-ink underline-offset-2 hover:underline">
