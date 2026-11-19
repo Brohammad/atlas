@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Atlas
 
-## Getting Started
+Browser-based classical ML track for working engineers. Learn regression and gradient descent by doing the arithmetic yourself—no `fit()` calls.
 
-First, run the development server:
+**Production:** https://atlas.brohammad.tech  
+**Open path:** fit a line → gradient descent lab → six classical units (bias, two inputs, residuals, learning rate, mean baseline, target leakage).
+
+## Develop
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Progress lives in `sessionStorage` per unit.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verify
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm test    # locks answers and event allowlist (54 tests)
+npm run lint
+npm run build
+```
 
-## Learn More
+CI runs the same on `main` (`.github/workflows/ci.yml`).
 
-To learn more about Next.js, take a look at the following resources:
+## Docs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Doc | Purpose |
+| --- | --- |
+| [docs/roadmap/EXECUTION_ROADMAP.md](docs/roadmap/EXECUTION_ROADMAP.md) | What is shipped vs gated |
+| [docs/curriculum/TRADITIONAL_ML_TRACK.md](docs/curriculum/TRADITIONAL_ML_TRACK.md) | Lesson math and outcomes |
+| [docs/pilot/](docs/pilot/) | Pilot 001 facilitator packet |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Events
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Labs POST anonymous events to `/api/events`. Locally they append to `data/events.jsonl` (view `/review`). Vercel discards the file; cohort paste-back remains the production instrument (see `docs/product/PRODUCT_METRICS.md`).
