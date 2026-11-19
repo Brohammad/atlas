@@ -84,11 +84,17 @@ The unseen line is points (1, 1) and (2, 2), loss 5(w − 1)², two runs, no hin
 
 Outcome: the learner cuts a rate because the loss got worse, and can say the steeper line was the reason.
 
-## Next unit — specified, not built
+## Mean baseline — `/classical/baseline` — `lib/baseline.ts`
 
-**Baseline.** Predict the mean of `y`. Compute its loss. Keep the line only if its holdout loss is smaller. Misconception: any fitted line is an improvement. Not built.
+Training points (1, 2), (2, 4), (3, 6). Mean baseline predicts 4 everywhere; training loss 8. Line ŷ = 2 x hits every training point; training loss 0. Holdout (4, 5): mean squared error 1, line squared error 9.
 
-**After that, one leak.** One extra column that is a copy of `y`. The training loss collapses and the honest column's holdout does not. Not built.
+Outcome: the learner scores the mean, compares holdout loss, and refuses a line that only wins on training.
+
+## Target leakage — `/classical/leak` — `lib/leak.ts`
+
+Three rows with x, y, and cheat where cheat = y. ŷ = cheat gives training loss 0. ŷ = 2 x + 3 uses only x and has training loss 5. At serve time only x is available; holdout (4, 13) scores the honest line at squared error 4.
+
+Outcome: the learner names target leakage and refuses a feature that is the label.
 
 Then stop the track and run the cohort. Classification is the module after a passed G4, not the reward for finishing a document.
 

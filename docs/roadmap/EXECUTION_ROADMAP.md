@@ -2,7 +2,7 @@
 
 Milestone 0 is done. Milestone 1 analytics and linking are largely in the tree; async pilot ask is in `docs/pilot/PILOT_ASK.md`; facilitated Pilot 001 is in `docs/pilot/PILOT_001_REGRESSION.md`. Milestone 3 (learning rate) is shipped. The next curriculum commit after pilot signal is **baseline** (Milestone 4 C-03). Dates are deliberately absent. The cohort gates in `PRODUCT_METRICS.md` are the clock.
 
-**Verification baseline (16 November 2026):** `npm test` — **43** passing tests (eight `lib/*.test.ts` suites, including full `ALLOWED_EVENT_NAMES` coverage in `lib/events.test.ts`). P0 regression remediation (audit 14 Nov) and browser verification are on `main`. Facilitated protocol: `docs/pilot/PILOT_001_REGRESSION.md`.
+**Verification baseline (19 November 2026):** `npm test` — **53** passing tests (eight `lib/*.test.ts` suites, including full `ALLOWED_EVENT_NAMES` coverage in `lib/events.test.ts`). P0 regression remediation (audit 14 Nov) and browser verification are on `main`. Facilitated protocol: `docs/pilot/PILOT_001_REGRESSION.md`.
 
 Complexity is S (a sitting or less), M (a few sittings), L (a new subsystem). Priority P0 blocks the cohort. P1 is the next learning gain. P2 waits on a gate.
 
@@ -18,7 +18,7 @@ Playable line, gradient-descent lab, bias unit with a graded step, two-input uni
 | F-01 | Frontend | Unit endings link to the next unit | Someone who finishes is not told to stop | P0 | None | S | Copy names the next route | **Done** |
 | P-01 | Product | Pilot ask script | The cohort has a script | P0 | None | S | `docs/pilot/PILOT_ASK.md` | **Done** |
 | T-00 | Testing | Event allowlist regression | Allowlist cannot drift from tests | P0 | A-01 | S | Every `ALLOWED_EVENT_NAMES` entry returns 204 | **Done** |
-| T-01 | Testing | Answer locks green for all unit `lib` suites | A copy change cannot drift the math | P0 | A-01 | S | `npm test` passes | **Done** (43 tests) |
+| T-01 | Testing | Answer locks green for all unit `lib` suites | A copy change cannot drift the math | P0 | A-01 | S | `npm test` passes | **Done** (53 tests) |
 
 Production still does not persist `data/events.jsonl` on Vercel. P-01 script is ready to send; **the pilot has not been run or validated in this repo.**
 
@@ -42,13 +42,14 @@ F-02 is a navigation change. It is not a rewrite of the labs.
 | F-03 | Frontend | Unit at `/classical/rate` | Bowl lesson on regression loss | P1 | C-02 | M | Unseen case, line experiments | **Done** |
 | T-02 | Testing | Lock rate answers | Key cannot drift | P1 | F-03 | S | `lib/rate.test.ts` in `npm test` | **Done** |
 
-**Next lesson to build:** mean baseline (Milestone 4 C-03), not another rate change.
+**Next lesson to build:** cohort gate only — no new regression units until Pilot 001 signal. Classification opens after G4, not as compensation.
 
 ## Milestone 4 — baseline, then the cohort gate
 
 | Id | Area | Description | User value | Pri | Depends | Complexity | Acceptance | Done when |
 |---|---|---|---|---|---|---|---|---|
-| C-03 | Curriculum | Mean baseline versus the line, on a holdout | "I fitted something" stops counting as success | P1 | M3 reviewed | M | Mean loss in test; worse line rejected | Not started |
+| C-03 | Curriculum | Mean baseline versus the line, on a holdout | "I fitted something" stops counting as success | P1 | M3 reviewed | M | Mean loss in test; worse line rejected | **Done** — `lib/baseline.ts`, `/classical/baseline` |
+| C-04 | Curriculum | One leak column that copies y | Training loss 0 is not shippable when the feature is the label | P1 | C-03 | M | Cheat loss 0; honest loss locked; serve-time rule | **Done** — `lib/leak.ts`, `/classical/leak` |
 | P-02 | Product | Run G1–G5 | We learn whether to continue | P0 | M1 | M | Twenty invites, results filed | Not started |
 | B-01 | Backend | Durable event store | Only if paste-back fails | P2 | P-02 | L | Events readable next day | Not started |
 
@@ -58,7 +59,7 @@ F-02 is a navigation change. It is not a rewrite of the labs.
 |---|---|---|
 | B-02 | Accounts and storage that survives a week | G5 cannot be measured by asking, or learners demand to resume on a second device |
 | P-03 | A price on one track | G1–G5 passed, and the answer key is no longer in the client for any item we call an assessment |
-| C-04 | Leakage unit, then classification | G4 passed on regression |
+| C-06 | Classification track | G4 passed on regression |
 | F-04 | Flutter | A cohort is using the site on a phone and hitting a limit the site cannot fix. Shared math, no second formula |
 | C-05 | Any other module in `classicalModules` | Opening one is a new product decision, taken in writing, after C-04 |
 

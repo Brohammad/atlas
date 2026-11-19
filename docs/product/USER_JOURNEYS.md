@@ -23,7 +23,8 @@ One path, still with no account:
 5. Add a second input. See that a zero feature contributes nothing to that weight.
 6. Read residuals. Separate the sum of signed misses from the loss. Decide whether the bias should rise.
 7. Carry the learning-rate lesson onto this loss at `/classical/rate` (shipped).
-8. Beat a mean baseline on a holdout (not built).
+8. Beat a mean baseline on a holdout at `/classical/baseline`.
+9. Reject a feature that copies y at `/classical/leak`.
 9. Stop. The result sentence is what they send back.
 
 The seven-day bowl is not on the run. `retentionDue` stays tested in `lib/descent.ts`. The screen comes back only when storage can still be there a week later.
