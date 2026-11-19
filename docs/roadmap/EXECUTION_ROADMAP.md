@@ -19,6 +19,7 @@ Playable line, gradient-descent lab, bias unit with a graded step, two-input uni
 | P-01 | Product | Pilot ask script | The cohort has a script | P0 | None | S | `docs/pilot/PILOT_ASK.md` | **Done** |
 | T-00 | Testing | Event allowlist regression | Allowlist cannot drift from tests | P0 | A-01 | S | Every `ALLOWED_EVENT_NAMES` entry returns 204 | **Done** |
 | T-01 | Testing | Answer locks green for all unit `lib` suites | A copy change cannot drift the math | P0 | A-01 | S | `npm test` passes | **Done** (53 tests) |
+| T-03 | Testing | GitHub Action on `main` | Regressions are caught before deploy | P1 | T-01 | S | `ci.yml` runs test, lint, build | **Done** |
 
 Production still does not persist `data/events.jsonl` on Vercel. P-01 script is ready to send; **the pilot has not been run or validated in this repo.**
 
@@ -28,8 +29,8 @@ F-02 partially shipped via forward links. D-01 (retention off the visible run) i
 
 | Id | Area | Description | User value | Pri | Depends | Complexity | Acceptance | Status |
 |---|---|---|---|---|---|---|---|---|
-| C-01 | Curriculum | Order: line → search → bias → two inputs → residuals → rate | Documented order matches links | P1 | M1 | S | Track doc + journeys agree | **Done** (docs); home still multi-door |
-| F-02 | Frontend | One path from home without removing deep links | One way through | P1 | F-01, C-01 | M | Fresh browser walks all six via endings | **Partial** — home lists recommended path; unit results always offer the next link |
+| C-01 | Curriculum | Order: line → GD lab → bias → two → residuals → rate → baseline → leak | Documented order matches links | P1 | M1 | S | Track doc + journeys agree | **Done** |
+| F-02 | Frontend | One path from home without removing deep links | One way through | P1 | F-01, C-01 | M | Fresh browser walks all eight via endings | **Done** — home recommended path; every unit result links forward |
 | D-01 | Design | Seven-day retention station not navigable | No false promise of a week-later bowl | P1 | None | S | New user never lands on retention UI | **Done** — `retention` stage → `results`; `retention_run` not emitted |
 
 F-02 is a navigation change. It is not a rewrite of the labs.
