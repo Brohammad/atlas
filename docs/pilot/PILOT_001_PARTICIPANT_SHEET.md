@@ -40,7 +40,7 @@
 | Transfer | | |
 | Rejects label-as-feature at serve time | | |
 
-**Post total:** /10
+**Post total:** /12
 
 **Reflection (verbatim):**
 

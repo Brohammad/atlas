@@ -24,10 +24,10 @@ Related: lightweight async ask in `PILOT_ASK.md` (no facilitator, unit-1-only). 
 | Activity | Duration |
 | --- | --- |
 | Baseline | 5 min |
-| Atlas session | 45–60 min |
+| Atlas session | 55–70 min |
 | Post-assessment | 5–10 min |
 | Interview | 10 min |
-| **Total** | **65–85 min** |
+| **Total** | **75–95 min** |
 
 **During the five sessions:** Do not change the product because one participant struggles. Record issues, look for repetition across the cohort, then change after review.
 
@@ -70,7 +70,7 @@ Response / observations:
 
 ---
 
-## 2. Learning session — Atlas (45–60 minutes of the full block)
+## 2. Learning session — Atlas (55–70 minutes of the full block)
 
 Give the participant the starting URL:
 
@@ -209,7 +209,7 @@ Record exact phrases, not just your interpretation.
 - **1:** Partially correct; requires prompting or has conceptual gaps.
 - **2:** Correct, independently explained.
 
-Maximum: 10 points per assessment.
+Maximum: 12 points per assessment (six outcomes × 0–2).
 
 ### Session outcome
 
@@ -240,8 +240,9 @@ Maximum: 10 points per assessment.
 
 Initial hypotheses, not claims of statistical significance:
 
-- At least 4 of 5 participants complete the path.
-- At least 3 of 5 score 8/10 or higher on the post-assessment.
+- At least 4 of 5 participants reach `/classical/leak` (all eight steps).
+- At least 3 of 5 score 8/12 or higher on the post-assessment.
+- At least 3 of 5 correctly reject a label-copy feature at serve time (post Q5).
 - At least 3 of 5 independently explain why an excessively high learning rate can increase loss.
 - We identify recurring friction patterns across participants.
 - We identify whether participants genuinely want to continue.
