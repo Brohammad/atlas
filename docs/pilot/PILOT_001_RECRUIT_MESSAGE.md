@@ -6,7 +6,7 @@ Hi —
 
 I'm running a short **learning validation** session for [Atlas](https://atlas.brohammad.tech): a browser path through gradient descent, regression, learning rate, mean baseline, and target leakage. No account, no install.
 
-**When:** about **75 minutes** (baseline + lesson + short post-check + brief interview)  
+**When:** about **75–95 minutes** (baseline + full path through leakage + short post-check + brief interview)  
 **Where:** video call; you work in your browser at https://atlas.brohammad.tech/beginner  
 **Who:** working software engineers (any stack)
 

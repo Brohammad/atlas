@@ -4,7 +4,7 @@
 **Facilitator:**  
 **Build on production:** `main` @ `2bf5ba9` (https://atlas.brohammad.tech, Vercel production ready 19 Nov 2026 20:14 IST)
 
-**Launch smoke (19 Nov 2026):** home recommended path lists eight steps through target leakage. Cleared result screens link forward: beginner → lab → regression → two → residuals → rate → baseline → leak. Leak result copy: end of the open regression track. Map lists six classical units. No learner-facing defect. GitHub CI on this sha failed: Node 20 does not support `--experimental-strip-types`. Cohort not started.
+**Launch smoke (19 Nov 2026, app `2bf5ba9`):** home recommended path lists eight steps through target leakage. Cleared result screens link forward: beginner → lab → regression → two → residuals → rate → baseline → leak. Leak result copy: end of the open regression track. Map lists six classical units. No learner-facing defect. CI on that sha failed on Node 20; Node 22 (`ccb0048`) is green. Cohort not started.
 
 ## Participation
 

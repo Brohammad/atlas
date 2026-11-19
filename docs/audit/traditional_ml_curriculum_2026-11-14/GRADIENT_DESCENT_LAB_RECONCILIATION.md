@@ -60,7 +60,7 @@ So outright **ascent** updates fail the four behavior tests. The audit’s “no
 |---|---|---|
 | M01-L002 | 4 | **None today** — matrix bank not published |
 | M02-L006 | 5 | **Alignment work** — lab + rate unit; see above |
-| M06-L008 | 6 | **None today** — leakage unit not built (roadmap C-04) |
+| M06-L008 | 6 | **Shipped** — `/classical/leak` (`lib/leak.ts`). Bank items are not this sitting. |
 
 Overall audit: **6 pass / 20 concern / 9 fail** on question scorecards; **not SME-approved**.
 
