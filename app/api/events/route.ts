@@ -30,6 +30,10 @@ export const ALLOWED_EVENT_NAMES = [
   "rate_answer",
   "rate_run",
   "rate_unseen",
+  "baseline_started",
+  "baseline_answer",
+  "leak_started",
+  "leak_answer",
 ] as const;
 
 const NAMES = new Set<string>(ALLOWED_EVENT_NAMES);
