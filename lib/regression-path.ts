@@ -13,3 +13,16 @@ export const REGRESSION_PATH_STEPS: RegressionPathStep[] = [
 ];
 
 export const REGRESSION_PATH_HREFS = REGRESSION_PATH_STEPS.map((step) => step.href);
+
+/** Index of the first step that is not finished. Length of the path when every step is finished. */
+export function firstOpenStep(finished: readonly boolean[]): number {
+  const index = finished.findIndex((step) => !step);
+  return index === -1 ? REGRESSION_PATH_STEPS.length : index;
+}
+
+/** Where Begin should go. A finished path stays on the last unit. */
+export function continueHref(finished: readonly boolean[]): string {
+  const index = firstOpenStep(finished);
+  const step = REGRESSION_PATH_STEPS[Math.min(index, REGRESSION_PATH_STEPS.length - 1)];
+  return step?.href ?? "/beginner";
+}
