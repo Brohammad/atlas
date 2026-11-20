@@ -2,13 +2,18 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { REGRESSION_PATH_STEPS } from "@/lib/regression-path";
+import { continueHref, firstOpenStep, REGRESSION_PATH_STEPS } from "@/lib/regression-path";
 import { useEffect, useState } from "react";
 import { LossChart } from "@/components/curve";
 import { clearedCount, STORAGE_KEY, type Progress } from "@/components/lab-app";
 import { runDescent } from "@/lib/descent";
 import { REG_KEY, parseReg, regCleared, regressionStations, type RegRun } from "@/lib/classical";
+import { BASELINE_KEY, parseBaseline } from "@/lib/baseline";
 import { LINE_KEY, lineCleared, lineQuestions, parseLine, type LineRun } from "@/lib/line";
+import { LEAK_KEY, parseLeak } from "@/lib/leak";
+import { RATE_KEY, parseRate } from "@/lib/rate";
+import { RESID_KEY, parseResid } from "@/lib/resid";
+import { TWO_KEY, parseTwo } from "@/lib/two";
 
 const cta =
   "inline-flex min-h-11 items-center justify-center rounded-full bg-copper px-5 text-sm font-semibold text-paper";
@@ -34,14 +39,31 @@ export function WebPage() {
   const sitting = pathname === "/" ? readSitting() : null;
   const line = pathname === "/" ? readLine() : null;
   const regression = pathname === "/" ? readReg() : null;
+  const finished =
+    pathname === "/"
+      ? [
+          line?.completedAt != null,
+          labFinished(sitting),
+          regression?.completedAt != null,
+          readCompleted(TWO_KEY, parseTwo),
+          readCompleted(RESID_KEY, parseResid),
+          readCompleted(RATE_KEY, parseRate),
+          readCompleted(BASELINE_KEY, parseBaseline),
+          readCompleted(LEAK_KEY, parseLeak),
+        ]
+      : REGRESSION_PATH_STEPS.map(() => false);
+  const next = firstOpenStep(finished);
+  const nextHref = continueHref(finished);
+  const lineOpen = line !== null && (line.answers.length > 0 || line.choice !== null || line.completedAt != null);
   const regOpen =
     regression !== null &&
     (regression.answers.length > 0 || regression.choice !== null || regression.completedAt != null);
   const open = sitting !== null;
-  const done = sitting?.stage === "results" || sitting?.stage === "retention" || sitting?.completedAt != null;
+  const done = labFinished(sitting);
+  const beginLabel = next === 0 && !lineOpen ? "Begin" : next >= REGRESSION_PATH_STEPS.length ? "Review" : "Continue";
 
   function begin() {
-    router.push(open ? "/lab" : "/beginner");
+    router.push(nextHref);
   }
 
   function startOver() {
@@ -64,7 +86,7 @@ export function WebPage() {
       <header className="flex items-center justify-between gap-3">
         <p className="text-xs font-semibold tracking-[0.22em] text-copper">ATLAS</p>
         <button className={cta} type="button" onClick={begin}>
-          {open ? "Continue" : "Begin"}
+          {beginLabel}
         </button>
       </header>
 
@@ -84,7 +106,7 @@ export function WebPage() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <button className={cta} type="button" onClick={begin}>
-              {open ? "Continue" : "Begin with a line"}
+              {next === 0 && !lineOpen ? "Begin with a line" : beginLabel}
             </button>
             {open ? (
               <button className={quiet} type="button" onClick={startOver}>
@@ -134,7 +156,7 @@ export function WebPage() {
           ? `${clearedCount(sitting)} cleared so far. Understand, predict, find a rate, name the fault, then write the update.`
           : "Understand the step, predict the next one, find a rate, name the fault, then write the update yourself."}
       </p>
-      <RecommendedPath />
+      <RecommendedPath next={next} />
       <LineDoor line={line} onOpen={() => router.push("/beginner")} onReset={resetLine} />
       <TrackDoor
         run={regression}
@@ -145,7 +167,7 @@ export function WebPage() {
   );
 }
 
-function RecommendedPath() {
+function RecommendedPath({ next }: { next: number }) {
   return (
     <section className="mt-10 rounded-2xl border border-line bg-plate p-5">
       <p className="text-xs font-semibold tracking-[0.14em] text-copper uppercase">Recommended path</p>
@@ -156,6 +178,8 @@ function RecommendedPath() {
             <Link href={step.href} className="font-medium text-ink underline-offset-2 hover:underline">
               {step.label}
             </Link>
+            {index < next ? <span className="text-muted">Done</span> : null}
+            {index === next ? <span className="font-semibold text-copper">Next</span> : null}
           </li>
         ))}
       </ol>
@@ -273,6 +297,18 @@ function readLine(): LineRun | null {
     return parseLine(sessionStorage.getItem(LINE_KEY));
   } catch {
     return null;
+  }
+}
+
+function labFinished(sitting: Progress | null): boolean {
+  return sitting?.stage === "results" || sitting?.stage === "retention" || sitting?.completedAt != null;
+}
+
+function readCompleted(key: string, parse: (raw: string | null) => { completedAt: number | null } | null): boolean {
+  try {
+    return parse(sessionStorage.getItem(key))?.completedAt != null;
+  } catch {
+    return false;
   }
 }
 
